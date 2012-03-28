@@ -26,9 +26,10 @@ import org.joda.time.field.AbstractReadableInstantFieldProperty
 object Implicits extends Implicits
 object BuilderImplicits extends Implicits
 object IntImplicits extends IntImplicits
+object OrderingImplicits extends OrderingImplicits
 object JodaImplicits extends JodaImplicits
 
-trait Implicits extends BuilderImplicits with IntImplicits with DateImplicits with JodaImplicits
+trait Implicits extends BuilderImplicits with IntImplicits with DateImplicits with OrderingImplicits with JodaImplicits
 
 trait BuilderImplicits {
   implicit def forcePeriod(builder: DurationBuilder): Period =
@@ -44,6 +45,12 @@ trait IntImplicits {
 
 trait DateImplicits {
   implicit def RichDate(d: Date): RichDate = new com.github.kmizu.nscala.time.RichDate(d)
+}
+
+trait OrderingImplicits {
+  implicit val DateTimeOrdering = new Ordering[DateTime] {
+    def compare(a: DateTime, b: DateTime) = a.compareTo(b)
+  }
 }
 
 trait JodaImplicits {
