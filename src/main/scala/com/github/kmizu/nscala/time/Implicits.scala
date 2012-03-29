@@ -51,6 +51,10 @@ trait OrderingImplicits {
   implicit val DateTimeOrdering = new Ordering[DateTime] {
     def compare(a: DateTime, b: DateTime) = a.compareTo(b)
   }
+
+  implicit val LocalDateOrdering = new Ordering[LocalDate] {
+    def compare(a: LocalDate, b: LocalDate) = a.compareTo(b)
+  }
 }
 
 trait JodaImplicits {
