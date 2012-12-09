@@ -1,4 +1,4 @@
-// package org.scala_tools.time
+// package com.github.kmizu.nscala.time
 // 
 // import org.junit._
 // import Assert._
