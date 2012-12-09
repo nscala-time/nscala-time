@@ -1,14 +1,13 @@
 nscala-time
 ===========
 
-A new Scala wrapper for Joda Time.  This project forked from scala-time.  Currently, the project
-has just started.  The followings are original [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time")'s README
-(Although I have the different motivation from scala-time):
+A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since it seems that
+scala-time is no longer maintained.
 
 USAGE:
 
 ```scala
-import org.scala_tools.time.Imports._
+import com..gihutb.kmizu.time.Imports._
 
 DateTime.now // returns org.joda.time.DateTime = 2009-04-27T13:25:42.659-07:00
 
@@ -44,10 +43,10 @@ http://joda-time.sourceforge.net/index.html
 
 INSTALLATION:
 
-Add the following to your sbt build:
+Add the following to your sbt build (Now prepareing):
 
 ```scala
-libraryDependencies += "org.scalaj" %% "scalaj-time" % "0.6"
+// libraryDependencies += "com..github.kmizu" %% "nscalaj-time" % "0.2"
 ```
 
 MOTIVATION:
