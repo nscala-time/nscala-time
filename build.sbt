@@ -40,7 +40,7 @@ pomExtra := (
   </licenses>
   <scm>
     <url>git@github.com:kmizu/nscala-time.git</url>
-    <connection>scm:git:git@github.com:kmizu/scala-time.git</connection>
+    <connection>scm:git:git@github.com:kmizu/nscala-time.git</connection>
   </scm>
   <developers>
     <developer>
