@@ -1,8 +1,8 @@
 package com.github.kmizu.nscala.time
 
 import org.specs2.mutable.Specification
-import com.github.kmizu.nscala.time.Imports._
 import org.joda.time.DateTime
+import Imports._
 
 /**
  * @author Kota Mizushima
@@ -12,12 +12,12 @@ import org.joda.time.DateTime
 class BasicFunctionalitySpec extends Specification {
 
   "DateTime.now" should {
-    val now = DateTime.now
-    "== DateTime.now" in {
+    val now: DateTime = DateTime.now
+    "== DateTime.nw" in {
       now must ===(now)
     }
     "< DateTime.now + 1.hours" in {
-      (now plusHours 1).isAfterNow must ===(true)
+      (now plusHours 1) isAfter now must ===(true)
     }
   }
 
