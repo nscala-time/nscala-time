@@ -6,7 +6,7 @@ version := "0.2-SNAPSHOT"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.1-1", "2.9.2", "2.10.0-M7")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0-M7")
 
 crossVersion := CrossVersion.full
 
