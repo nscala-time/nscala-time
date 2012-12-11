@@ -17,14 +17,16 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichInstant(underlying: Instant) {
-  def -(duration: Long): Instant =
-    underlying.minus(duration)
-  def -(duration: ReadableDuration): Instant =
-    underlying.minus(duration)
-  def +(duration: Long): Instant =
-    underlying.plus(duration)
-  def +(duration: ReadableDuration): Instant =
-    underlying.plus(duration)
+class RichInstant(val underlying: Instant) extends AnyRef with PimpedType[Instant] {
+
+  def -(duration: Long): Instant = underlying.minus(duration)
+
+  def -(duration: ReadableDuration): Instant = underlying.minus(duration)
+
+  def +(duration: Long): Instant = underlying.plus(duration)
+
+  def +(duration: ReadableDuration): Instant = underlying.plus(duration)
+
 }

@@ -20,14 +20,23 @@ import java.util.Locale
 import org.joda.time._
 import org.joda.time.format.{DateTimeFormatter, DateTimeParser,
   DateTimePrinter}
+import com.github.kmizu.nscala.PimpedType
 
-class RichDateTimeFormatter(underlying: DateTimeFormatter) {
+class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyRef
+  with PimpedType[DateTimeFormatter] {
+
   def chronology: Chronology = underlying.getChronology
+
   def locale: Locale = underlying.getLocale
+
   def parser: DateTimeParser = underlying.getParser
+
   def pivotYear: Int = underlying.getPivotYear.intValue
+
   def printer: DateTimePrinter = underlying.getPrinter
+
   def zone: DateTimeZone = underlying.getZone
+
   def parseOption(text: String): Option[DateTime] =
     try {
       Some(underlying.parseDateTime(text))

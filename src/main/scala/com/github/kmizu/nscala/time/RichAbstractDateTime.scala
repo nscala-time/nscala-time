@@ -19,10 +19,13 @@ package com.github.kmizu.nscala.time
 import java.util.{Locale, Calendar, GregorianCalendar}
 import org.joda.time._
 import org.joda.time.base.AbstractDateTime
+import com.github.kmizu.nscala.PimpedType
 
-class RichAbstractDateTime(underlying: AbstractDateTime) {
-  def calendar(locale: Locale): Calendar =
-    underlying.toCalendar(locale)
-  def gregorianCalendar: Calendar =
-    underlying.toGregorianCalendar
+class RichAbstractDateTime(val underlying: AbstractDateTime) extends AnyRef
+  with PimpedType[AbstractDateTime] {
+
+  def calendar(locale: Locale): Calendar = underlying.toCalendar(locale)
+
+  def gregorianCalendar: Calendar = underlying.toGregorianCalendar
+
 }

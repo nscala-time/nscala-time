@@ -17,16 +17,18 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichPartial(underlying: Partial) {
+class RichPartial(val underlying: Partial) extends AnyRef with PimpedType[Partial] {
+
   def formatter = underlying.getFormatter
   
-  def -(period: ReadablePeriod): Partial =
-    underlying.minus(period)
-  def -(builder: DurationBuilder): Partial =
-    underlying.minus(builder.underlying)
-  def +(period: ReadablePeriod): Partial =
-    underlying.plus(period)
-  def +(builder: DurationBuilder): Partial =
-    underlying.plus(builder.underlying)
+  def -(period: ReadablePeriod): Partial = underlying.minus(period)
+
+  def -(builder: DurationBuilder): Partial = underlying.minus(builder.underlying)
+
+  def +(period: ReadablePeriod): Partial = underlying.plus(period)
+
+  def +(builder: DurationBuilder): Partial = underlying.plus(builder.underlying)
+
 }

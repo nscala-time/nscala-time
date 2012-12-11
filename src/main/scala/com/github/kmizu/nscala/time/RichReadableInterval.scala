@@ -17,19 +17,20 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichReadableInterval(underlying: ReadableInterval) {
-  def chronology: Chronology =
-    underlying.getChronology
-  def end: DateTime =
-    underlying.getEnd
-  def start: DateTime =
-    underlying.getStart
+class RichReadableInterval(val underlying: ReadableInterval) extends AnyRef
+  with PimpedType[ReadableInterval] {
 
-  def duration: Duration =
-    underlying.toDuration
-  def millis: Long =
-    underlying.toDuration.getMillis
+  def chronology: Chronology = underlying.getChronology
+
+  def end: DateTime = underlying.getEnd
+
+  def start: DateTime = underlying.getStart
+
+  def duration: Duration = underlying.toDuration
+
+  def millis: Long = underlying.toDuration.getMillis
   // TODO: Should > and > be added as aliases for isAfter and isBefore?
   //   could be convenient, or just confusing because this isn't Ordered.
 }

@@ -17,20 +17,21 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichReadableInstant(underlying: ReadableInstant) extends Ordered[ReadableInstant] {
-  def chronology: Chronology =
-    underlying.getChronology
-  def millis: Long =
-    underlying.getMillis
-  def zone: DateTimeZone =
-    underlying.getZone
-  override def compare(that: ReadableInstant): Int =
-    underlying.compareTo(that)
+class RichReadableInstant(val underlying: ReadableInstant) extends Ordered[ReadableInstant]
+  with PimpedType[ReadableInstant] {
+
+  def chronology: Chronology = underlying.getChronology
+
+  def millis: Long = underlying.getMillis
+
+  def zone: DateTimeZone = underlying.getZone
+
+  override def compare(that: ReadableInstant): Int = underlying.compareTo(that)
   
-  def to(other: ReadableInstant): Interval =
-    new Interval(underlying, other)
+  def to(other: ReadableInstant): Interval = new Interval(underlying, other)
 
-  def instant: Instant =
-    underlying.toInstant
+  def instant: Instant = underlying.toInstant
+
 }

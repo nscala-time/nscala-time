@@ -18,30 +18,42 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichLocalDate(underlying: LocalDate) {
-  def -(period: ReadablePeriod): LocalDate =
-    underlying.minus(period)
-  def -(builder: DurationBuilder): LocalDate =
-    underlying.minus(builder.underlying)
-  def +(period: ReadablePeriod): LocalDate =
-    underlying.plus(period)
-  def +(builder: DurationBuilder): LocalDate =
-    underlying.plus(builder.underlying)
+class RichLocalDate(val underlying: LocalDate) extends AnyRef with PimpedType[LocalDate] {
+
+  def -(period: ReadablePeriod): LocalDate = underlying.minus(period)
+
+  def -(builder: DurationBuilder): LocalDate = underlying.minus(builder.underlying)
+
+  def +(period: ReadablePeriod): LocalDate = underlying.plus(period)
+
+  def +(builder: DurationBuilder): LocalDate = underlying.plus(builder.underlying)
 
   def day: LocalDate.Property = underlying.dayOfMonth
+
   def week: LocalDate.Property = underlying.weekOfWeekyear
+
   def month: LocalDate.Property = underlying.monthOfYear
+
   def year: LocalDate.Property = underlying.year
+
   def century: LocalDate.Property = underlying.centuryOfEra
+
   def era: LocalDate.Property = underlying.era
 
   def withDay(day: Int) = underlying.withDayOfMonth(day)
+
   def withWeek(week: Int) = underlying.withWeekOfWeekyear(week)
+
   def withMonth(month: Int) = underlying.withMonthOfYear(month)
+
   def withYear(year: Int) = underlying.withYear(year)
+
   def withCentury(century: Int) = underlying.withCenturyOfEra(century)
+
   def withEra(era: Int) = underlying.withEra(era)
   
   def interval = underlying.toInterval
+
 }

@@ -17,8 +17,10 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichReadablePeriod(underlying: ReadablePeriod) {
-  def periodType: PeriodType =
-    underlying.getPeriodType
+class RichReadablePeriod(val underlying: ReadablePeriod) extends AnyRef with PimpedType[ReadablePeriod] {
+
+  def periodType: PeriodType = underlying.getPeriodType
+
 }

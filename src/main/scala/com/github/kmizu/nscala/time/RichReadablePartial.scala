@@ -17,7 +17,10 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichReadablePartial(underlying: ReadablePartial) {
+class RichReadablePartial(val underlying: ReadablePartial) extends AnyRef with PimpedType[ReadablePartial] {
+
   def chronology = underlying.getChronology
+
 }
