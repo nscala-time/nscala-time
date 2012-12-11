@@ -27,7 +27,7 @@ scalacOptions <++= scalaVersion map { v =>
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2" % "1.12.3",
   "joda-time" % "joda-time" % "2.1",
-  "org.joda" % "joda-convert" % "1.2" % "compile"
+  "org.joda" % "joda-convert" % "1.2"
 )
 
 pomExtra := (
