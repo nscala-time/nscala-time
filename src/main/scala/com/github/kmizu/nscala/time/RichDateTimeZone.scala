@@ -17,8 +17,10 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichDateTimeZone(underlying: DateTimeZone) {
-  def id: String =
-    underlying.getID
+class RichDateTimeZone(val underlying: DateTimeZone) extends AnyRef with PimpedType[DateTimeZone] {
+
+  def id: String = underlying.getID
+
 }

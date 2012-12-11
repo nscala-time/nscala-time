@@ -17,10 +17,11 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichChronology(underlying: Chronology) {
-  def zone: Option[DateTimeZone] =
-    nullCheck(underlying.getZone)
-  private def nullCheck[T <: AnyRef](x: T): Option[T] =
-    if (x == null) None else Some(x)
+class RichChronology(val underlying: Chronology) extends AnyRef with PimpedType[Chronology] {
+
+  def zone: Option[DateTimeZone] = nullCheck(underlying.getZone)
+
+  private def nullCheck[T <: AnyRef](x: T): Option[T] = if (x == null) None else Some(x)
 }

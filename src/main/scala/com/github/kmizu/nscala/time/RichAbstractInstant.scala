@@ -19,26 +19,29 @@ package com.github.kmizu.nscala.time
 import java.util.Date
 import org.joda.time._
 import org.joda.time.base.AbstractInstant
+import com.github.kmizu.nscala.PimpedType
 
-class RichAbstractInstant(underlying: AbstractInstant) {
-  def date: Date =
-    underlying.toDate
-  def dateTime: DateTime =
-    underlying.toDateTime
-  def dateTime(chronology: Chronology): DateTime =
-    underlying.toDateTime(chronology)
-  def dateTime(zone: DateTimeZone): DateTime =
-    underlying.toDateTime(zone)
-  def dateTimeISO: DateTime =
-    underlying.toDateTimeISO
-  def instant: Instant =
-    underlying.toInstant
-  def mutableDateTime: MutableDateTime =
-    underlying.toMutableDateTime
-  def mutableDateTime(chronology: Chronology): MutableDateTime =
-    underlying.toMutableDateTime(chronology)
-  def mutableDateTime(zone: DateTimeZone): MutableDateTime =
-    underlying.toMutableDateTime(zone)
-  def mutableDateTimeISO: MutableDateTime =
-    underlying.toMutableDateTimeISO
+class RichAbstractInstant(val underlying: AbstractInstant) extends AnyRef
+  with PimpedType[AbstractInstant] {
+
+  def date: Date = underlying.toDate
+
+  def dateTime: DateTime = underlying.toDateTime
+
+  def dateTime(chronology: Chronology): DateTime = underlying.toDateTime(chronology)
+
+  def dateTime(zone: DateTimeZone): DateTime = underlying.toDateTime(zone)
+
+  def dateTimeISO: DateTime = underlying.toDateTimeISO
+
+  def instant: Instant = underlying.toInstant
+
+  def mutableDateTime: MutableDateTime = underlying.toMutableDateTime
+
+  def mutableDateTime(chronology: Chronology): MutableDateTime = underlying.toMutableDateTime(chronology)
+
+  def mutableDateTime(zone: DateTimeZone): MutableDateTime = underlying.toMutableDateTime(zone)
+
+  def mutableDateTimeISO: MutableDateTime = underlying.toMutableDateTimeISO
+
 }

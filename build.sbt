@@ -2,11 +2,11 @@ organization := "com.github.kmizu"
 
 name := "nscala-time"
 
-version := "0.1-SNAPSHOT"
+version := "0.2-SNAPSHOT"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.8.0", "2.8.1", "2.9.0", "2.9.0-1", "2.9.1", "2.9.2", "2.10.0-M7")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0-M7")
 
 crossVersion := CrossVersion.full
 
@@ -25,6 +25,7 @@ scalacOptions <++= scalaVersion map { v =>
 }
 
 libraryDependencies ++= Seq(
+  "org.specs2" %% "specs2" % "1.12.3",
   "joda-time" % "joda-time" % "2.1",
   "org.joda" % "joda-convert" % "1.2" % "compile"
 )
@@ -40,7 +41,7 @@ pomExtra := (
   </licenses>
   <scm>
     <url>git@github.com:kmizu/nscala-time.git</url>
-    <connection>scm:git:git@github.com:kmizu/scala-time.git</connection>
+    <connection>scm:git:git@github.com:kmizu/nscala-time.git</connection>
   </scm>
   <developers>
     <developer>

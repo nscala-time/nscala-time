@@ -17,10 +17,13 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichReadableDuration(underlying: ReadableDuration) extends Ordered[ReadableDuration] {
-  def millis: Long =
-    underlying.getMillis
-  def compare(other: ReadableDuration): Int =
-    underlying.compareTo(other)
+class RichReadableDuration(val underlying: ReadableDuration) extends Ordered[ReadableDuration]
+  with PimpedType[ReadableDuration] {
+
+  def millis: Long = underlying.getMillis
+
+  def compare(other: ReadableDuration): Int = underlying.compareTo(other)
+
 }

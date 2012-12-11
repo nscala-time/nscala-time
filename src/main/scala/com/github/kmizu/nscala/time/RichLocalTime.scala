@@ -17,22 +17,27 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichLocalTime(underlying: LocalTime) {
-  def -(period: ReadablePeriod): LocalTime =
-    underlying.minus(period)
-  def -(builder: DurationBuilder): LocalTime =
-    underlying.minus(builder.underlying)
-  def +(period: ReadablePeriod): LocalTime =
-    underlying.plus(period)
-  def +(builder: DurationBuilder): LocalTime =
-    underlying.plus(builder.underlying)
+class RichLocalTime(val underlying: LocalTime) extends AnyRef with PimpedType[LocalTime] {
+
+  def -(period: ReadablePeriod): LocalTime = underlying.minus(period)
+
+  def -(builder: DurationBuilder): LocalTime = underlying.minus(builder.underlying)
+
+  def +(period: ReadablePeriod): LocalTime = underlying.plus(period)
+
+  def +(builder: DurationBuilder): LocalTime = underlying.plus(builder.underlying)
 
   def second: LocalTime.Property = underlying.secondOfMinute
+
   def minute: LocalTime.Property = underlying.minuteOfHour
+
   def hour: LocalTime.Property = underlying.hourOfDay
 
   def withSecond(second: Int) = underlying.withSecondOfMinute(second)
+
   def withMinute(minute: Int) = underlying.withMinuteOfHour(minute)
+
   def withHour(hour: Int) = underlying.withHourOfDay(hour)
 }
