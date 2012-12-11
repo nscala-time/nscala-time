@@ -17,8 +17,12 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichLong(n: Long) {
-  def toDateTime = new DateTime(n)
-  def toDuration = new Duration(n)
+class RichLong(val underlying: Long) extends AnyRef with PimpedType[Long] {
+
+  def toDateTime = new DateTime(underlying)
+
+  def toDuration = new Duration(underlying)
+
 }

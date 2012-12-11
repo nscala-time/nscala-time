@@ -17,37 +17,38 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichPeriod(underlying: Period) {
-  def days: Int =
-    underlying.getDays
-  def hours: Int =
-    underlying.getHours
-  def millis: Int =
-    underlying.getMillis
-  def minutes: Int =
-    underlying.getMinutes
-  def months: Int =
-    underlying.getMonths
-  def seconds: Int =
-    underlying.getSeconds
-  def weeks: Int =
-    underlying.getWeeks
-  def years: Int =
-    underlying.getYears
-  def -(period: ReadablePeriod): Period =
-    underlying.minus(period)
-  def +(period: ReadablePeriod): Period =
-    underlying.plus(period)
-  def ago: DateTime =
-    StaticDateTime.now.minus(underlying)
-  def later: DateTime =
-    StaticDateTime.now.plus(underlying)
-  def from(dt: DateTime): DateTime =
-    dt.plus(underlying)
-  def before(dt: DateTime): DateTime =
-    dt.minus(underlying)
+class RichPeriod(val underlying: Period) extends AnyRef with PimpedType[Period] {
+
+  def days: Int = underlying.getDays
+
+  def hours: Int = underlying.getHours
+
+  def millis: Int = underlying.getMillis
+
+  def minutes: Int = underlying.getMinutes
+
+  def months: Int = underlying.getMonths
+
+  def seconds: Int = underlying.getSeconds
+
+  def weeks: Int = underlying.getWeeks
+
+  def years: Int = underlying.getYears
+
+  def -(period: ReadablePeriod): Period = underlying.minus(period)
+
+  def +(period: ReadablePeriod): Period = underlying.plus(period)
+
+  def ago: DateTime = StaticDateTime.now.minus(underlying)
+
+  def later: DateTime = StaticDateTime.now.plus(underlying)
+
+  def from(dt: DateTime): DateTime = dt.plus(underlying)
+
+  def before(dt: DateTime): DateTime = dt.minus(underlying)
   
-  def standardDuration: Duration =
-    underlying.toStandardDuration
+  def standardDuration: Duration = underlying.toStandardDuration
+
 }

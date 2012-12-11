@@ -18,8 +18,10 @@ package com.github.kmizu.nscala.time
 
 import org.joda.time._
 import org.joda.time.base.AbstractPartial
+import com.github.kmizu.nscala.PimpedType
 
-class RichAbstractPartial(underlying: AbstractPartial) extends Ordered[AbstractPartial] {
+class RichAbstractPartial(val underlying: AbstractPartial) extends Ordered[AbstractPartial] with
+  PimpedType[AbstractPartial] {
   def fields = underlying.getFields
   def fieldTypes = underlying.getFieldTypes
   def values = underlying.getValues

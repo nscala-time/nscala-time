@@ -17,22 +17,23 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichDateMidnight(underlying: DateMidnight) {
-  def -(duration: Long): DateMidnight =
-    underlying.minus(duration)
-  def -(duration: ReadableDuration): DateMidnight =
-    underlying.minus(duration)
-  def -(period: ReadablePeriod): DateMidnight =
-    underlying.minus(period)
-  def -(builder: DurationBuilder): DateMidnight =
-    underlying.minus(builder.underlying)
-  def +(duration: Long): DateMidnight =
-    underlying.plus(duration)
-  def +(duration: ReadableDuration): DateMidnight =
-    underlying.plus(duration)
-  def +(period: ReadablePeriod): DateMidnight =
-    underlying.plus(period)
-  def +(builder: DurationBuilder): DateMidnight =
-    underlying.plus(builder.underlying)
+class RichDateMidnight(val underlying: DateMidnight) extends AnyRef with PimpedType[DateMidnight] {
+
+  def -(duration: Long): DateMidnight = underlying.minus(duration)
+
+  def -(duration: ReadableDuration): DateMidnight = underlying.minus(duration)
+
+  def -(period: ReadablePeriod): DateMidnight = underlying.minus(period)
+
+  def -(builder: DurationBuilder): DateMidnight = underlying.minus(builder.underlying)
+
+  def +(duration: Long): DateMidnight = underlying.plus(duration)
+
+  def +(duration: ReadableDuration): DateMidnight = underlying.plus(duration)
+
+  def +(period: ReadablePeriod): DateMidnight = underlying.plus(period)
+
+  def +(builder: DurationBuilder): DateMidnight = underlying.plus(builder.underlying)
 }

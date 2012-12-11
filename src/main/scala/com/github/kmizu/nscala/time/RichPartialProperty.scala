@@ -18,13 +18,16 @@ package com.github.kmizu.nscala.time
 
 import java.util.Locale
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichPartialProperty(underlying: Partial.Property) {
-  def partial: Partial =
-    underlying.getPartial
+class RichPartialProperty(val underlying: Partial.Property) extends AnyRef with PimpedType[Partial.Property] {
+
+  def partial: Partial = underlying.getPartial
 
   def apply(value: Int): Partial = underlying.setCopy(value)
+
   def apply(text: String): Partial = underlying.setCopy(text)
-  def apply(text: String, locale: Locale): Partial =
-    underlying.setCopy(text, locale)
+
+  def apply(text: String, locale: Locale): Partial = underlying.setCopy(text, locale)
+
 }

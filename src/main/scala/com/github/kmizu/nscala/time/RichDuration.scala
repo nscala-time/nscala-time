@@ -17,16 +17,18 @@
 package com.github.kmizu.nscala.time
 
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichDuration(underlying: Duration) {
-  def seconds: Long =
-    underlying.getStandardSeconds
-  def -(amount: Long): Duration =
-    underlying.minus(amount)
-  def -(amount: ReadableDuration): Duration =
-    underlying.minus(amount)
-  def +(amount: Long): Duration =
-    underlying.plus(amount)
-  def +(amount: ReadableDuration): Duration =
-    underlying.plus(amount)
+class RichDuration(val underlying: Duration) extends AnyRef with PimpedType[Duration] {
+
+  def seconds: Long = underlying.getStandardSeconds
+
+  def -(amount: Long): Duration = underlying.minus(amount)
+
+  def -(amount: ReadableDuration): Duration = underlying.minus(amount)
+
+  def +(amount: Long): Duration = underlying.plus(amount)
+
+  def +(amount: ReadableDuration): Duration = underlying.plus(amount)
+
 }

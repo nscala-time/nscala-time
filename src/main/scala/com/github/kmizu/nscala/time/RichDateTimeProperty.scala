@@ -18,23 +18,26 @@ package com.github.kmizu.nscala.time
 
 import java.util.Locale
 import org.joda.time._
+import com.github.kmizu.nscala.PimpedType
 
-class RichDateTimeProperty(underlying: DateTime.Property) {
-  def dateTime: DateTime =
-    underlying.getDateTime
-  def roundFloor: DateTime =
-    underlying.roundFloorCopy
-  def roundCeiling: DateTime =
-    underlying.roundCeilingCopy
-  def roundDown: DateTime =
-    underlying.roundFloorCopy
-  def roundUp: DateTime =
-    underlying.roundCeilingCopy
-  def round: DateTime =
-    underlying.roundHalfEvenCopy
+class RichDateTimeProperty(val underlying: DateTime.Property) extends AnyRef with PimpedType[DateTime.Property] {
+
+  def dateTime: DateTime = underlying.getDateTime
+
+  def roundFloor: DateTime = underlying.roundFloorCopy
+
+  def roundCeiling: DateTime = underlying.roundCeilingCopy
+
+  def roundDown: DateTime = underlying.roundFloorCopy
+
+  def roundUp: DateTime = underlying.roundCeilingCopy
+
+  def round: DateTime = underlying.roundHalfEvenCopy
 
   def apply(value: Int): DateTime = underlying.setCopy(value)
+
   def apply(text: String): DateTime = underlying.setCopy(text)
-  def apply(text: String, locale: Locale): DateTime =
-    underlying.setCopy(text, locale)
+
+  def apply(text: String, locale: Locale): DateTime = underlying.setCopy(text, locale)
+
 }
