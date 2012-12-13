@@ -1,13 +1,13 @@
 nscala-time
 ===========
 
-A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since it seems that
-scala-time is no longer maintained.
+A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since 
+it seems that scala-time is no longer maintained.
 
 USAGE:
 
 ```scala
-import com.gihutb.kmizu.nscala.time.Imports._
+import com.github.kmizu.nscala.time.Imports._
 
 DateTime.now // returns org.joda.time.DateTime = 2009-04-27T13:25:42.659-07:00
 
@@ -43,7 +43,7 @@ http://joda-time.sourceforge.net/index.html
 
 INSTALLATION:
 
-Add the following to your sbt build (in Scala 2.9.1, Scala 2.9.2, and Scala 2.10-RC1):
+Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, and Scala 2.10-RC1):
 
 ```scala
 libraryDependencies += "com.github.kmizu" %% "nscala-time" % "0.2-SNAPSHOT"
@@ -57,4 +57,3 @@ The Joda Time library is a great replacement for Java's Date and Calendar classe
 richer and nicer API, and can easily be converted to Java's Date and Calendar classes when necessary.
 
 This project provides a thin layer of convenience around the Joda Time libraries, making them more idiomatic to use within Scala.
-
