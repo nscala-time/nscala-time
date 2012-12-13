@@ -6,13 +6,13 @@ version := "0.2-SNAPSHOT"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0-M7")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0-RC1")
 
 crossVersion := CrossVersion.full
 
 scalaBinaryVersion <<= scalaBinaryVersion { v =>
   if (v.startsWith("2.10"))
-    "2.10.0-M7"
+    "2.10.0-RC1"
   else
     v
 }
@@ -25,10 +25,14 @@ scalacOptions <++= scalaVersion map { v =>
 }
 
 libraryDependencies ++= Seq(
-  "org.specs2" %% "specs2" % "1.12.3",
+  "org.specs2" %% "specs2" % "1.12.2",
   "joda-time" % "joda-time" % "2.1",
-  "org.joda" % "joda-convert" % "1.2" % "compile"
+  "org.joda" % "joda-convert" % "1.2"
 )
+
+initialCommands in console += {
+  Iterator("org.joda.time._", "com.github.kmizu.nscala.time.Imports._").map("import "+).mkString("\n")
+}
 
 pomExtra := (
   <url>https://github.com/kmizu/nscala-time</url>
