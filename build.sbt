@@ -30,6 +30,10 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.2"
 )
 
+initialCommands in console += {
+  Iterator("org.joda.time._", "com.github.kmizu.nscala.time.Imports._").map("import "+).mkString("\n")
+}
+
 pomExtra := (
   <url>https://github.com/kmizu/nscala-time</url>
   <licenses>
