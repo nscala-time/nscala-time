@@ -34,8 +34,8 @@ DateTime.now to DateTime.tomorrow  // return org.joda.time.Interval = > 2009-04-
 
 This is mostly a convenience wrapper around the Joda Time libraries, adding
 more pleasant syntax like operators for addition, subtraction, and comparison.
-Also, most fields usually available as "getField" are now simply available as
-"field", following the Scala convention. Some instances of "asX" or "toX" have
+Also, most fields usually available as `getField` are now simply available as
+`field`, following the Scala convention. Some instances of `asX` or `toX` have
 also been shortened.
 
 Please see Joda Time for full explanation of key concepts and API:
