@@ -22,7 +22,7 @@ DateTime.now to DateTime.tomorrow  // return org.joda.time.Interval = > 2009-04-
 (DateTime.now to DateTime.nextSecond).millis // returns Long = 1000
 
 2.hours + 45.minutes + 10.seconds
-// returns org.scala_tools.time.DurationBuilder
+// returns com.github.kmizu.nscala.time.DurationBuilder
 // (can be used as a Duration or as a Period)
 
 (2.hours + 45.minutes + 10.seconds).millis
