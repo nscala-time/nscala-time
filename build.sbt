@@ -29,7 +29,8 @@ testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
 seq(ScctPlugin.instrumentSettings:_*)
 
 libraryDependencies ++= Seq(
-  "org.specs2" %% "specs2" % "1.12.2",
+  "org.specs2" %% "specs2" % "1.12.2" % "test",
+  "junit" % "junit" % "4.7" % "test",
   "joda-time" % "joda-time" % "2.1",
   "org.joda" % "joda-convert" % "1.2"
 )
