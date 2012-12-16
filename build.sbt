@@ -24,6 +24,10 @@ scalacOptions <++= scalaVersion map { v =>
     Seq("-unchecked", "-deprecation")
 }
 
+testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
+
+seq(ScctPlugin.instrumentSettings:_*)
+
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2" % "1.12.2",
   "joda-time" % "joda-time" % "2.1",
