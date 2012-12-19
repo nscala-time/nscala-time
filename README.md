@@ -7,7 +7,7 @@ it seems that scala-time is no longer maintained.
 USAGE:
 
 ```scala
-import com.github.kmizu.nscala.time.Imports._
+import com.github.nscala_time.time.Imports._
 
 DateTime.now // returns org.joda.time.DateTime = 2009-04-27T13:25:42.659-07:00
 
@@ -22,7 +22,7 @@ DateTime.now to DateTime.tomorrow  // return org.joda.time.Interval = > 2009-04-
 (DateTime.now to DateTime.nextSecond).millis // returns Long = 1000
 
 2.hours + 45.minutes + 10.seconds
-// returns com.github.kmizu.nscala.time.DurationBuilder
+// returns com.github.nscala_time.time.DurationBuilder
 // (can be used as a Duration or as a Period)
 
 (2.hours + 45.minutes + 10.seconds).millis
@@ -46,7 +46,7 @@ INSTALLATION:
 Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, and Scala 2.10-RC1):
 
 ```scala
-libraryDependencies += "com.github.kmizu" %% "nscala-time" % "0.2-SNAPSHOT"
+// libraryDependencies += "com.github.nscala_time" %% "nscala-time" % "0.2-SNAPSHOT"
 ```
 
 MOTIVATION:
