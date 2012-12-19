@@ -1,6 +1,6 @@
 import org.specs2.mutable.Specification
 
-import com.github.kmizu.nscala.time.Imports._
+import com.github.nscala_time.time.Imports._
 
 class OrderingSpec extends Specification {
 
