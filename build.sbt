@@ -1,4 +1,4 @@
-organization := "com.github.kmizu"
+organization := "com.github.nscala_time"
 
 name := "nscala-time"
 
@@ -36,11 +36,11 @@ libraryDependencies ++= Seq(
 )
 
 initialCommands in console += {
-  Iterator("org.joda.time._", "com.github.kmizu.nscala.time.Imports._").map("import "+).mkString("\n")
+  Iterator("org.joda.time._", "com.github.nscala_time.time.Imports._").map("import "+).mkString("\n")
 }
 
 pomExtra := (
-  <url>https://github.com/kmizu/nscala-time</url>
+  <url>https://github.com/nscala-time/nscala-time</url>
   <licenses>
     <license>
       <name>Apache</name>
@@ -49,8 +49,8 @@ pomExtra := (
     </license>
   </licenses>
   <scm>
-    <url>git@github.com:kmizu/nscala-time.git</url>
-    <connection>scm:git:git@github.com:kmizu/nscala-time.git</connection>
+    <url>git@github.com:nscala-time/nscala-time.git</url>
+    <connection>scm:git:git@github.com:nscala-time/nscala-time.git</connection>
   </scm>
   <developers>
     <developer>
