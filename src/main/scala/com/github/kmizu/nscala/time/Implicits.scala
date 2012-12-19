@@ -48,12 +48,12 @@ trait DateImplicits {
 }
 
 trait OrderingImplicits {
-  implicit val DateTimeOrdering = new Ordering[DateTime] {
-    def compare(a: DateTime, b: DateTime) = a.compareTo(b)
+  implicit def ReadableInstantOrdering[A <: ReadableInstant] = new Ordering[A] {
+    def compare(a: A, b: A) = a.compareTo(b)
   }
 
-  implicit val LocalDateOrdering = new Ordering[LocalDate] {
-    def compare(a: LocalDate, b: LocalDate) = a.compareTo(b)
+  implicit def ReadablePartialOrdering[A <: ReadablePartial] = new Ordering[A] {
+    def compare(a: A, b: A) = a.compareTo(b)
   }
 }
 
