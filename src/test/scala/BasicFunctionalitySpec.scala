@@ -1,11 +1,11 @@
 import org.specs2.mutable.Specification
 import org.joda.time.DateTime
 
-import com.github.kmizu.nscala.time.Imports._
+import com.github.nscala_time.time.Imports._
 
 object BasicFunctionalitySpec extends Specification {
 
-  // [Note] Importing Implicits._ is required at com.github.kmizu.nscala.time package
+  // [Note] Importing Implicits._ is required at com.github.nscala_time.time package
 
   "DateTime.now" should {
     val now: DateTime = DateTime.now
