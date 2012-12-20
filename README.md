@@ -43,10 +43,10 @@ http://joda-time.sourceforge.net/index.html
 
 INSTALLATION:
 
-Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, and Scala 2.10-RC1):
+Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, and Scala 2.10.0!):
 
 ```scala
-// libraryDependencies += "com.github.nscala_time" %% "nscala-time" % "0.2-SNAPSHOT"
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.2.0"
 ```
 
 MOTIVATION:
