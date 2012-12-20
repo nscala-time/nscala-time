@@ -1,18 +1,18 @@
-organization := "com.github.nscala_time"
+organization := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "0.2-SNAPSHOT"
+version := "0.2.0"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0-RC1")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0")
 
 crossVersion := CrossVersion.full
 
 scalaBinaryVersion <<= scalaBinaryVersion { v =>
   if (v.startsWith("2.10"))
-    "2.10.0-RC1"
+    "2.10"
   else
     v
 }
@@ -29,11 +29,19 @@ testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
 seq(ScctPlugin.instrumentSettings:_*)
 
 libraryDependencies ++= Seq(
-  "org.specs2" %% "specs2" % "1.12.2" % "test",
   "junit" % "junit" % "4.7" % "test",
   "joda-time" % "joda-time" % "2.1",
   "org.joda" % "joda-convert" % "1.2"
 )
+
+libraryDependencies <<= (scalaVersion, libraryDependencies) {(version, dependencies) =>
+  val specs2 =
+    if (version.startsWith("2.10"))
+      "org.specs2" %% "specs2" % "1.13" % "test"
+    else
+      "org.specs2" %% "specs2" % "1.12.2" % "test"
+  dependencies :+ specs2
+}
 
 initialCommands in console += {
   Iterator("org.joda.time._", "com.github.nscala_time.time.Imports._").map("import "+).mkString("\n")
