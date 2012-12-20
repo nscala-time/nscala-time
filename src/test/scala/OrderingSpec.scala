@@ -22,4 +22,23 @@ class OrderingSpec extends Specification {
     }
   }
 
+  "Days" should {
+    import org.joda.time.Days._
+
+    "be able to sort" in {
+      val l = List(ZERO, TWO, FIVE, THREE)
+      l.sorted must equalTo(List(ZERO, TWO, THREE, FIVE))
+      l.max must equalTo(FIVE)
+    }
+  }
+
+  "Duration" should {
+    "be able to sort" in {
+      val l = List(1.second, 5.seconds, 2.seconds, 4.seconds).map(_.toDuration)
+      l.sorted must equalTo(List(1.second, 2.seconds, 4.seconds, 5.seconds).map(_.toDuration))
+      l.max must equalTo(5.seconds.toDuration)
+    }
+  }
+
+  override def intToRichLong(i: Int) = null
 }
