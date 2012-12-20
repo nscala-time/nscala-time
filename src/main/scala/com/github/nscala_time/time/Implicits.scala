@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 
 import java.util.{Date, Locale}
 import org.joda.time._
-import org.joda.time.base.{AbstractDateTime, AbstractInstant, AbstractPartial}
+import base.{BaseSingleFieldPeriod, AbstractDateTime, AbstractInstant, AbstractPartial}
 import org.joda.time.format.DateTimeFormatter
 import org.joda.time.field.AbstractReadableInstantFieldProperty
 
@@ -48,13 +48,17 @@ trait DateImplicits {
 }
 
 trait OrderingImplicits {
-  implicit def ReadableInstantOrdering[A <: ReadableInstant] = new Ordering[A] {
-    def compare(a: A, b: A) = a.compareTo(b)
-  }
 
-  implicit def ReadablePartialOrdering[A <: ReadablePartial] = new Ordering[A] {
-    def compare(a: A, b: A) = a.compareTo(b)
-  }
+  implicit def ReadableInstantOrdering[A <: ReadableInstant] = order[A, ReadableInstant]
+
+  implicit def ReadablePartialOrdering[A <: ReadablePartial] = order[A, ReadablePartial]
+
+  implicit def BaseSingleFieldPeriodOrdering[A <: BaseSingleFieldPeriod] = order[A, BaseSingleFieldPeriod]
+
+  implicit def ReadableDurationOrdering[A <: ReadableDuration] = order[A, ReadableDuration]
+
+  private def order[A, B <: Comparable[B]](implicit ev: A <:< B): Ordering[A] = Ordering.by[A, B](ev)
+
 }
 
 trait JodaImplicits {
