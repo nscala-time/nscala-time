@@ -47,18 +47,20 @@ trait DateImplicits {
   implicit def RichDate(d: Date): RichDate = new com.github.nscala_time.time.RichDate(d)
 }
 
-trait OrderingImplicits {
+trait OrderingImplicits extends LowPriorityOrderingImplicits {
+  implicit val DateTimeOrdering = ReadableInstantOrdering[DateTime]
+  implicit val LocalDateOrdering = ReadablePartialOrdering[LocalDate]
+  implicit val LocalTimeOrdering = ReadablePartialOrdering[LocalTime]
+  implicit val LocalDateTimeOrdering = ReadablePartialOrdering[LocalDateTime]
+  implicit val DurationOrdering = ReadableDurationOrdering[Duration]
+}
 
+trait LowPriorityOrderingImplicits {
   implicit def ReadableInstantOrdering[A <: ReadableInstant] = order[A, ReadableInstant]
-
   implicit def ReadablePartialOrdering[A <: ReadablePartial] = order[A, ReadablePartial]
-
   implicit def BaseSingleFieldPeriodOrdering[A <: BaseSingleFieldPeriod] = order[A, BaseSingleFieldPeriod]
-
   implicit def ReadableDurationOrdering[A <: ReadableDuration] = order[A, ReadableDuration]
-
   private def order[A, B <: Comparable[B]](implicit ev: A <:< B): Ordering[A] = Ordering.by[A, B](ev)
-
 }
 
 trait JodaImplicits {
