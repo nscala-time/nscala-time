@@ -8,8 +8,6 @@ publishMavenStyle := true
 
 crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0")
 
-crossVersion := CrossVersion.full
-
 scalaBinaryVersion <<= scalaBinaryVersion { v =>
   if (v.startsWith("2.10"))
     "2.10"
