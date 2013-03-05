@@ -36,7 +36,7 @@ libraryDependencies <<= (scalaVersion, libraryDependencies) {(version, dependenc
       "org.specs2" %% "specs2" % "1.13" % "test"
     // Because Specs 2 for Scala 2.9.3 is not published yet
     else if (version == "2.9.3")
-      "org.specs2" %% "specs2_2.9.2" % "1.12.2" % "test"
+      "org.specs2" % "specs2_2.9.2" % "1.12.2" % "test"
     else
       "org.specs2" %% "specs2" % "1.12.2" % "test"
     dependencies :+ specs2
