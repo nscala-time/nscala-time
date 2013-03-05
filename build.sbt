@@ -6,7 +6,7 @@ version := "0.2.0"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.10.0")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.0")
 
 scalaBinaryVersion <<= scalaBinaryVersion { v =>
   if (v.startsWith("2.10"))
@@ -24,8 +24,6 @@ scalacOptions <++= scalaVersion map { v =>
 
 testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
 
-seq(ScctPlugin.instrumentSettings:_*)
-
 libraryDependencies ++= Seq(
   "junit" % "junit" % "4.7" % "test",
   "joda-time" % "joda-time" % "2.1",
@@ -38,7 +36,11 @@ libraryDependencies <<= (scalaVersion, libraryDependencies) {(version, dependenc
       "org.specs2" %% "specs2" % "1.13" % "test"
     else
       "org.specs2" %% "specs2" % "1.12.2" % "test"
-  dependencies :+ specs2
+  // Because Specs 2 for Scala 2.9.3 is not published yet
+  if (version == "2.9.3")
+    dependencies
+  else
+    dependencies :+ specs2
 }
 
 initialCommands in console += {
