@@ -6,14 +6,7 @@ version := "0.3.0-SNAPSHOT"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.0")
-
-scalaBinaryVersion <<= scalaBinaryVersion { v =>
-  if (v.startsWith("2.10"))
-    "2.10"
-  else
-    v
-}
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.1")
 
 scalacOptions <++= scalaVersion map { v =>
   if (v.startsWith("2.10"))
@@ -33,12 +26,11 @@ libraryDependencies ++= Seq(
 libraryDependencies <<= (scalaVersion, libraryDependencies) {(version, dependencies) =>
   val specs2 =
     if (version.startsWith("2.10"))
-      "org.specs2" %% "specs2" % "1.13" % "test"
-    // Because Specs 2 for Scala 2.9.3 is not published yet
+      "org.specs2" %% "specs2" % "1.14" % "test"
     else if (version == "2.9.3")
-      "org.specs2" % "specs2_2.9.2" % "1.12.2" % "test"
+      "org.specs2" %% "specs2" % "1.12.4.1" % "test"
     else
-      "org.specs2" %% "specs2" % "1.12.2" % "test"
+      "org.specs2" %% "specs2" % "1.12.3" % "test"
     dependencies :+ specs2
 }
 
