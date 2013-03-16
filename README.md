@@ -1,7 +1,7 @@
 nscala-time
 ===========
 
-A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since 
+A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since
 it seems that scala-time is no longer maintained.
 
 USAGE:
@@ -43,7 +43,7 @@ http://joda-time.sourceforge.net/index.html
 
 INSTALLATION:
 
-Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, and Scala 2.10.0!):
+Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, and Scala 2.10.x!):
 
 ```scala
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.2.0"
