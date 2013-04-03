@@ -2,7 +2,7 @@ organization := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "0.3.0-SNAPSHOT"
+version := "0.4.0"
 
 publishMavenStyle := true
 
