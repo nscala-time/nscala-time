@@ -49,6 +49,12 @@ Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, 
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.4.0"
 ```
 
+Latest stable release is `0.4.0`.
+
+DOCUMENTS:
+
+[scaladoc (latest stable release)](http://nscala-time.github.com/nscala-time/latest/api)
+
 MOTIVATION:
 
 The Java Date and Calendar libraries are largely inadequate. They are mutable, not thread-safe, and very inconvenient to use.
