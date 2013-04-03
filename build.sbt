@@ -90,6 +90,8 @@ site.settings
 
 site.includeScaladoc()
 
+site.jekyllSupport()
+
 ghpages.settings
 
 git.remoteRepo := "git@github.com:nscala-time/nscala-time.git"

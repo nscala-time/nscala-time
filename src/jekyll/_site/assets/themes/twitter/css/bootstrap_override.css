@@ -1,0 +1,18 @@
+.hero-unit {
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+a {
+  color: #c91b1e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ee3b3b;
+  text-decoration: underline;
+}
+
+
+
