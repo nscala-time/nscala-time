@@ -85,3 +85,11 @@ credentials ++= {
     case _ => Nil
   }
 }
+
+site.settings
+
+site.includeScaladoc()
+
+ghpages.settings
+
+git.remoteRepo := "git@github.com:nscala-time/nscala-time.git"
