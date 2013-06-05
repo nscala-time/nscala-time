@@ -46,10 +46,10 @@ INSTALLATION:
 Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, and Scala 2.10.x!):
 
 ```scala
-libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.4.0"
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.4.2"
 ```
 
-Latest stable release is `0.4.0`.
+Latest stable release is `0.4.2`.
 
 DOCUMENTS:
 
