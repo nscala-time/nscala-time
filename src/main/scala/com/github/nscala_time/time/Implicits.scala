@@ -54,6 +54,7 @@ trait DateImplicits {
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
   implicit val DateTimeOrdering = ReadableInstantOrdering[DateTime]
+  implicit val DateMidnightOrdering = ReadableInstantOrdering[DateMidnight]
   implicit val LocalDateOrdering = ReadablePartialOrdering[LocalDate]
   implicit val LocalTimeOrdering = ReadablePartialOrdering[LocalTime]
   implicit val LocalDateTimeOrdering = ReadablePartialOrdering[LocalDateTime]
