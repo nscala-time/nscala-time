@@ -1,4 +1,5 @@
 # nscala-time
+[![Build Status](https://travis-ci.org/nscala-time/nscala-time.png)](https://travis-ci.org/nscala-time/nscala-time)
 
 A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since
 it seems that scala-time is no longer maintained.
