@@ -39,11 +39,19 @@ class RichDateTime(val underlying: DateTime) extends AnyRef with PimpedType[Date
   
   def second: DateTime.Property = underlying.secondOfMinute
 
+  def secondOfDay: DateTime.Property = underlying.secondOfDay
+
   def minute: DateTime.Property = underlying.minuteOfHour
+
+  def minuteOfDay: DateTime.Property = underlying.minuteOfDay
 
   def hour: DateTime.Property = underlying.hourOfDay
 
   def day: DateTime.Property = underlying.dayOfMonth
+
+  def dayOfYear: DateTime.Property = underlying.dayOfYear
+
+  def dayOfWeek: DateTime.Property = underlying.dayOfWeek
 
   def week: DateTime.Property = underlying.weekOfWeekyear
 
@@ -62,6 +70,10 @@ class RichDateTime(val underlying: DateTime) extends AnyRef with PimpedType[Date
   def withHour(hour: Int) = underlying.withHourOfDay(hour)
 
   def withDay(day: Int) = underlying.withDayOfMonth(day)
+
+  def withOfWeek(dow: Int) = underlying.withDayOfWeek(dow)
+
+  def withDayOfYear(doy: Int) = underlying.withDayOfYear(doy)
 
   def withWeek(week: Int) = underlying.withWeekOfWeekyear(week)
 
