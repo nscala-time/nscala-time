@@ -17,7 +17,7 @@
  **/
 package com.github.nscala_time.time
 
-import java.util.{Date, Locale}
+import java.util.Date
 import org.joda.time._
 import base.{BaseSingleFieldPeriod, AbstractDateTime, AbstractInstant, AbstractPartial}
 import org.joda.time.format.DateTimeFormatter

@@ -16,7 +16,6 @@
  **/
 package com.github.nscala_time.time
 
-import org.joda.time._
 import org.joda.time.base.AbstractPartial
 import com.github.nscala_time.PimpedType
 

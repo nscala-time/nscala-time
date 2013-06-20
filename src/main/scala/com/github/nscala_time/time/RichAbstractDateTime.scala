@@ -16,8 +16,7 @@
  **/
 package com.github.nscala_time.time
 
-import java.util.{Locale, Calendar, GregorianCalendar}
-import org.joda.time._
+import java.util.{Locale, Calendar}
 import org.joda.time.base.AbstractDateTime
 import com.github.nscala_time.PimpedType
 
