@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  *
  **/
 package com.github.nscala_time.time
@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichDateTime(val underlying: DateTime) extends AnyRef with PimpedType[DateTime] {
+class RichDateTime(val underlying: DateTime) extends Super with PimpedType[DateTime] {
 
   def -(duration: Long): DateTime = underlying.minus(duration)
 
@@ -36,7 +36,7 @@ class RichDateTime(val underlying: DateTime) extends AnyRef with PimpedType[Date
   def +(period: ReadablePeriod): DateTime = underlying.plus(period)
 
   def +(builder: DurationBuilder): DateTime = underlying.plus(builder.underlying)
-  
+
   def second: DateTime.Property = underlying.secondOfMinute
 
   def minute: DateTime.Property = underlying.minuteOfHour
@@ -54,7 +54,7 @@ class RichDateTime(val underlying: DateTime) extends AnyRef with PimpedType[Date
   def century: DateTime.Property = underlying.centuryOfEra
 
   def era: DateTime.Property = underlying.era
-  
+
   def withSecond(second: Int) = underlying.withSecondOfMinute(second)
 
   def withMinute(minute: Int) = underlying.withMinuteOfHour(minute)

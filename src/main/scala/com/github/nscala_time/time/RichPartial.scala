@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  *
  **/
 package com.github.nscala_time.time
@@ -19,10 +19,10 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichPartial(val underlying: Partial) extends AnyRef with PimpedType[Partial] {
+class RichPartial(val underlying: Partial) extends Super with PimpedType[Partial] {
 
   def formatter = underlying.getFormatter
-  
+
   def -(period: ReadablePeriod): Partial = underlying.minus(period)
 
   def -(builder: DurationBuilder): Partial = underlying.minus(builder.underlying)

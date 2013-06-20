@@ -34,6 +34,13 @@ libraryDependencies <<= (scalaVersion, libraryDependencies) {(version, dependenc
     dependencies :+ specs2
 }
 
+unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile){(v, dir) =>
+  if(v.startsWith("2.9"))
+    dir / "scala29"
+  else
+    dir / "scala210"
+}
+
 initialCommands in console += {
   Iterator("org.joda.time._", "com.github.nscala_time.time.Imports._").map("import "+).mkString("\n")
 }
