@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  *
  **/
 package com.github.nscala_time.time
@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichInt(val underlying: Int) extends AnyRef with PimpedType[Int] {
+class RichInt(val underlying: Int) extends Super with PimpedType[Int] {
   // These units of time can build durations or periods.
   // At most we lose a leap second. (Unless someone adopts
   // leap minutes).

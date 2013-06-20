@@ -17,7 +17,6 @@
 package com.github.nscala_time.time
 
 import com.github.nscala_time.time.Implicits._
-import org.joda.time._
 
 object StaticInterval extends StaticInterval
 
