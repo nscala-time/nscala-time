@@ -11,17 +11,16 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  *
  **/
 package com.github.nscala_time.time
 
-import java.util.{Locale, Calendar, GregorianCalendar}
-import org.joda.time._
+import java.util.{Locale, Calendar}
 import org.joda.time.base.AbstractDateTime
 import com.github.nscala_time.PimpedType
 
-class RichAbstractDateTime(val underlying: AbstractDateTime) extends AnyRef
+class RichAbstractDateTime(val underlying: AbstractDateTime) extends Super
   with PimpedType[AbstractDateTime] {
 
   def calendar(locale: Locale): Calendar = underlying.toCalendar(locale)

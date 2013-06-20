@@ -17,7 +17,6 @@
 package com.github.nscala_time.time
 
 import java.util.Locale
-import org.joda.time._
 import org.joda.time.format._
 
 object StaticDateTimeFormat extends StaticDateTimeFormat

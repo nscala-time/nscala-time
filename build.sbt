@@ -2,7 +2,7 @@ organization := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "0.4.2"
+version := "0.5.0-SNAPSHOT"
 
 publishMavenStyle := true
 
@@ -32,6 +32,13 @@ libraryDependencies <<= (scalaVersion, libraryDependencies) {(version, dependenc
     else
       "org.specs2" %% "specs2" % "1.12.3" % "test"
     dependencies :+ specs2
+}
+
+unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile){(v, dir) =>
+  if(v.startsWith("2.9"))
+    dir / "scala29"
+  else
+    dir / "scala210"
 }
 
 initialCommands in console += {
