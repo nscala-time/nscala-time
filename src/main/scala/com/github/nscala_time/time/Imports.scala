@@ -35,6 +35,8 @@ trait TypeImports {
   type LocalTime      = org.joda.time.LocalTime
   type Period         = org.joda.time.Period
   type Partial        = org.joda.time.Partial
+  type YearMonth      = org.joda.time.YearMonth
+  type MonthDay       = org.joda.time.MonthDay
 }
 
 trait StaticForwarderImports {
@@ -48,4 +50,6 @@ trait StaticForwarderImports {
   val LocalTime      = com.github.nscala_time.time.StaticLocalTime
   val Period         = com.github.nscala_time.time.StaticPeriod
   val Partial        = com.github.nscala_time.time.StaticPartial
+  val YearMonth      = com.github.nscala_time.time.StaticYearMonth
+  val MonthDay       = com.github.nscala_time.time.StaticMonthDay
 }
