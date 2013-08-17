@@ -19,6 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
+@deprecated("RichDateMidnight will be removed", "0.6.0")
 class RichDateMidnight(val underlying: DateMidnight) extends Super with PimpedType[DateMidnight] {
 
   def -(duration: Long): DateMidnight = underlying.minus(duration)

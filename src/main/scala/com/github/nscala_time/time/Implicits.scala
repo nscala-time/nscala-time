@@ -54,6 +54,7 @@ trait DateImplicits {
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
   implicit val DateTimeOrdering = ReadableInstantOrdering[DateTime]
+  @deprecated("DateMidnightOrdering will be removed", "0.6.0")
   implicit val DateMidnightOrdering = ReadableInstantOrdering[DateMidnight]
   implicit val LocalDateOrdering = ReadablePartialOrdering[LocalDate]
   implicit val LocalTimeOrdering = ReadablePartialOrdering[LocalTime]
@@ -76,6 +77,7 @@ trait JodaImplicits {
   implicit def richAbstractReadableInstantFieldProperty(pty: AbstractReadableInstantFieldProperty): RichAbstractReadableInstantFieldProperty =
     new RichAbstractReadableInstantFieldProperty(pty)
   implicit def richChronology(ch: Chronology): RichChronology = new RichChronology(ch)
+  @deprecated("richDateMidnight will be removed", "0.6.0")
   implicit def richDateMidnight(dm: DateMidnight): RichDateMidnight = new RichDateMidnight(dm)
   implicit def richDateTime(dt: DateTime): RichDateTime = new RichDateTime(dt)
   implicit def richDateTimeFormatter(fmt: DateTimeFormatter): RichDateTimeFormatter = new RichDateTimeFormatter(fmt)
