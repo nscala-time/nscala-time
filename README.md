@@ -5,7 +5,7 @@ A new Scala wrapper for Joda Time.  This project forked from [scala-time](https:
 it seems that scala-time is no longer maintained.
 
 
-## INSTALLATION
+## Installation
 
 Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, and Scala 2.10.x!):
 
@@ -13,10 +13,22 @@ Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, 
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "0.6.0"
 ```
 
-Latest stable release is `0.6.0`.
+Latest stable release is `0.6.0`. `0.4.2`, `0.4.0`, and `0.2.0` are also available.  What you need to do to use the previous versions
+is replaing `0.6.0` with `x.y.z` in build.sbt simply.
 
+## Release Note
 
-## USAGE
+### 0.6.0
+
+Two major changes has been introduced in 0.6.0:
+
+* [value class](https://github.com/nscala-time/nscala-time/issues/42)
+* [update joda-time 2.3](https://github.com/nscala-time/nscala-time/issues/44)
+
+Although I believe that these changes don't break your code, if you have some problems,
+don't mind reporting the problem to [issues](https://github.com/nscala-time/nscala-time/issues).
+
+## Usage
 
 This is mostly a convenience wrapper around the Joda Time libraries, adding
 more pleasant syntax like operators for addition, subtraction, and comparison.
@@ -64,7 +76,7 @@ DateTime.now.hour(2).minute(45).second(10) // returns org.joda.time.DateTime = 2
 Please see Joda Time for full explanation of key concepts and API:
 http://joda-time.sourceforge.net/index.html
 
-## DOCUMENTS
+## Documents
 
  - [scaladoc (latest stable release)](http://nscala-time.github.com/nscala-time/latest/api)
 
@@ -72,7 +84,7 @@ Documentation of joda-time will be also a help.
  - [User guide](http://joda-time.sourceforge.net/userguide.html)
  - [Javadoc](http://joda-time.sourceforge.net/apidocs/)
 
-## MOTIVATION
+## Motivation
 
 The Java Date and Calendar libraries are largely inadequate. They are mutable, not thread-safe, and very inconvenient to use.
 
