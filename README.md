@@ -74,15 +74,15 @@ DateTime.now.hour(2).minute(45).second(10) // returns org.joda.time.DateTime = 2
 
 
 Please see Joda Time for full explanation of key concepts and API:
-http://joda-time.sourceforge.net/index.html
+http://www.joda.org/joda-time/
 
 ## Documents
 
  - [scaladoc (latest stable release)](http://nscala-time.github.com/nscala-time/latest/api)
 
 Documentation of joda-time will be also a help.
- - [User guide](http://joda-time.sourceforge.net/userguide.html)
- - [Javadoc](http://joda-time.sourceforge.net/apidocs/)
+ - [User guide](http://www.joda.org/joda-time/userguide.html)
+ - [Javadoc](http://www.joda.org/joda-time/apidocs/index.html)
 
 ## Motivation
 
