@@ -15,6 +15,15 @@ scalacOptions <++= scalaVersion map { v =>
     Seq("-unchecked", "-deprecation")
 }
 
+val scaladocBranch = settingKey[String]("branch name for scaladoc -doc-source-url")
+
+scaladocBranch := "master"
+
+scalacOptions in (Compile, doc) ++= { Seq(
+  "-sourcepath", baseDirectory.value.getAbsolutePath,
+  "-doc-source-url", s"https://github.com/nscala-time/nscala-time/tree/${scaladocBranch.value}€{FILE_PATH}.scala"
+)}
+
 testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
 
 libraryDependencies ++= Seq(
