@@ -78,7 +78,7 @@ http://www.joda.org/joda-time/
 
 ## Documents
 
- - [scaladoc (latest stable release)](http://nscala-time.github.com/nscala-time/latest/api)
+ - [scaladoc (latest stable release)](http://nscala-time.github.io/nscala-time/latest/api)
 
 Documentation of joda-time will be also a help.
  - [User guide](http://www.joda.org/joda-time/userguide.html)
