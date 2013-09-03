@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichString(s: String) {
+class RichString(val s: String) extends Super {
   def toDateTime  = new DateTime(s)
   def toLocalDate = new LocalDate(s)
 

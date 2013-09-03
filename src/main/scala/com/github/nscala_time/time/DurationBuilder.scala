@@ -24,7 +24,7 @@ private[time] object DurationBuilder {
 }
 
 // Duration Builder
-sealed private[time] class DurationBuilder(val underlying: Period) {
+private[time] class DurationBuilder(val underlying: Period) extends Super {
   // DurationBuilder + DurationBuilder = DurationBuilder
   // This is the only operation that can maintain a DurationBuilder
   // Everything else kicks us out to DateTime, Duration, or Period
