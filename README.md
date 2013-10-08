@@ -32,7 +32,8 @@ don't mind reporting the problem to [issues](https://github.com/nscala-time/nsca
 
 `x.y.z`, each letter is digit, format is used as version number.  Meanings of `x` is not determined yet.  
 `y` means major-version.  Note that `y` is even number in any version of released `nscala-time`.  If `y` is odd, 
-it's development and/or SNAPSHOT version.  `z` is reserved for bug fix releases.  Currently, the value of `z` is 0.
+it's development and/or SNAPSHOT version.  `z` is mainly used for bug fix releases.  Currently, the value of `z` is 0
+in most cases.
 
 ## Usage
 
