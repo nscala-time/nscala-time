@@ -28,6 +28,12 @@ Two major changes has been introduced in 0.6.0:
 Although I believe that these changes don't break your code, if you have some problems,
 don't mind reporting the problem to [issues](https://github.com/nscala-time/nscala-time/issues).
 
+### Version Numbering Policy
+
+`x.y.z`, each letter is digit, format is used as version number.  Meanings of `x` is not determined yet.  
+`y` means major-version.  Note that `y` is even number in any version of released `nscala-time`.  If `y` is odd, 
+it's development and/or SNAPSHOT version.  `z` is reserved for bug fix releases.  Currently, the value of `z` is 0.
+
 ## Usage
 
 This is mostly a convenience wrapper around the Joda Time libraries, adding
