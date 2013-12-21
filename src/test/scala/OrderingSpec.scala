@@ -23,9 +23,8 @@ class OrderingSpec extends Specification {
   }
 
   "Days" should {
-    import org.joda.time.Days._
-
     "be able to sort" in {
+      import org.joda.time.Days._
       val l = List(ZERO, TWO, FIVE, THREE)
       l.sorted must equalTo(List(ZERO, TWO, THREE, FIVE))
       l.max must equalTo(FIVE)
