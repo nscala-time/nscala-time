@@ -6,13 +6,13 @@ version := "0.7.0-SNAPSHOT"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.3", "2.11.0-M7")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.3", "2.11.0-M8")
 
 scalacOptions <++= scalaVersion map { v =>
-  if (v.startsWith("2.10"))
-    Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions")
-  else
+  if (v.startsWith("2.9"))
     Seq("-unchecked", "-deprecation")
+  else
+    Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions")
 }
 
 val scaladocBranch = settingKey[String]("branch name for scaladoc -doc-source-url")
@@ -33,10 +33,8 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += {
-  if (scalaVersion.value.startsWith("2.11"))
-    "org.specs2" %% "specs2-junit" % "2.3.6" % "test"
-  else if (scalaVersion.value.startsWith("2.10"))
-    "org.specs2" %% "specs2" % "1.14" % "test"
+  if (scalaVersion.value.startsWith("2.1"))
+    "org.specs2" %% "specs2-junit" % "2.3.7" % "test"
   else if (scalaVersion.value == "2.9.3")
     "org.specs2" %% "specs2" % "1.12.4.1" % "test"
   else
