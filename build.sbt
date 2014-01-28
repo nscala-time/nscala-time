@@ -1,8 +1,14 @@
+import SonatypeKeys._
+
+sonatypeSettings
+
 organization := "com.github.nscala-time"
+
+profileName := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "0.7.0-SNAPSHOT"
+version := "0.8.0"
 
 publishMavenStyle := true
 
