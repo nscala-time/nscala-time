@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  *
  **/
 package com.github.nscala_time.time
@@ -30,6 +30,8 @@ private[time] class DurationBuilder(val underlying: Period) extends Super {
   // Everything else kicks us out to DateTime, Duration, or Period
   def +(that: DurationBuilder): DurationBuilder =
     DurationBuilder(this.underlying.plus(that.underlying))
+  def -(that: DurationBuilder): DurationBuilder =
+    DurationBuilder(this.underlying.minus(that.underlying))
 
   def ago: DateTime =
     StaticDateTime.now.minus(underlying)
@@ -39,14 +41,14 @@ private[time] class DurationBuilder(val underlying: Period) extends Super {
     dt.plus(underlying)
   def before(dt: DateTime): DateTime =
     dt.minus(underlying)
-  
+
   def standardDuration: Duration =
-    underlying.toStandardDuration  
+    underlying.toStandardDuration
   def toDuration: Duration =
-    underlying.toStandardDuration  
+    underlying.toStandardDuration
   def toPeriod: Period =
     underlying
-    
+
   def -(period: ReadablePeriod): Period =
     underlying.minus(period)
   def +(period: ReadablePeriod): Period =
