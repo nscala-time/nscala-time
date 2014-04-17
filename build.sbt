@@ -8,11 +8,11 @@ profileName := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "0.9.0"
+version := "1.0.0"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.4", "2.11.0-RC4")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.4", "2.11.0")
 
 scalacOptions <++= scalaVersion map { v =>
   if (v.startsWith("2.9"))
@@ -38,14 +38,16 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.2"
 )
 
-libraryDependencies += {
-  if (scalaVersion.value.startsWith("2.1"))
-    "org.specs2" %% "specs2-junit" % "2.3.10" % "test"
+libraryDependencies ++= (
+  if (scalaVersion.value.startsWith("2.11"))
+    Seq()
+  else if (scalaVersion.value.startsWith("2.10"))
+    Seq("org.specs2" %% "specs2-junit" % "2.3.10" % "test")
   else if (scalaVersion.value == "2.9.3")
-    "org.specs2" %% "specs2" % "1.12.4.1" % "test"
+    Seq("org.specs2" %% "specs2" % "1.12.4.1" % "test")
   else
-    "org.specs2" %% "specs2" % "1.12.3" % "test"
-}
+    Seq("org.specs2" %% "specs2" % "1.12.3" % "test")
+)
 
 unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile){(v, dir) =>
   if(v.startsWith("2.9"))
