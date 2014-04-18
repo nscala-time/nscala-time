@@ -38,15 +38,13 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.2"
 )
 
-libraryDependencies ++= (
-  if (scalaVersion.value.startsWith("2.11"))
-    Seq()
-  else if (scalaVersion.value.startsWith("2.10"))
-    Seq("org.specs2" %% "specs2-junit" % "2.3.10" % "test")
+libraryDependencies += (
+  if (scalaVersion.value.startsWith("2.1"))
+    "org.specs2" %% "specs2-junit" % "2.3.11" % "test"
   else if (scalaVersion.value == "2.9.3")
-    Seq("org.specs2" %% "specs2" % "1.12.4.1" % "test")
+    "org.specs2" %% "specs2" % "1.12.4.1" % "test"
   else
-    Seq("org.specs2" %% "specs2" % "1.12.3" % "test")
+    "org.specs2" %% "specs2" % "1.12.3" % "test"
 )
 
 unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile){(v, dir) =>
