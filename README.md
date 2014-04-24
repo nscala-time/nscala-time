@@ -20,7 +20,8 @@ is replaing `1.0.0` with `x.y.z` in build.sbt simply.
 
 ### 1.0.0
 
-Binaries compiled with Scala 2.11.0 are included.
+* Binaries compiled with Scala 2.11.0 are included.
+* <https://github.com/nscala-time/nscala-time/pull/53>
 
 ### 0.8.0
 
