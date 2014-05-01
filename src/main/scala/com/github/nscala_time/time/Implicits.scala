@@ -54,8 +54,6 @@ trait DateImplicits {
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
   implicit val DateTimeOrdering = ReadableInstantOrdering[DateTime]
-  @deprecated("DateMidnightOrdering will be removed", "0.6.0")
-  implicit val DateMidnightOrdering = ReadableInstantOrdering[DateMidnight]
   implicit val LocalDateOrdering = ReadablePartialOrdering[LocalDate]
   implicit val LocalTimeOrdering = ReadablePartialOrdering[LocalTime]
   implicit val LocalDateTimeOrdering = ReadablePartialOrdering[LocalDateTime]
