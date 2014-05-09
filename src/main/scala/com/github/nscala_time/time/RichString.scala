@@ -20,10 +20,17 @@ import org.joda.time._
 
 class RichString(val s: String) extends Super {
   def toDateTime  = new DateTime(s)
+  def toInterval  = new Interval(s)
   def toLocalDate = new LocalDate(s)
 
   def toDateTimeOption = try {
     Some(toDateTime)
+  } catch {
+    case e: IllegalArgumentException => None
+  }
+
+  def toIntervalOption = try {
+    Some(toInterval)
   } catch {
     case e: IllegalArgumentException => None
   }
