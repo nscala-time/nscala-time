@@ -37,6 +37,8 @@ class RichDateTime(val underlying: DateTime) extends Super with PimpedType[DateT
 
   def +(builder: DurationBuilder): DateTime = underlying.plus(builder.underlying)
 
+  def millis: DateTime.Property = underlying.millisOfSecond()
+
   def second: DateTime.Property = underlying.secondOfMinute
 
   def minute: DateTime.Property = underlying.minuteOfHour
