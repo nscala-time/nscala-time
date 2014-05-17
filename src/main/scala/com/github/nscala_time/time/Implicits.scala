@@ -72,11 +72,8 @@ trait JodaImplicits {
   implicit def richAbstractDateTime(dt: AbstractDateTime): RichAbstractDateTime = new RichAbstractDateTime(dt)
   implicit def richAbstractInstant(in: AbstractInstant): RichAbstractInstant = new RichAbstractInstant(in)
   implicit def richAbstractPartial(pt: AbstractPartial): RichAbstractPartial = new RichAbstractPartial(pt)
-  implicit def richAbstractReadableInstantFieldProperty(pty: AbstractReadableInstantFieldProperty): RichAbstractReadableInstantFieldProperty =
-    new RichAbstractReadableInstantFieldProperty(pty)
+  implicit def richAbstractReadableInstantFieldProperty(pty: AbstractReadableInstantFieldProperty): RichAbstractReadableInstantFieldProperty = new RichAbstractReadableInstantFieldProperty(pty)
   implicit def richChronology(ch: Chronology): RichChronology = new RichChronology(ch)
-  @deprecated("richDateMidnight will be removed", "0.6.0")
-  implicit def richDateMidnight(dm: DateMidnight): RichDateMidnight = new RichDateMidnight(dm)
   implicit def richDateTime(dt: DateTime): RichDateTime = new RichDateTime(dt)
   implicit def richDateTimeFormatter(fmt: DateTimeFormatter): RichDateTimeFormatter = new RichDateTimeFormatter(fmt)
   implicit def richDateTimeProperty(pty: DateTime.Property): RichDateTimeProperty = new RichDateTimeProperty(pty)
