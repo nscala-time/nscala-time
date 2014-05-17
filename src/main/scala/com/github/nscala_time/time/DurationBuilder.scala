@@ -18,13 +18,13 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-private[time] object DurationBuilder {
+object DurationBuilder {
   def apply(underlying: Period): DurationBuilder =
     new DurationBuilder(underlying)
 }
 
 // Duration Builder
-private[time] class DurationBuilder(val underlying: Period) extends Super {
+class DurationBuilder(val underlying: Period) extends Super {
   // DurationBuilder + DurationBuilder = DurationBuilder
   // This is the only operation that can maintain a DurationBuilder
   // Everything else kicks us out to DateTime, Duration, or Period
