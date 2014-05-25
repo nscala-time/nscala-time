@@ -10,7 +10,7 @@ it seems that scala-time is no longer maintained.
 Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, Scala 2.10.x, and Scala 2.11.0!):
 
 ```scala
-libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.0.0"
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.2.0"
 ```
 
 Latest stable release is `1.2.0`. `1.0.0`, `0.8.0`, `0.6.0`, `0.4.2`, `0.4.0`, and `0.2.0` are also available.  What you need to do to use the previous versions
