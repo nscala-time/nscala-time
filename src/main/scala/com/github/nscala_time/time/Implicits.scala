@@ -22,6 +22,7 @@ import org.joda.time._
 import base.{BaseSingleFieldPeriod, AbstractDateTime, AbstractInstant, AbstractPartial}
 import org.joda.time.format.DateTimeFormatter
 import org.joda.time.field.AbstractReadableInstantFieldProperty
+import scala.concurrent.duration.{Duration => ScalaDuration, _}
 
 object Implicits extends Implicits
 object BuilderImplicits extends Implicits
@@ -95,4 +96,5 @@ trait JodaImplicits {
   implicit def richReadableInterval(in: ReadableInterval): RichReadableInterval = new RichReadableInterval(in)
   implicit def richReadablePartial(rp: ReadablePartial): RichReadablePartial = new RichReadablePartial(rp)
   implicit def richReadablePeriod(per: ReadablePeriod): RichReadablePeriod = new RichReadablePeriod(per)
+  implicit def jodaDuration2ScalaDuration(dur: Duration): ScalaDuration = dur.getStandardSeconds.seconds
 }
