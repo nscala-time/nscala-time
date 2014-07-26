@@ -12,7 +12,7 @@ version := "1.3.0-SNAPSHOT"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.4", "2.11.1")
+crossScalaVersions := Seq("2.9.1", "2.9.2", "2.9.3", "2.10.4", "2.11.2")
 
 scalacOptions <++= scalaVersion map { v =>
   if (v.startsWith("2.9"))
