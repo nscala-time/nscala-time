@@ -34,7 +34,7 @@ testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
 
 libraryDependencies ++= Seq(
   "junit" % "junit" % "4.7" % "test",
-  "joda-time" % "joda-time" % "2.3",
+  "joda-time" % "joda-time" % "2.4",
   "org.joda" % "joda-convert" % "1.2"
 )
 
