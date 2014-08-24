@@ -8,7 +8,7 @@ profileName := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "1.3.0-SNAPSHOT"
+version := "1.4.0"
 
 publishMavenStyle := true
 
