@@ -22,6 +22,7 @@ import org.joda.time._
 import base.{BaseSingleFieldPeriod, AbstractDateTime, AbstractInstant, AbstractPartial}
 import org.joda.time.format.DateTimeFormatter
 import org.joda.time.field.AbstractReadableInstantFieldProperty
+import scala.concurrent.duration.{ Duration => SDuration }
 
 object Implicits extends Implicits
 object BuilderImplicits extends Implicits
@@ -30,7 +31,7 @@ object StringImplicits extends StringImplicits
 object OrderingImplicits extends OrderingImplicits
 object JodaImplicits extends JodaImplicits
 
-trait Implicits extends BuilderImplicits with IntImplicits with StringImplicits with DateImplicits with OrderingImplicits with JodaImplicits
+trait Implicits extends BuilderImplicits with IntImplicits with StringImplicits with ConversionImplicits with OrderingImplicits with JodaImplicits
 
 trait BuilderImplicits {
   implicit def forcePeriod(builder: DurationBuilder): Period =
@@ -48,8 +49,9 @@ trait StringImplicits {
   implicit def richString(s: String): RichString = new com.github.nscala_time.time.RichString(s)
 }
 
-trait DateImplicits {
+trait ConversionImplicits {
   implicit def richDate(d: Date): RichDate = new com.github.nscala_time.time.RichDate(d)
+  implicit def richSDuration(d: SDuration): RichSDuration = new com.github.nscala_time.time.RichSDuration(d)
 }
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
