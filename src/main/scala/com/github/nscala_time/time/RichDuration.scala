@@ -18,6 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 import com.github.nscala_time.PimpedType
+import scala.concurrent.duration.{ Duration => SDuration, MILLISECONDS }
 
 class RichDuration(val underlying: Duration) extends Super with PimpedType[Duration] {
 
@@ -30,5 +31,7 @@ class RichDuration(val underlying: Duration) extends Super with PimpedType[Durat
   def +(amount: Long): Duration = underlying.plus(amount)
 
   def +(amount: ReadableDuration): Duration = underlying.plus(amount)
+
+  def toScalaDuration: SDuration = SDuration(underlying.getMillis, MILLISECONDS)
 
 }
