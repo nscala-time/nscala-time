@@ -50,6 +50,17 @@ libraryDependencies += (
     "org.specs2" %% "specs2" % "1.12.3" % "test"
 )
 
+pomPostProcess := { node =>
+  import scala.xml._
+  import scala.xml.transform._
+  def stripIf(f: Node => Boolean) = new RewriteRule {
+    override def transform(n: Node) =
+      if (f(n)) NodeSeq.Empty else n
+  }
+  val stripTestScope = stripIf { n => n.label == "dependency" && (n \ "scope").text == "test" }
+  new RuleTransformer(stripTestScope).transform(node)(0)
+}
+
 unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile){(v, dir) =>
   if(v.startsWith("2.9"))
     dir / "scala29"
