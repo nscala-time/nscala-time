@@ -21,14 +21,16 @@ scalacOptions <++= scalaVersion map { v =>
     Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions")
 }
 
-val scaladocBranch = settingKey[String]("branch name for scaladoc -doc-source-url")
+def gitHashOrBranch: String = scala.util.Try(
+  sys.process.Process("git rev-parse HEAD").lines_!.head
+).getOrElse("master")
 
-scaladocBranch := "master"
-
-scalacOptions in (Compile, doc) ++= { Seq(
-  "-sourcepath", baseDirectory.value.getAbsolutePath,
-  "-doc-source-url", s"https://github.com/nscala-time/nscala-time/tree/${scaladocBranch.value}€{FILE_PATH}.scala"
-)}
+scalacOptions in (Compile, doc) ++= {
+  Seq(
+    "-sourcepath", baseDirectory.value.getAbsolutePath,
+    "-doc-source-url", s"https://github.com/nscala-time/nscala-time/tree/${gitHashOrBranch}€{FILE_PATH}.scala"
+  )
+}
 
 testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
 
