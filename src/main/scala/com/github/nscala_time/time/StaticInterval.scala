@@ -17,10 +17,13 @@
 package com.github.nscala_time.time
 
 import com.github.nscala_time.time.Implicits._
+import org.joda.time.Interval
 
 object StaticInterval extends StaticInterval
 
 trait StaticInterval {
+  def parse(str: String) = Interval.parse(str)
+
   def thisSecond = StaticDateTime.now.second.interval
   def thisMinute = StaticDateTime.now.minute.interval
   def thisHour   = StaticDateTime.now.hour.interval

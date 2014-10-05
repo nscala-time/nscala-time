@@ -20,6 +20,7 @@ package com.github.nscala_time.time
 import java.util.{Calendar, Date}
 import org.joda.time._
 import com.github.nscala_time.time.Implicits._
+import org.joda.time.format.DateTimeFormatter
 
 object StaticLocalTime extends StaticLocalTime
 
@@ -39,6 +40,10 @@ trait StaticLocalTime {
     LocalTime.fromMillisOfDay(millis, chrono)
 
   def now        = new LocalTime
+  def now(zone: DateTimeZone) = LocalTime.now(zone)
+  def now(chronology: Chronology) = LocalTime.now(chronology)
+  def parse(str: String) = LocalTime.parse(str)
+  def parse(str: String, formatter: DateTimeFormatter) = LocalTime.parse(str, formatter)
 
   def nextSecond = now + 1.second
   def nextMinute = now + 1.minute

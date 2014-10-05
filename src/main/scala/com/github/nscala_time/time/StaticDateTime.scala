@@ -18,6 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 import com.github.nscala_time.time.Implicits._
+import org.joda.time.format.DateTimeFormatter
 
 object StaticDateTime extends StaticDateTime
 
@@ -25,6 +26,10 @@ trait StaticDateTime {
   type Property = DateTime.Property
 
   def now        = new DateTime
+  def now(zone: DateTimeZone) = DateTime.now(zone)
+  def now(chronology: Chronology) = DateTime.now(chronology)
+  def parse(str: String) = DateTime.parse(str)
+  def parse(str: String, formatter: DateTimeFormatter) = DateTime.parse(str, formatter)
 
   def nextSecond = now + 1.second
   def nextMinute = now + 1.minute
