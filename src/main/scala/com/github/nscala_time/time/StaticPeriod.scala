@@ -17,10 +17,14 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
+import org.joda.time.format.PeriodFormatter
 
 object StaticPeriod extends StaticPeriod
 
 trait StaticPeriod {
+  def parse(str: String) = Period.parse(str)
+  def parse(str: String, formatter: PeriodFormatter) = Period.parse(str, formatter)
+
   def days(days: Int) = Period.days(days)
   def fieldDifference(start: ReadablePartial, end: ReadablePartial) =
     Period.fieldDifference(start, end)
