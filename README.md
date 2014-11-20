@@ -22,7 +22,10 @@ is replaing `1.6.0` with `x.y.z` in build.sbt simply.
 ## Release Note
 
 ### 1.6.0
-* TBD
+* [joda-time 2.5](https://github.com/nscala-time/nscala-time/commit/944f048065a5fd0)
+* drop Scala 2.9.1 and 2.9.2 support
+* [conversion to and from scala std duration](https://github.com/nscala-time/nscala-time/pull/72)
+* [Added static method wrappers](https://github.com/nscala-time/nscala-time/pull/74)
 
 ### 1.4.0
 * joda-time 2.4 support
