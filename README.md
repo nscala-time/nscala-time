@@ -16,10 +16,13 @@ Add the following to your sbt build (for Scala 2.9.1, Scala 2.9.2, Scala 2.9.3, 
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.4.0"
 ```
 
-Latest stable release is `1.4.0`. `1.2.0`, `1.0.0`, `0.8.0`, `0.6.0`, `0.4.2`, `0.4.0`, and `0.2.0` are also available.  What you need to do to use the previous versions
+Latest stable release is `1.6.0`. `1.4.0`, `1.2.0`, `1.0.0`, `0.8.0`, `0.6.0`, `0.4.2`, `0.4.0`, and `0.2.0` are also available.  What you need to do to use the previous versions
 is replaing `1.4.0` with `x.y.z` in build.sbt simply.
 
 ## Release Note
+
+### 1.6.0
+* TBD
 
 ### 1.4.0
 * joda-time 2.4 support
