@@ -85,6 +85,7 @@ trait JodaImplicits {
   implicit def richDateTimeZone(zone: DateTimeZone): RichDateTimeZone = new RichDateTimeZone(zone)
   implicit def richDuration(dur: Duration): RichDuration = new RichDuration(dur)
   implicit def richInstant(in: Instant): RichInstant = new RichInstant(in)
+  implicit def richInterval(in: Interval): RichInterval = new RichInterval(in)
   implicit def richLocalDate(ld: LocalDate): RichLocalDate = new RichLocalDate(ld)
   implicit def richLocalDateProperty(pty: LocalDate.Property): RichLocalDateProperty = new RichLocalDateProperty(pty)
   implicit def richLocalDateTime(dt: LocalDateTime): RichLocalDateTime = new RichLocalDateTime(dt)
