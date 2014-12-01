@@ -18,7 +18,7 @@ scalacOptions <++= scalaVersion map { v =>
   if (v.startsWith("2.9"))
     Seq("-unchecked", "-deprecation")
   else
-    Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions")
+    Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds")
 }
 
 def gitHashOrBranch: String = scala.util.Try(
