@@ -22,6 +22,14 @@ import scala.concurrent.duration.{ Duration => SDuration, MILLISECONDS }
 
 class RichDuration(val underlying: Duration) extends Super with PimpedType[Duration] {
 
+  def days: Long = underlying.getStandardDays
+
+  def hours: Long = underlying.getStandardHours
+
+  def millis: Long = underlying.getMillis
+
+  def minutes: Long = underlying.getStandardMinutes
+
   def seconds: Long = underlying.getStandardSeconds
 
   def -(amount: Long): Duration = underlying.minus(amount)
