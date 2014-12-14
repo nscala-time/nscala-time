@@ -32,6 +32,8 @@ class RichDuration(val underlying: Duration) extends Super with PimpedType[Durat
 
   def seconds: Long = underlying.getStandardSeconds
 
+  def unary_- : Duration = underlying.negated
+
   def -(amount: Long): Duration = underlying.minus(amount)
 
   def -(amount: ReadableDuration): Duration = underlying.minus(amount)
@@ -39,6 +41,10 @@ class RichDuration(val underlying: Duration) extends Super with PimpedType[Durat
   def +(amount: Long): Duration = underlying.plus(amount)
 
   def +(amount: ReadableDuration): Duration = underlying.plus(amount)
+
+  def /(divisor: Long): Duration = underlying.dividedBy(divisor)
+
+  def *(multiplicand: Long): Duration = underlying.multipliedBy(multiplicand)
 
   def toScalaDuration: SDuration = SDuration(underlying.getMillis, MILLISECONDS)
 
