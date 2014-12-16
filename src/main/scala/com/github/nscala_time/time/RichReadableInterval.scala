@@ -26,7 +26,11 @@ class RichReadableInterval(val underlying: ReadableInterval) extends Super
 
   def end: DateTime = underlying.getEnd
 
+  def endMillis: Long = underlying.getEndMillis
+
   def start: DateTime = underlying.getStart
+
+  def startMillis: Long = underlying.getStartMillis
 
   def duration: Duration = underlying.toDuration
 

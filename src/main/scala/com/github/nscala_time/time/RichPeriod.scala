@@ -37,9 +37,13 @@ class RichPeriod(val underlying: Period) extends Super with PimpedType[Period] {
 
   def years: Int = underlying.getYears
 
+  def unary_- : Period = underlying.negated
+
   def -(period: ReadablePeriod): Period = underlying.minus(period)
 
   def +(period: ReadablePeriod): Period = underlying.plus(period)
+
+  def *(scalar: Int): Period = underlying.multipliedBy(scalar)
 
   def ago: DateTime = StaticDateTime.now.minus(underlying)
 

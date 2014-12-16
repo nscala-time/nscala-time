@@ -51,4 +51,7 @@ class RichInt(val underlying: Int) extends Super with PimpedType[Int] {
   def week  = Period.weeks(underlying)
   def month = Period.months(underlying)
   def year  = Period.years(underlying)
+
+  def *(period: Period) = period.multipliedBy(underlying)
+
 }

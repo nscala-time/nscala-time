@@ -25,4 +25,10 @@ class RichLong(val underlying: Long) extends Super with PimpedType[Long] {
 
   def toDuration = new Duration(underlying)
 
+  def -(duration: Duration): Duration = toDuration.minus(duration)
+
+  def +(duration: Duration): Duration = duration.plus(underlying)
+
+  def *(duration: Duration): Duration = duration.multipliedBy(underlying)
+
 }
