@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/nscala-time/nscala-time.png)](https://travis-ci.org/nscala-time/nscala-time)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.11)
 [![Scaladoc](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.11.svg?label=scaladoc)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.11)
-
+[![Reference Status](https://www.versioneye.com/java/com.github.nscala-time:nscala-time_2.11/reference_badge.svg?style=flat)](https://www.versioneye.com/java/com.github.nscala-time:nscala-time_2.11/references)
 
 A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since
 it seems that scala-time is no longer maintained.
