@@ -16,9 +16,14 @@ Add the following to your sbt build (Scala 2.9.3, Scala 2.10.x, and Scala 2.11.x
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.6.0"
 ```
 
-Latest stable release is `1.6.0`. `1.4.0`, `1.2.0`, `1.0.0`, `0.8.0`, `0.6.0`, `0.4.2`, `0.4.0`, and `0.2.0` are also available.  To use a previous version, replace `1.6.0` with `x.y.z` in build.sbt.
+if you want to use previous versions, [you can find it from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.nscala-time%22)
 
 ## Release Note
+
+### 1.8.0
+* [Add method to convert an interval into a collection](https://github.com/nscala-time/nscala-time/pull/79)
+* [joda-time 2.7](https://github.com/nscala-time/nscala-time/commit/83fe9f09456d2fa2bf11790f58d17fe1a187a808)
+* [Add arithmetic and others methods to Duration, Interval, and Period](https://github.com/nscala-time/nscala-time/pull/80)
 
 ### 1.6.0
 * [joda-time 2.5](https://github.com/nscala-time/nscala-time/commit/944f048065a5fd0)

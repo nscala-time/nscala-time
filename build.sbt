@@ -8,8 +8,6 @@ profileName := "com.github.nscala-time"
 
 name := "nscala-time"
 
-version := "1.7.0-SNAPSHOT"
-
 publishMavenStyle := true
 
 crossScalaVersions := Seq("2.9.3", "2.10.4", "2.11.5")
