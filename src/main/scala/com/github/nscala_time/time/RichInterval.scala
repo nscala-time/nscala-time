@@ -28,7 +28,7 @@ class RichInterval(val underlying: Interval) extends Super with PimpedType[Inter
 
     var x = underlying.getStart
 
-    while (x < underlying.getEnd) {
+    while (x <= underlying.getEnd) {
       builder += x
       x += period
     }
