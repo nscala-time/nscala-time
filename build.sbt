@@ -10,7 +10,7 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.3", "2.10.4", "2.11.5")
+crossScalaVersions := Seq("2.9.3", "2.10.4", "2.11.6")
 
 scalacOptions <++= scalaVersion map { v =>
   if (v.startsWith("2.9"))
