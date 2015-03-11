@@ -4,8 +4,8 @@ scala:
   - "2.10.5"
   - "2.9.3"
 jdk:
+  - oraclejdk8
   - oraclejdk7
-  - openjdk7
   - openjdk6
 sudo: false
 cache:
@@ -16,3 +16,7 @@ script:
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
   - find $HOME/.ivy2/cache -name "*SNAPSHOT*" | xargs rm -rf
   - if [[ ${JAVA_HOME} == $(jdk_switcher home oraclejdk7) ]]; then rm -rf $HOME/.ivy2/cache ; fi
+matrix:
+  exclude:
+    - scala: "2.9.3"
+      jdk: oraclejdk8
