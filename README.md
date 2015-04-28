@@ -20,6 +20,9 @@ if you want to use previous versions, [you can find it from here](http://search.
 
 ## Release Note
 
+### 2.0.0
+* [Now interval by period contains interval end if possible](https://github.com/nscala-time/nscala-time/issues/83)
+
 ### 1.8.0
 * [Add method to convert an interval into a collection](https://github.com/nscala-time/nscala-time/pull/79)
 * [joda-time 2.7](https://github.com/nscala-time/nscala-time/commit/83fe9f09456d2fa2bf11790f58d17fe1a187a808)
