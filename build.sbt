@@ -4,7 +4,7 @@ sonatypeSettings
 
 organization := "com.github.nscala-time"
 
-profileName := "com.github.nscala-time"
+sonatypeProfileName := "com.github.nscala-time"
 
 name := "nscala-time"
 
