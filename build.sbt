@@ -1,7 +1,5 @@
 import SonatypeKeys._
 
-sonatypeSettings
-
 organization := "com.github.nscala-time"
 
 sonatypeProfileName := "com.github.nscala-time"
