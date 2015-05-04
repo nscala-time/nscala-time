@@ -51,10 +51,7 @@ ReleasePlugin.ReleaseKeys.releaseProcess := Seq[ReleaseStep](
   setNextVersion,
   commitNextVersion,
   updateReadmeProcess,
-  ReleaseStep{ state =>
-    val extracted = Project extract state
-    extracted.runAggregated(SonatypeKeys.sonatypeReleaseAll in Global in extracted.get(thisProjectRef), state)
-  },
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
   pushChanges
 )
 
