@@ -1,4 +1,3 @@
-import SonatypeKeys._
 
 organization := "com.github.nscala-time"
 
@@ -89,14 +88,6 @@ pomExtra := (
     </developer>
   </developers>
 )
-
-publishTo <<= version { v =>
-  val nexus = "https://oss.sonatype.org/"
-  if (v.endsWith("-SNAPSHOT"))
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
 
 credentials ++= {
   val sonatype = ("Sonatype Nexus Repository Manager", "oss.sonatype.org")
