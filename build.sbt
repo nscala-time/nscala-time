@@ -9,12 +9,22 @@ publishMavenStyle := true
 
 crossScalaVersions := Seq("2.9.3", "2.10.5", "2.11.6")
 
+val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
+
 scalacOptions <++= scalaVersion map { v =>
   if (v.startsWith("2.9"))
     Seq("-unchecked", "-deprecation")
   else
     Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds")
 }
+
+scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
+  case Some((2, scalaMajor)) if scalaMajor >= 11 => unusedWarnings
+}.toList.flatten
+
+Seq(Compile, Test).flatMap(c =>
+  scalacOptions in (c, console) ~= {_.filterNot(unusedWarnings.toSet)}
+)
 
 def gitHashOrBranch: String = scala.util.Try(
   sys.process.Process("git rev-parse HEAD").lines_!.head
