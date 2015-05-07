@@ -7,7 +7,7 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.3", "2.10.5", "2.11.6")
+crossScalaVersions := Seq("2.9.3", "2.10.5", "2.11.6", "2.12.0-M1")
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
@@ -37,22 +37,10 @@ scalacOptions in (Compile, doc) ++= {
   )
 }
 
-testOptions += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
-
 libraryDependencies ++= Seq(
-  "junit" % "junit" % "4.7" % "test",
   "org.scalacheck" %% "scalacheck" % "1.11.6" % "test",
   "joda-time" % "joda-time" % "2.7",
   "org.joda" % "joda-convert" % "1.2"
-)
-
-libraryDependencies += (
-  if (scalaVersion.value.startsWith("2.1"))
-    "org.specs2" %% "specs2-junit" % "2.3.11" % "test"
-  else if (scalaVersion.value == "2.9.3")
-    "org.specs2" %% "specs2" % "1.12.4.1" % "test"
-  else
-    "org.specs2" %% "specs2" % "1.12.3" % "test"
 )
 
 pomPostProcess := { node =>
