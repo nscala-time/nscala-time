@@ -1,39 +1,32 @@
 package com.github.nscala_time.time
 
-import org.specs2._
+import com.github.nscala_time.time.Imports._
+import org.scalacheck.{Prop, Properties}
 
-class RichStringSpec extends Specification with TypeImports with StringImplicits { def is =
+object RichStringSpec extends Properties("RichString"){
 
-  // -----------------------------------------------------------------------------------------------
-  // fragments
-  // -----------------------------------------------------------------------------------------------
+  property("String to DateTime") = Prop.secure {
+    "2012-08-08".toDateTime == new DateTime("2012-08-08")
+  }
 
-  "String to DateTime"                                                                             ^
-    """"2012-08-08" should parse"""                                             ! a1               ^
-                                                                                                  p^
-  "String to Option[DateTime]"                                                                     ^
-    """"2012-08-08" should yield Some[DateTime]"""                              ! b1               ^
-    """"" should yield None"""                                                  ! b2               ^
-                                                                                                  p^
-  "String to LocalDate"                                                                            ^
-    """"2012-08-08" should parse"""                                             ! c1               ^
-                                                                                                  p^
-  "String to Option[LocalDate]"                                                                    ^
-    """"2012-08-08" should yield Some[LocalDate]"""                             ! d1               ^
-    """"" should yield None"""                                                  ! d2               ^
-                                                                                                 end
-  // -----------------------------------------------------------------------------------------------
-  // tests
-  // -----------------------------------------------------------------------------------------------
+  property(""" "2012-08-08" should yield Some[DateTime] """) = Prop.secure {
+    "2012-08-08".toDateTimeOption == Some(new DateTime("2012-08-08"))
+  }
 
-  def a1 = "2012-08-08".toDateTime === new DateTime("2012-08-08")
+  property(""" "" yield None """) = Prop.secure {
+    "".toDateTimeOption == None
+  }
 
-  def b1 = "2012-08-08".toDateTimeOption must beSome(new DateTime("2012-08-08"))
-  def b2 = "".toDateTimeOption must beNone
+  property(""" "2012-08-08" should parse""") = Prop.secure {
+    "2012-08-08".toLocalDate == new LocalDate("2012-08-08")
+  }
 
-  def c1 = "2012-08-08".toLocalDate === new LocalDate("2012-08-08")
+  property(""" "2012-08-08" should yield Some[LocalDate] """) = Prop.secure {
+    "2012-08-08".toLocalDateOption == Some(new LocalDate("2012-08-08"))
+  }
 
-  def d1 = "2012-08-08".toLocalDateOption must beSome(new LocalDate("2012-08-08"))
-  def d2 = "".toLocalDateOption must beNone
+  property(""" "" should yield None """) = Prop.secure {
+    "".toLocalDateOption == None
+  }
 
 }
