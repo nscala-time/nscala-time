@@ -1,11 +1,9 @@
 import sbtrelease._
 import ReleaseStateTransformations._
 
-releaseSettings
-
 val sonatypeURL = "https://oss.sonatype.org/service/local/repositories/"
 
-val updateReadme = { state: State =>
+val updateReadme: State => State = { state =>
   val extracted = Project.extract(state)
   val scalaV = extracted get scalaBinaryVersion
   val v = extracted get version
@@ -32,7 +30,7 @@ commands += Command.command("updateReadme")(updateReadme)
 
 val updateReadmeProcess: ReleaseStep = updateReadme
 
-ReleasePlugin.ReleaseKeys.releaseProcess := Seq[ReleaseStep](
+releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
   runClean,
@@ -55,8 +53,8 @@ ReleasePlugin.ReleaseKeys.releaseProcess := Seq[ReleaseStep](
   pushChanges
 )
 
-ReleaseKeys.crossBuild := true
+releaseCrossBuild := true
 
-ReleaseKeys.tagName := {
+releaseTagName := {
   "releases/" + (version in ThisBuild).value
 }
