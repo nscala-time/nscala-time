@@ -38,10 +38,18 @@ scalacOptions in (Compile, doc) ++= {
 }
 
 libraryDependencies ++= Seq(
-  "org.scalacheck" %% "scalacheck" % "1.11.6" % "test",
   "joda-time" % "joda-time" % "2.8.1",
   "org.joda" % "joda-convert" % "1.2"
 )
+
+libraryDependencies += {
+  // scalacheck 1.11.6 is broken
+  val v = CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((_, n)) if n >= 10 => "1.12.4"
+    case _ => "1.11.5"
+  }
+  "org.scalacheck" %% "scalacheck" % v % "test"
+}
 
 pomPostProcess := { node =>
   import scala.xml._
