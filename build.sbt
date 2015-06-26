@@ -7,7 +7,7 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
-crossScalaVersions := Seq("2.9.3", "2.10.5", "2.11.6", "2.12.0-M1")
+crossScalaVersions := Seq("2.9.3", "2.10.5", "2.11.7", "2.12.0-M1")
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
