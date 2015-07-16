@@ -21,5 +21,5 @@ matrix:
     - scala: "2.9.3"
       jdk: oraclejdk8
   include:
-    - scala: "2.12.0-M1"
+    - scala: "2.12.0-M2"
       jdk: oraclejdk8
