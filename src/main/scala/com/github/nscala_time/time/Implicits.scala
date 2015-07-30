@@ -25,7 +25,7 @@ import org.joda.time.field.AbstractReadableInstantFieldProperty
 import scala.concurrent.duration.{ Duration => SDuration }
 
 object Implicits extends Implicits
-object BuilderImplicits extends Implicits
+object BuilderImplicits extends BuilderImplicits
 object IntImplicits extends IntImplicits
 object StringImplicits extends StringImplicits
 object OrderingImplicits extends OrderingImplicits
