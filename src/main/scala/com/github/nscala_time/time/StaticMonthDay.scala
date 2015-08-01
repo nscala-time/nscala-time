@@ -27,7 +27,7 @@ trait StaticMonthDay {
 
   def fromCalendarFields(calendar: Calendar) = MonthDay.fromCalendarFields(calendar)
   def fromDateFields(date: Date) = MonthDay.fromDateFields(date)
-  def now = MonthDay.now()
+  def now() = MonthDay.now()
   def now(chronology: Chronology) = MonthDay.now(chronology)
   def now(zone: DateTimeZone) = MonthDay.now(zone)
   def parse(str: String) = MonthDay.parse(str)

@@ -33,9 +33,9 @@ class DurationBuilder(val underlying: Period) extends Super {
   def -(that: DurationBuilder): DurationBuilder =
     DurationBuilder(this.underlying.minus(that.underlying))
 
-  def ago: DateTime =
+  def ago(): DateTime =
     StaticDateTime.now.minus(underlying)
-  def later: DateTime =
+  def later(): DateTime =
     StaticDateTime.now.plus(underlying)
   def from(dt: DateTime): DateTime =
     dt.plus(underlying)

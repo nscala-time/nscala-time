@@ -27,7 +27,7 @@ trait StaticYearMonth {
 
   def fromCalendarFields(calendar: Calendar) = YearMonth.fromCalendarFields(calendar)
   def fromDateFields(date: Date) = YearMonth.fromDateFields(date)
-  def now = YearMonth.now()
+  def now() = YearMonth.now()
   def now(chronology: Chronology) = YearMonth.now(chronology)
   def now(zone: DateTimeZone) = YearMonth.now(zone)
   def parse(str: String) = YearMonth.parse(str)
