@@ -32,22 +32,22 @@ trait StaticLocalDate {
   def fromDateFields(date: Date) =
     LocalDate.fromDateFields(date)
   
-  def now        = new LocalDate
+  def now()        = new LocalDate
   def now(zone: DateTimeZone) = LocalDate.now(zone)
   def now(chronology: Chronology) = LocalDate.now(chronology)
-  def today      = new LocalDate
+  def today()      = new LocalDate
   def parse(str: String) = LocalDate.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = LocalDate.parse(str, formatter)
 
-  def nextDay    = now + 1.day
-  def tomorrow   = now + 1.day
-  def nextWeek   = now + 1.week
-  def nextMonth  = now + 1.month
-  def nextYear   = now + 1.year
+  def nextDay()    = now + 1.day
+  def tomorrow()   = now + 1.day
+  def nextWeek()   = now + 1.week
+  def nextMonth()  = now + 1.month
+  def nextYear()   = now + 1.year
 
-  def lastDay    = now - 1.day
-  def yesterday  = now - 1.day
-  def lastWeek   = now - 1.week
-  def lastMonth  = now - 1.month
-  def lastYear   = now - 1.year
+  def lastDay()    = now - 1.day
+  def yesterday()  = now - 1.day
+  def lastWeek()   = now - 1.week
+  def lastMonth()  = now - 1.month
+  def lastYear()   = now - 1.year
 }

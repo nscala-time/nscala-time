@@ -39,17 +39,17 @@ trait StaticLocalTime {
   def fromMillisOfDay(millis: Long, chrono: Chronology) =
     LocalTime.fromMillisOfDay(millis, chrono)
 
-  def now        = new LocalTime
+  def now()        = new LocalTime
   def now(zone: DateTimeZone) = LocalTime.now(zone)
   def now(chronology: Chronology) = LocalTime.now(chronology)
   def parse(str: String) = LocalTime.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = LocalTime.parse(str, formatter)
 
-  def nextSecond = now + 1.second
-  def nextMinute = now + 1.minute
-  def nextHour   = now + 1.hour
+  def nextSecond() = now + 1.second
+  def nextMinute() = now + 1.minute
+  def nextHour()   = now + 1.hour
 
-  def lastSecond = now - 1.second
-  def lastMinute = now - 1.minute
-  def lastHour   = now - 1.hour
+  def lastSecond() = now - 1.second
+  def lastMinute() = now - 1.minute
+  def lastHour()   = now - 1.hour
 }
