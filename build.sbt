@@ -7,6 +7,10 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
+val Scala210 = "2.10.6"
+
+scalaVersion := Scala210
+
 // Scala 2.9.x does not support Java8
 // Scala 2.12.x require Java8 or newer
 //
@@ -15,7 +19,7 @@ publishMavenStyle := true
 // 3. checkout release tag
 // 4. set Java8
 // 5. sbt "++ 2.12.x" publishSigned
-crossScalaVersions := Seq("2.9.3", "2.10.6", "2.11.7") // "2.12.0-M2"
+crossScalaVersions := Seq("2.9.3", Scala210, "2.11.7") // "2.12.0-M2"
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
