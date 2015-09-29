@@ -15,7 +15,7 @@ publishMavenStyle := true
 // 3. checkout release tag
 // 4. set Java8
 // 5. sbt "++ 2.12.x" publishSigned
-crossScalaVersions := Seq("2.9.3", "2.10.5", "2.11.7") // "2.12.0-M2"
+crossScalaVersions := Seq("2.9.3", "2.10.6", "2.11.7") // "2.12.0-M2"
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
