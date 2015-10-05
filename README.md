@@ -22,7 +22,7 @@ if you want to use previous versions, [you can find it from here](http://search.
 
 ### 2.2.0
 * [joda-time 2.8.2](https://github.com/nscala-time/nscala-time/commit/b6db535005c25931f31ef637e98f1e19c0f02891)
-* [Add parentheses to mathods which are not purely-functional](https://github.com/nscala-time/nscala-time/pull/93)
+* [Add parentheses to methods which are not purely-functional](https://github.com/nscala-time/nscala-time/pull/93)
 * [`object BuilderImplicits` should not extends `trait Implicits`](https://github.com/nscala-time/nscala-time/pull/92)
 
 ### 2.0.0
