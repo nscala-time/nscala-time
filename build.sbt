@@ -19,7 +19,7 @@ scalaVersion := Scala210
 // 3. checkout release tag
 // 4. set Java8
 // 5. sbt "++ 2.12.x" publishSigned
-crossScalaVersions := Seq("2.9.3", Scala210, "2.11.7") // "2.12.0-M2"
+crossScalaVersions := Seq("2.9.3", Scala210, "2.11.7") // "2.12.0-M3"
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
@@ -55,10 +55,9 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += {
-  // scalacheck 1.11.6 is broken
   val v = CrossVersion.partialVersion(scalaVersion.value) match {
-    case Some((_, n)) if n >= 10 => "1.12.4"
-    case _ => "1.11.5"
+    case Some((_, n)) if n <= 11 && n >= 10 => "1.12.5"
+    case _ => "1.11.6"
   }
   "org.scalacheck" %% "scalacheck" % v % "test"
 }
