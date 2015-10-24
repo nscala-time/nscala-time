@@ -58,18 +58,18 @@ trait ScalaDurationImplicits {
 }
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
-  implicit val DateTimeOrdering = ReadableInstantOrdering[DateTime]
-  implicit val LocalDateOrdering = ReadablePartialOrdering[LocalDate]
-  implicit val LocalTimeOrdering = ReadablePartialOrdering[LocalTime]
-  implicit val LocalDateTimeOrdering = ReadablePartialOrdering[LocalDateTime]
-  implicit val DurationOrdering = ReadableDurationOrdering[Duration]
+  implicit val DateTimeOrdering: Ordering[DateTime] = ReadableInstantOrdering[DateTime]
+  implicit val LocalDateOrdering: Ordering[LocalDate] = ReadablePartialOrdering[LocalDate]
+  implicit val LocalTimeOrdering: Ordering[LocalTime] = ReadablePartialOrdering[LocalTime]
+  implicit val LocalDateTimeOrdering: Ordering[LocalDateTime] = ReadablePartialOrdering[LocalDateTime]
+  implicit val DurationOrdering: Ordering[Duration] = ReadableDurationOrdering[Duration]
 }
 
 trait LowPriorityOrderingImplicits {
-  implicit def ReadableInstantOrdering[A <: ReadableInstant] = order[A, ReadableInstant]
-  implicit def ReadablePartialOrdering[A <: ReadablePartial] = order[A, ReadablePartial]
-  implicit def BaseSingleFieldPeriodOrdering[A <: BaseSingleFieldPeriod] = order[A, BaseSingleFieldPeriod]
-  implicit def ReadableDurationOrdering[A <: ReadableDuration] = order[A, ReadableDuration]
+  implicit def ReadableInstantOrdering[A <: ReadableInstant]: Ordering[A] = order[A, ReadableInstant]
+  implicit def ReadablePartialOrdering[A <: ReadablePartial]: Ordering[A] = order[A, ReadablePartial]
+  implicit def BaseSingleFieldPeriodOrdering[A <: BaseSingleFieldPeriod]: Ordering[A] = order[A, BaseSingleFieldPeriod]
+  implicit def ReadableDurationOrdering[A <: ReadableDuration]: Ordering[A] = order[A, ReadableDuration]
   private def order[A, B <: Comparable[B]](implicit ev: A <:< B): Ordering[A] = Ordering.by[A, B](ev)
 }
 
