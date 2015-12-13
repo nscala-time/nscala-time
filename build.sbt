@@ -7,6 +7,9 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
+// https://github.com/sbt/sbt/issues/2217
+fullResolvers ~= {_.filterNot(_.name == "jcenter")}
+
 val Scala210 = "2.10.6"
 
 scalaVersion := Scala210
