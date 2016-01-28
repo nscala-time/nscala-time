@@ -20,6 +20,8 @@ if you want to use previous versions, [you can find it from here](http://search.
 
 ## Release Note
 
+### 2.8.0
+* [joda-time 2.9.2](https://github.com/nscala-time/nscala-time/commit/73a57beea4533311)
 
 ### 2.6.0
 * [joda-time 2.9.1](https://github.com/nscala-time/nscala-time/commit/19b1cf4818c25b78fdff8d0)
