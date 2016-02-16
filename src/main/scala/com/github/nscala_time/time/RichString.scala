@@ -20,14 +20,21 @@ import org.joda.time._
 
 import org.joda.time.format.DateTimeFormat
 
-import scalaz._, Scalaz._
-
 class RichString(val s: String) extends Super {
-  def toDateTime(format: Option[String] = None)
-    = format.cata(x => dateTimeFormat(x), new DateTime(s))
+
+  def toDateTime(format: Option[String] = None) =
+    format match {
+      case Some(fmt) => dateTimeFormat(x)
+      case None      => new DateTime(s)
+    }
+
   def toInterval = new Interval(s)
-  def toLocalDate(format: Option[String] = None)
-    = format.cata(x => localDateTimeFormat(x), new LocalDate(s))
+
+  def toLocalDate(format: Option[String] = None) =
+    format match {
+      case Some(fmt) => locatDateTimeFormat(x)
+      case None      => new LocalDate(s)
+    }
 
   def toDateTimeOption(format: Option[String] = None) = try {
     Some(toDateTime(format))
