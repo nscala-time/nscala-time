@@ -48,5 +48,5 @@ class RichString(val s: String) extends Super {
   }
 
   def dateTimeFormat(format: String)      = DateTimeFormat.forPattern(format).parseDateTime(s)
-  def localDateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseDateTime(s)
+  def localDateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseLocalDate(s)
 }
