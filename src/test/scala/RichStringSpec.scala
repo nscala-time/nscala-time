@@ -5,8 +5,6 @@ import org.scalacheck.{Prop, Properties}
 
 object RichStringSpec extends Properties("RichString"){
 
-  implicit def stringToOption(s: String): Option[String] = Some(s)
-
   property("String to DateTime") = Prop.secure {
     "2012-08-08".toDateTime == new DateTime("2012-08-08")
   }
