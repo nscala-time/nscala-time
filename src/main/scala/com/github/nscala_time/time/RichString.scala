@@ -18,10 +18,14 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichString(val s: String) extends Super {
-  def toDateTime  = new DateTime(s)
+import org.joda.time.format.DateTimeFormat
+
+import scalaz._, Scalaz._
+
+class RichString(val s: String, format: Option[String] = None) extends Super {
+  def toDateTime  = format.cata(x => dateTimeFormat(x), new DateTime(s))
   def toInterval  = new Interval(s)
-  def toLocalDate = new LocalDate(s)
+  def toLocalDate = format.cata(x => localDateTimeFormat(format), new LocalDate(s))
 
   def toDateTimeOption = try {
     Some(toDateTime)
@@ -40,4 +44,7 @@ class RichString(val s: String) extends Super {
   } catch {
     case e: IllegalArgumentException => None
   }
+
+  def dateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseDateTime(s)
+  def localDateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseDateTime(s)
 }
