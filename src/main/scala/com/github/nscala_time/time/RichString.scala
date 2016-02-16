@@ -22,13 +22,15 @@ import org.joda.time.format.DateTimeFormat
 
 import scalaz._, Scalaz._
 
-class RichString(val s: String, format: Option[String] = None) extends Super {
-  def toDateTime  = format.cata(x => dateTimeFormat(x), new DateTime(s))
-  def toInterval  = new Interval(s)
-  def toLocalDate = format.cata(x => localDateTimeFormat(format), new LocalDate(s))
+class RichString(val s: String) extends Super {
+  def toDateTime(format: Option[String] = None)
+    = format.cata(x => dateTimeFormat(x), new DateTime(s))
+  def toInterval = new Interval(s)
+  def toLocalDate(format: Option[String] = None)
+    = format.cata(x => localDateTimeFormat(format), new LocalDate(s))
 
-  def toDateTimeOption = try {
-    Some(toDateTime)
+  def toDateTimeOption(format: Option[String] = None) = try {
+    Some(toDateTime(format))
   } catch {
     case e: IllegalArgumentException => None
   }
@@ -39,12 +41,12 @@ class RichString(val s: String, format: Option[String] = None) extends Super {
     case e: IllegalArgumentException => None
   }
 
-  def toLocalDateOption = try {
-    Some(toLocalDate)
+  def toLocalDateOption(format: Option[String] = None) = try {
+    Some(toLocalDate(format))
   } catch {
     case e: IllegalArgumentException => None
   }
 
-  def dateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseDateTime(s)
+  def dateTimeFormat(format: String)      = DateTimeFormat.forPattern(format).parseDateTime(s)
   def localDateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseDateTime(s)
 }
