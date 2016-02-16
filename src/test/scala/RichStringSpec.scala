@@ -44,6 +44,6 @@ object RichStringSpec extends Properties("RichString"){
   }
 
   property(""" "" should yield None """) = Prop.secure {
-    "".toLocalDateOption == None
+    "".toLocalDateOption() == None
   }
 }
