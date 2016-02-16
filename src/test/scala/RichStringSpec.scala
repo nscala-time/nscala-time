@@ -5,8 +5,10 @@ import org.scalacheck.{Prop, Properties}
 
 object RichStringSpec extends Properties("RichString"){
 
+  implicit def stringToOption(s: String): Option[String] = Some(s)
+
   property("String to DateTime") = Prop.secure {
-    "2012-08-08".toDateTime == new DateTime("2012-08-08")
+    "2012-08-08".toDateTime() == new DateTime("2012-08-08")
   }
 
   property("String to DateTime") = Prop.secure {
@@ -14,7 +16,7 @@ object RichStringSpec extends Properties("RichString"){
   }
 
   property(""" "2012-08-08" should yield Some[DateTime] """) = Prop.secure {
-    "2012-08-08".toDateTimeOption == Some(new DateTime("2012-08-08"))
+    "2012-08-08".toDateTimeOption() == Some(new DateTime("2012-08-08"))
   }
 
   property(""" "2012-08-08" should yield Some[DateTime] """) = Prop.secure {
@@ -22,11 +24,11 @@ object RichStringSpec extends Properties("RichString"){
   }
 
   property(""" "" yield None """) = Prop.secure {
-    "".toDateTimeOption == None
+    "".toDateTimeOption() == None
   }
 
   property(""" "2012-08-08" should parse""") = Prop.secure {
-    "2012-08-08".toLocalDate == new LocalDate("2012-08-08")
+    "2012-08-08".toLocalDate() == new LocalDate("2012-08-08")
   }
 
   property(""" "2012-08-08" should parse""") = Prop.secure {
@@ -34,7 +36,7 @@ object RichStringSpec extends Properties("RichString"){
   }
 
   property(""" "2012-08-08" should yield Some[LocalDate] """) = Prop.secure {
-    "2012-08-08".toLocalDateOption == Some(new LocalDate("2012-08-08"))
+    "2012-08-08".toLocalDateOption() == Some(new LocalDate("2012-08-08"))
   }
 
   property(""" "2012-08-08" should yield Some[LocalDate] """) = Prop.secure {
