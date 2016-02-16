@@ -22,34 +22,24 @@ import org.joda.time.format.DateTimeFormat
 
 class RichString(val s: String) extends Super {
 
-  def toDateTime(format: Option[String] = None) =
-    format match {
-      case Some(fmt) => dateTimeFormat(x)
-      case None      => new DateTime(s)
-    }
+  def toDateTime(format: String)        = dateTimeFormat(format)
+  def toDateTime                        = new DateTime(s)
+  def toInterval                        = new Interval(s)
+  def toLocalDate(format: String)       = localDateTimeFormat(format)
+  def toLocalDate                       = new LocalDate(s)
+  def toDateTimeOption(format: String)  = toDateOption(toDateTime(format))
+  def toDateTimeOption                  = toDateOption(toDateTime)
+  def toLocalDateOption(format: String) = toDateOption(toLocalDate(format))
+  def toLocalDateOption                 = toDateOption(toLocalDate)
 
-  def toInterval = new Interval(s)
-
-  def toLocalDate(format: Option[String] = None) =
-    format match {
-      case Some(fmt) => locatDateTimeFormat(x)
-      case None      => new LocalDate(s)
-    }
-
-  def toDateTimeOption(format: Option[String] = None) = try {
-    Some(toDateTime(format))
+  def toDateOption[A](f: => A): Option[A] = try {
+    Some(f)
   } catch {
     case e: IllegalArgumentException => None
   }
 
   def toIntervalOption = try {
     Some(toInterval)
-  } catch {
-    case e: IllegalArgumentException => None
-  }
-
-  def toLocalDateOption(format: Option[String] = None) = try {
-    Some(toLocalDate(format))
   } catch {
     case e: IllegalArgumentException => None
   }
