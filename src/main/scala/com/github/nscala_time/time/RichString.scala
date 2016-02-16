@@ -27,7 +27,7 @@ class RichString(val s: String) extends Super {
     = format.cata(x => dateTimeFormat(x), new DateTime(s))
   def toInterval = new Interval(s)
   def toLocalDate(format: Option[String] = None)
-    = format.cata(x => localDateTimeFormat(format), new LocalDate(s))
+    = format.cata(x => localDateTimeFormat(x), new LocalDate(s))
 
   def toDateTimeOption(format: Option[String] = None) = try {
     Some(toDateTime(format))
