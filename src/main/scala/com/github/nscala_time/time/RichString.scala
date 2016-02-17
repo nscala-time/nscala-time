@@ -18,26 +18,26 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
+import org.joda.time.format.DateTimeFormat
+
 class RichString(val s: String) extends Super {
-  def toDateTime  = new DateTime(s)
-  def toInterval  = new Interval(s)
-  def toLocalDate = new LocalDate(s)
+  def toDateTime                        = new DateTime(s)
+  def toInterval                        = new Interval(s)
+  def toLocalDate                       = new LocalDate(s)
+  def toDateTimeOption                  = toOption(toDateTime)
+  def toLocalDateOption                 = toOption(toLocalDate)
+  def toIntervalOption                  = toOption(toInterval)
+  def toDateTime(format: String)        = dateTimeFormat(format)
+  def toLocalDate(format: String)       = localDateTimeFormat(format)
+  def toDateTimeOption(format: String)  = toOption(toDateTime(format))
+  def toLocalDateOption(format: String) = toOption(toLocalDate(format))
 
-  def toDateTimeOption = try {
-    Some(toDateTime)
+  def toOption[A](f: => A): Option[A] = try {
+    Some(f)
   } catch {
     case e: IllegalArgumentException => None
   }
 
-  def toIntervalOption = try {
-    Some(toInterval)
-  } catch {
-    case e: IllegalArgumentException => None
-  }
-
-  def toLocalDateOption = try {
-    Some(toLocalDate)
-  } catch {
-    case e: IllegalArgumentException => None
-  }
+  def dateTimeFormat(format: String)      = DateTimeFormat.forPattern(format).parseDateTime(s)
+  def localDateTimeFormat(format: String) = DateTimeFormat.forPattern(format).parseLocalDate(s)
 }
