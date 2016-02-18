@@ -20,6 +20,10 @@ if you want to use previous versions, [you can find it from here](http://search.
 
 ## Release Note
 
+### 2.10.0
+* adding the flexibility to include format for local date and date time.  See [scaladoc](
+https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/nscala-time/nscala-time_2.11/2.10.0/nscala-time_2.11-2.10.0-javadoc.jar/!/index.html#com.github.nscala_time.time.RichString)
+
 ### 2.8.0
 * [joda-time 2.9.2](https://github.com/nscala-time/nscala-time/commit/73a57beea4533311)
 
