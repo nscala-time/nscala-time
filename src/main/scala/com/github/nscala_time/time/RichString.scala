@@ -32,7 +32,7 @@ class RichString(val s: String) extends Super {
   def toDateTimeOption(format: String)  = toOption(toDateTime(format))
   def toLocalDateOption(format: String) = toOption(toLocalDate(format))
 
-  def toOption[A](f: => A): Option[A] = try {
+  private def toOption[A](f: => A): Option[A] = try {
     Some(f)
   } catch {
     case e: IllegalArgumentException => None
