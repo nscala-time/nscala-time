@@ -14,23 +14,13 @@ val Scala210 = "2.10.6"
 
 scalaVersion := Scala210
 
-// Scala 2.9.x does not support Java8
-// Scala 2.12.x require Java8 or newer
-//
-// 1. set Java7
-// 2. sbt "release cross"
-// 3. checkout release tag
-// 4. set Java8
-// 5. sbt "++ 2.12.x" publishSigned
-crossScalaVersions := Seq("2.9.3", Scala210, "2.11.7") // "2.12.0-M3"
+// sbt "release cross"
+crossScalaVersions := Seq(Scala210, "2.11.7") // "2.12.0-M3"
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
 scalacOptions <++= scalaVersion map { v =>
-  if (v.startsWith("2.9"))
-    Seq("-unchecked", "-deprecation")
-  else
-    Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds")
+  Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds")
 }
 
 scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
@@ -74,13 +64,6 @@ pomPostProcess := { node =>
   }
   val stripTestScope = stripIf { n => n.label == "dependency" && (n \ "scope").text == "test" }
   new RuleTransformer(stripTestScope).transform(node)(0)
-}
-
-unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile){(v, dir) =>
-  if(v.startsWith("2.9"))
-    dir / "scala29"
-  else
-    dir / "scala210"
 }
 
 initialCommands in console += {
