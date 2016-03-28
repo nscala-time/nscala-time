@@ -20,6 +20,12 @@ if you want to use previous versions, [you can find it from here](http://search.
 
 ## Release Note
 
+### 2.12.0
+* [change private `RichString#toOption` method](https://github.com/nscala-time/nscala-time/pull/102)
+* [Drop Scala 2.9.3 support](https://github.com/nscala-time/nscala-time/pull/104)
+* [use `FiniteDuration` instead of `Duration`](https://github.com/nscala-time/nscala-time/pull/106)
+* [joda-time 2.9.3](https://github.com/nscala-time/nscala-time/commit/f8b2caae3de2225ce)
+
 ### 2.10.0
 * adding the flexibility to include format for local date and date time.  See [scaladoc](
 https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/nscala-time/nscala-time_2.11/2.10.0/nscala-time_2.11-2.10.0-javadoc.jar/!/index.html#com.github.nscala_time.time.RichString)
