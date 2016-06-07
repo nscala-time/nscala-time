@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichReadableDateTime(val underlying: ReadableDateTime) extends Super
+class RichReadableDateTime(val underlying: ReadableDateTime) extends AnyVal
   with PimpedType[ReadableDateTime] {
 
   def second: Int = underlying.getSecondOfMinute

@@ -20,7 +20,7 @@ import java.util.Locale
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichLocalDateTimeProperty(val underlying: LocalDateTime.Property) extends Super
+class RichLocalDateTimeProperty(val underlying: LocalDateTime.Property) extends AnyVal
   with PimpedType[LocalDateTime.Property] {
 
   def localDateTime: LocalDateTime = underlying.getLocalDateTime

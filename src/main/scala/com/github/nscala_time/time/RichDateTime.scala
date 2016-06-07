@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichDateTime(val underlying: DateTime) extends Super with PimpedType[DateTime] {
+class RichDateTime(val underlying: DateTime) extends AnyVal with PimpedType[DateTime] {
 
   def -(duration: Long): DateTime = underlying.minus(duration)
 

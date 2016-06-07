@@ -21,7 +21,7 @@ import org.joda.time._
 import org.joda.time.base.AbstractInstant
 import com.github.nscala_time.PimpedType
 
-class RichAbstractInstant(val underlying: AbstractInstant) extends Super
+class RichAbstractInstant(val underlying: AbstractInstant) extends AnyVal
   with PimpedType[AbstractInstant] {
 
   def date: Date = underlying.toDate

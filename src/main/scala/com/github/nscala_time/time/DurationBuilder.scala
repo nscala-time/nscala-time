@@ -24,7 +24,7 @@ object DurationBuilder {
 }
 
 // Duration Builder
-class DurationBuilder(val underlying: Period) extends Super {
+class DurationBuilder(val underlying: Period) extends AnyVal {
   // DurationBuilder + DurationBuilder = DurationBuilder
   // This is the only operation that can maintain a DurationBuilder
   // Everything else kicks us out to DateTime, Duration, or Period
