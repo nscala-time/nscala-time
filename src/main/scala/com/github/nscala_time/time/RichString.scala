@@ -20,7 +20,7 @@ import org.joda.time._
 
 import org.joda.time.format.DateTimeFormat
 
-class RichString(val s: String) extends Super {
+class RichString(val s: String) extends AnyVal {
   def toDateTime                        = new DateTime(s)
   def toInterval                        = new Interval(s)
   def toLocalDate                       = new LocalDate(s)

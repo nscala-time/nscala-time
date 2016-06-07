@@ -21,7 +21,7 @@ import org.joda.time._
 import org.joda.time.field.AbstractReadableInstantFieldProperty
 import com.github.nscala_time.PimpedType
 
-class RichAbstractReadableInstantFieldProperty(val underlying: AbstractReadableInstantFieldProperty) extends Super
+class RichAbstractReadableInstantFieldProperty(val underlying: AbstractReadableInstantFieldProperty) extends AnyVal
   with PimpedType[AbstractReadableInstantFieldProperty] {
 
   def shortText: String = underlying.getAsShortText

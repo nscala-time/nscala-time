@@ -22,7 +22,7 @@ import org.joda.time.format.{DateTimeFormatter, DateTimeParser,
   DateTimePrinter}
 import com.github.nscala_time.PimpedType
 
-class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends Super
+class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyVal
   with PimpedType[DateTimeFormatter] {
 
   def chronology: Chronology = underlying.getChronology

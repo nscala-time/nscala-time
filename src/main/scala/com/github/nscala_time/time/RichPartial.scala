@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichPartial(val underlying: Partial) extends Super with PimpedType[Partial] {
+class RichPartial(val underlying: Partial) extends AnyVal with PimpedType[Partial] {
 
   def formatter = underlying.getFormatter
 
