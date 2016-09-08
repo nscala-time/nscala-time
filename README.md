@@ -10,7 +10,7 @@ it seems that scala-time is no longer maintained.
 
 ## Installation
 
-Add the following to your sbt build (Scala 2.9.3, Scala 2.10.x, and Scala 2.11.x):
+Add the following to your sbt build (Scala 2.10.x, and Scala 2.11.x):
 
 ```scala
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.14.0"
@@ -19,6 +19,11 @@ libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.14.0"
 if you want to use previous versions, [you can find it from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.nscala-time%22)
 
 ## Release Note
+
+### 2.14.0
+* [Scala 2.12.0-RC1](https://github.com/nscala-time/nscala-time/commit/5916ede4276e3bef76dc1f659afe8ce81d224837)
+* [s/Super/AnyVal](https://github.com/nscala-time/nscala-time/commit/18267aaf85f98a4aa64aca1aace94268086dd630)
+* [joda-time 2.9.4](https://github.com/nscala-time/nscala-time/commit/03a50ec26c5d81364abc97d77fbc31a08098d70f)
 
 ### 2.12.0
 * [change private `RichString#toOption` method](https://github.com/nscala-time/nscala-time/pull/102)
