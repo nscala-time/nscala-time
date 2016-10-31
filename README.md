@@ -10,7 +10,7 @@ it seems that scala-time is no longer maintained.
 
 ## Installation
 
-Add the following to your sbt build (Scala 2.10.x, and Scala 2.11.x):
+Add the following to your sbt build (Scala 2.10.x, 2.11.x and 2.12.x):
 
 ```scala
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.14.0"
