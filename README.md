@@ -1,7 +1,7 @@
 # nscala-time
 [![Build Status](https://travis-ci.org/nscala-time/nscala-time.svg?branch=master)](https://travis-ci.org/nscala-time/nscala-time)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.11)
-[![Scaladoc](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.11.svg?label=scaladoc)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.11/index.html#com.github.nscala_time.time.package)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.12)
+[![Scaladoc](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12.svg?label=scaladoc)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html)
 [![Reference Status](https://www.versioneye.com/java/com.github.nscala-time:nscala-time_2.11/reference_badge.svg?style=flat)](https://www.versioneye.com/java/com.github.nscala-time:nscala-time_2.11/references)
 
 A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since
@@ -150,7 +150,7 @@ http://www.joda.org/joda-time/
 
 ## Documents
 
- - [scaladoc (latest stable release)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.11)
+ - [scaladoc (latest stable release)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html)
 
 Documentation of joda-time will be also a help.
  - [User guide](http://www.joda.org/joda-time/userguide.html)
