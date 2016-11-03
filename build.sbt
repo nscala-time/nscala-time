@@ -12,7 +12,7 @@ val Scala210 = "2.10.6"
 scalaVersion := Scala210
 
 // sbt "release cross"
-crossScalaVersions := Seq(Scala210, "2.11.8", "2.12.0-RC2")
+crossScalaVersions := Seq(Scala210, "2.11.8", "2.12.0")
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
@@ -44,7 +44,7 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.2"
 )
 
-libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.3" % "test"
+libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
 
 pomPostProcess := { node =>
   import scala.xml._
