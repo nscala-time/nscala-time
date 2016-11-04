@@ -22,7 +22,7 @@ import org.joda.time._
 import base.{BaseSingleFieldPeriod, AbstractDateTime, AbstractInstant, AbstractPartial}
 import org.joda.time.format.DateTimeFormatter
 import org.joda.time.field.AbstractReadableInstantFieldProperty
-import scala.concurrent.duration.{ Duration => SDuration }
+import scala.concurrent.duration.{ Duration => SDuration, MILLISECONDS, FiniteDuration }
 
 object Implicits extends Implicits
 object BuilderImplicits extends BuilderImplicits
@@ -55,6 +55,7 @@ trait DateImplicits {
 
 trait ScalaDurationImplicits {
   implicit def richSDuration(d: SDuration): RichSDuration = new com.github.nscala_time.time.RichSDuration(d)
+  implicit def durationBuilderToScalaDuration(d: DurationBuilder): FiniteDuration = FiniteDuration(d.millis, MILLISECONDS)
 }
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
