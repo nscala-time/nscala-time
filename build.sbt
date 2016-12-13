@@ -16,7 +16,7 @@ crossScalaVersions := Seq(Scala210, "2.11.8", "2.12.1")
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
-scalacOptions <++= scalaVersion map { v =>
+scalacOptions ++= {
   Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds")
 }
 
