@@ -17,7 +17,7 @@ crossScalaVersions := Seq(Scala210, "2.11.8", "2.12.1")
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
 scalacOptions ++= {
-  Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds")
+  Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xfuture", "-Xlint")
 }
 
 scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
