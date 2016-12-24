@@ -20,6 +20,10 @@ if you want to use previous versions, [you can find it from here](http://search.
 
 ## Release Note
 
+### 2.16.0
+* [joda-time 2.9.7](https://github.com/nscala-time/nscala-time/commit/7882d08833b5862fadb033cc158bcc37e038efe0)
+* [Scala 2.12.1](https://github.com/nscala-time/nscala-time/commit/be6e4212c9a92e197ee4a660d006db45ea191e3f)
+
 ### 2.14.0
 * [Scala 2.12.0-RC1](https://github.com/nscala-time/nscala-time/commit/5916ede4276e3bef76dc1f659afe8ce81d224837)
 * [s/Super/AnyVal](https://github.com/nscala-time/nscala-time/commit/18267aaf85f98a4aa64aca1aace94268086dd630)
