@@ -35,7 +35,7 @@ class RichString(val s: String) extends AnyVal {
   private def toOption[A](f: => A): Option[A] = try {
     Some(f)
   } catch {
-    case e: IllegalArgumentException => None
+    case _: IllegalArgumentException => None
   }
 
   def dateTimeFormat(format: String)      = DateTimeFormat.forPattern(format).parseDateTime(s)
