@@ -12,7 +12,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  *
  **/
 package com.github.nscala_time.time
@@ -40,16 +40,17 @@ trait TypeImports {
 }
 
 trait StaticForwarderImports {
-  val DateTime       = com.github.nscala_time.time.StaticDateTime
-  val DateTimeFormat = com.github.nscala_time.time.StaticDateTimeFormat
-  val DateTimeZone   = com.github.nscala_time.time.StaticDateTimeZone
-  val Duration       = com.github.nscala_time.time.StaticDuration
-  val Interval       = com.github.nscala_time.time.StaticInterval
-  val LocalDate      = com.github.nscala_time.time.StaticLocalDate
-  val LocalDateTime  = com.github.nscala_time.time.StaticLocalDateTime
-  val LocalTime      = com.github.nscala_time.time.StaticLocalTime
-  val Period         = com.github.nscala_time.time.StaticPeriod
-  val Partial        = com.github.nscala_time.time.StaticPartial
-  val YearMonth      = com.github.nscala_time.time.StaticYearMonth
-  val MonthDay       = com.github.nscala_time.time.StaticMonthDay
+  val DateTime          = com.github.nscala_time.time.StaticDateTime
+  val DateTimeFormat    = com.github.nscala_time.time.StaticDateTimeFormat
+  val ISODateTimeFormat = com.github.nscala_time.time.StaticISODateTimeFormat
+  val DateTimeZone      = com.github.nscala_time.time.StaticDateTimeZone
+  val Duration          = com.github.nscala_time.time.StaticDuration
+  val Interval          = com.github.nscala_time.time.StaticInterval
+  val LocalDate         = com.github.nscala_time.time.StaticLocalDate
+  val LocalDateTime     = com.github.nscala_time.time.StaticLocalDateTime
+  val LocalTime         = com.github.nscala_time.time.StaticLocalTime
+  val Period            = com.github.nscala_time.time.StaticPeriod
+  val Partial           = com.github.nscala_time.time.StaticPartial
+  val YearMonth         = com.github.nscala_time.time.StaticYearMonth
+  val MonthDay          = com.github.nscala_time.time.StaticMonthDay
 }
