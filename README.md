@@ -146,6 +146,12 @@ DateTime.now to DateTime.tomorrow  // return org.joda.time.Interval = > 2009-04-
 DateTime.now // returns org.joda.time.DateTime = 2009-04-27T13:25:42.659-07:00
 
 DateTime.now.hour(2).minute(45).second(10) // returns org.joda.time.DateTime = 2009-04-27T02:45:10.313-07:00
+
+//Convert Date String to Date Time Object
+  val inputDate = "Sat Feb 06 13:21:55 +0000 2016"
+  DateTimeZone.setDefault(DateTimeZone.UTC)
+  val dateObj = DateTime.parse(inputDate, DateTimeFormat.forPattern(s"E MMM dd HH:mm:ss Z yyyy"))
+  val outputDate = DateTimeFormat.forPattern("yy-MM-dd HH:mm:ss").print(dateObj)
 ```
 
 
