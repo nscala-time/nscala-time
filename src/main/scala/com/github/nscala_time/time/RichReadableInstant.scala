@@ -32,6 +32,8 @@ class RichReadableInstant(val underlying: ReadableInstant) extends AnyVal with O
 
   def to(other: ReadableInstant): Interval = new Interval(underlying, other)
 
+  def in(interval: Interval) = interval.contains(underlying)
+
   def instant: Instant = underlying.toInstant
 
 }
