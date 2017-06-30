@@ -14,6 +14,10 @@ matrix:
     sudo: required
     scala: 2.12.2
     jdk: oraclejdk9
+    addons:
+      apt:
+        packages:
+        - oracle-java9-installer
     script:
     # https://github.com/sbt/sbt/pull/2951
     - git clone https://github.com/retronym/java9-rt-export
