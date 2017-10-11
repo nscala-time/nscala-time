@@ -18,6 +18,13 @@ libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.16.0"
 
 if you want to use previous versions, [you can find it from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.nscala-time%22)
 
+## Use with [Ammonite](http://ammonite.io/)
+
+In Ammonite REPL started type
+```scala
+@ import $ivy.`com.github.nscala-time::nscala-time:2.16.0`, com.github.nscala_time.time.Imports._ 
+```
+
 ## Release Note
 
 ### 2.16.0
