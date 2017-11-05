@@ -9,10 +9,7 @@ jdk:
 sudo: false
 matrix:
   include:
-  - dist: trusty
-    group: edge
-    sudo: required
-    scala: 2.12.4
+  - scala: 2.12.4
     jdk: oraclejdk9
     before_install:
     # https://github.com/sbt/sbt/pull/2951
