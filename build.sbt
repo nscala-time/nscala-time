@@ -7,6 +7,13 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
+)
+
 val Scala210 = "2.10.6"
 
 scalaVersion := Scala210
