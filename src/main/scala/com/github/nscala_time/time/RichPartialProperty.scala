@@ -20,14 +20,12 @@ import java.util.Locale
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichPartialProperty(val underlying: Partial.Property) extends AnyVal with PimpedType[Partial.Property] {
+private[time] class RichPartialProperty(val underlying: Partial.Property) extends AnyVal with PimpedType[Partial.Property] {
 
   def partial: Partial = underlying.getPartial
 
-  def apply(value: Int): Partial = underlying.setCopy(value)
-
-  def apply(text: String): Partial = underlying.setCopy(text)
-
+  def apply(value: Int): Partial                   = underlying.setCopy(value)
+  def apply(text: String): Partial                 = underlying.setCopy(text)
   def apply(text: String, locale: Locale): Partial = underlying.setCopy(text, locale)
 
 }

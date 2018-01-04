@@ -31,17 +31,16 @@ object StringImplicits extends StringImplicits
 object OrderingImplicits extends OrderingImplicits
 object JodaImplicits extends JodaImplicits
 
-trait Implicits extends BuilderImplicits with IntImplicits with StringImplicits with DateImplicits with ScalaDurationImplicits with OrderingImplicits with JodaImplicits
+trait Implicits extends BuilderImplicits with IntImplicits
+  with StringImplicits with DateImplicits with ScalaDurationImplicits with OrderingImplicits with JodaImplicits
 
 trait BuilderImplicits {
-  implicit def forcePeriod(builder: DurationBuilder): Period =
-    builder.underlying
-  implicit def forceDuration(builder: DurationBuilder): Duration =
-    builder.underlying.toStandardDuration
+  implicit def forcePeriod(builder: DurationBuilder): Period     = builder.underlying
+  implicit def forceDuration(builder: DurationBuilder): Duration = builder.underlying.toStandardDuration
 }
 
 trait IntImplicits {
-  implicit def richInt(n: Int): RichInt = new com.github.nscala_time.time.RichInt(n)
+  implicit def richInt(n: Int): RichInt    = new com.github.nscala_time.time.RichInt(n)
   implicit def richLong(n: Long): RichLong = new com.github.nscala_time.time.RichLong(n)
 }
 
@@ -58,11 +57,11 @@ trait ScalaDurationImplicits {
 }
 
 trait OrderingImplicits extends LowPriorityOrderingImplicits {
-  implicit val DateTimeOrdering: Ordering[DateTime] = ReadableInstantOrdering[DateTime]
-  implicit val LocalDateOrdering: Ordering[LocalDate] = ReadablePartialOrdering[LocalDate]
-  implicit val LocalTimeOrdering: Ordering[LocalTime] = ReadablePartialOrdering[LocalTime]
+  implicit val DateTimeOrdering: Ordering[DateTime]           = ReadableInstantOrdering[DateTime]
+  implicit val LocalDateOrdering: Ordering[LocalDate]         = ReadablePartialOrdering[LocalDate]
+  implicit val LocalTimeOrdering: Ordering[LocalTime]         = ReadablePartialOrdering[LocalTime]
   implicit val LocalDateTimeOrdering: Ordering[LocalDateTime] = ReadablePartialOrdering[LocalDateTime]
-  implicit val DurationOrdering: Ordering[Duration] = ReadableDurationOrdering[Duration]
+  implicit val DurationOrdering: Ordering[Duration]           = ReadableDurationOrdering[Duration]
 }
 
 trait LowPriorityOrderingImplicits {
@@ -75,30 +74,42 @@ trait LowPriorityOrderingImplicits {
 
 trait JodaImplicits {
   implicit def richAbstractDateTime(dt: AbstractDateTime): RichAbstractDateTime = new RichAbstractDateTime(dt)
-  implicit def richAbstractInstant(in: AbstractInstant): RichAbstractInstant = new RichAbstractInstant(in)
-  implicit def richAbstractPartial(pt: AbstractPartial): RichAbstractPartial = new RichAbstractPartial(pt)
-  implicit def richAbstractReadableInstantFieldProperty(pty: AbstractReadableInstantFieldProperty): RichAbstractReadableInstantFieldProperty = new RichAbstractReadableInstantFieldProperty(pty)
+  implicit def richAbstractInstant(in: AbstractInstant): RichAbstractInstant    = new RichAbstractInstant(in)
+  implicit def richAbstractPartial(pt: AbstractPartial): RichAbstractPartial    = new RichAbstractPartial(pt)
+
+  private[this] type ARIFP  = AbstractReadableInstantFieldProperty
+  private[this] type RARIFP = RichAbstractReadableInstantFieldProperty
+  implicit def richAbstractReadableInstantFieldProperty(pty: ARIFP): RARIFP = new RARIFP(pty)
+
   implicit def richChronology(ch: Chronology): RichChronology = new RichChronology(ch)
-  implicit def richDateTime(dt: DateTime): RichDateTime = new RichDateTime(dt)
+
+  implicit def richDateTime(dateTime: DateTime): RichDateTime                       = new RichDateTime(dateTime)
   implicit def richDateTimeFormatter(fmt: DateTimeFormatter): RichDateTimeFormatter = new RichDateTimeFormatter(fmt)
-  implicit def richDateTimeProperty(pty: DateTime.Property): RichDateTimeProperty = new RichDateTimeProperty(pty)
-  implicit def richDateTimeZone(zone: DateTimeZone): RichDateTimeZone = new RichDateTimeZone(zone)
+  implicit def richDateTimeProperty(pty: DateTime.Property): RichDateTimeProperty   = new RichDateTimeProperty(pty)
+  implicit def richDateTimeZone(zone: DateTimeZone): RichDateTimeZone               = new RichDateTimeZone(zone)
+
   implicit def richDuration(dur: Duration): RichDuration = new RichDuration(dur)
-  implicit def richInstant(in: Instant): RichInstant = new RichInstant(in)
-  implicit def richInterval(in: Interval): RichInterval = new RichInterval(in)
-  implicit def richLocalDate(ld: LocalDate): RichLocalDate = new RichLocalDate(ld)
-  implicit def richLocalDateProperty(pty: LocalDate.Property): RichLocalDateProperty = new RichLocalDateProperty(pty)
-  implicit def richLocalDateTime(dt: LocalDateTime): RichLocalDateTime = new RichLocalDateTime(dt)
-  implicit def richLocalDateTimeProperty(pty: LocalDateTime.Property): RichLocalDateTimeProperty = new RichLocalDateTimeProperty(pty)
-  implicit def richLocalTime(lt: LocalTime): RichLocalTime = new RichLocalTime(lt)
-  implicit def richLocalTimeProperty(pty: LocalTime.Property): RichLocalTimeProperty = new RichLocalTimeProperty(pty)
-  implicit def richPartial(pt: Partial): RichPartial = new RichPartial(pt)
+  implicit def richInstant(in: Instant): RichInstant     = new RichInstant(in)
+  implicit def richInterval(in: Interval): RichInterval  = new RichInterval(in)
+
+  private[this] type DateTimeProperty = LocalDateTime.Property
+  private[this] type DateProperty     = LocalDate.Property
+  private[this] type TimeProperty     = LocalTime.Property
+  implicit def richLocalDate(ld: LocalDate): RichLocalDate                           = new RichLocalDate(ld)
+  implicit def richLocalDateProperty(pty: DateProperty): RichLocalDateProperty       = new RichLocalDateProperty(pty)
+  implicit def richLocalDateTime(dt: LocalDateTime): RichLocalDateTime               = new RichLocalDateTime(dt)
+  implicit def richLocalDateTimeProperty(pty: DateTimeProperty): RichLocalDateTimeProperty = new RichLocalDateTimeProperty(pty)
+  implicit def richLocalTime(lt: LocalTime): RichLocalTime                           = new RichLocalTime(lt)
+  implicit def richLocalTimeProperty(pty: TimeProperty): RichLocalTimeProperty       = new RichLocalTimeProperty(pty)
+
+  implicit def richPartial(pt: Partial): RichPartial                           = new RichPartial(pt)
   implicit def richPartialProperty(pty: Partial.Property): RichPartialProperty = new RichPartialProperty(pty)
-  implicit def richPeriod(per: Period): RichPeriod = new RichPeriod(per)
-  implicit def richReadableDateTime(dt: ReadableDateTime): RichReadableDateTime = new RichReadableDateTime(dt)
+  implicit def richPeriod(per: Period): RichPeriod                             = new RichPeriod(per)
+
+  implicit def richReadableDateTime(dt: ReadableDateTime): RichReadableDateTime  = new RichReadableDateTime(dt)
   implicit def richReadableDuration(dur: ReadableDuration): RichReadableDuration = new RichReadableDuration(dur)
-  implicit def richReadableInstant(in: ReadableInstant): RichReadableInstant = new RichReadableInstant(in)
-  implicit def richReadableInterval(in: ReadableInterval): RichReadableInterval = new RichReadableInterval(in)
-  implicit def richReadablePartial(rp: ReadablePartial): RichReadablePartial = new RichReadablePartial(rp)
-  implicit def richReadablePeriod(per: ReadablePeriod): RichReadablePeriod = new RichReadablePeriod(per)
+  implicit def richReadableInstant(in: ReadableInstant): RichReadableInstant     = new RichReadableInstant(in)
+  implicit def richReadableInterval(in: ReadableInterval): RichReadableInterval  = new RichReadableInterval(in)
+  implicit def richReadablePartial(rp: ReadablePartial): RichReadablePartial     = new RichReadablePartial(rp)
+  implicit def richReadablePeriod(per: ReadablePeriod): RichReadablePeriod       = new RichReadablePeriod(per)
 }

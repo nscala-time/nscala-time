@@ -5,7 +5,7 @@ import com.github.nscala_time.PimpedType
 import org.joda.time._
 import scala.collection.generic.CanBuildFrom
 
-class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Interval] {
+private[time] class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Interval] {
 
   /** Returns a collection containing every instance between the interval, `period` time apart.
     *

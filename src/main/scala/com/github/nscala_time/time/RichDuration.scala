@@ -20,31 +20,22 @@ import org.joda.time._
 import com.github.nscala_time.PimpedType
 import scala.concurrent.duration.{ MILLISECONDS , FiniteDuration }
 
-class RichDuration(val underlying: Duration) extends AnyVal with PimpedType[Duration] {
+private[time] class RichDuration(val underlying: Duration) extends AnyVal with PimpedType[Duration] {
 
-  def days: Long = underlying.getStandardDays
-
-  def hours: Long = underlying.getStandardHours
-
-  def millis: Long = underlying.getMillis
-
+  def days: Long    = underlying.getStandardDays
+  def hours: Long   = underlying.getStandardHours
+  def millis: Long  = underlying.getMillis
   def minutes: Long = underlying.getStandardMinutes
-
   def seconds: Long = underlying.getStandardSeconds
 
   def unary_- : Duration = underlying.negated
 
-  def -(amount: Long): Duration = underlying.minus(amount)
-
+  def -(amount: Long): Duration             = underlying.minus(amount)
   def -(amount: ReadableDuration): Duration = underlying.minus(amount)
-
-  def +(amount: Long): Duration = underlying.plus(amount)
-
+  def +(amount: Long): Duration             = underlying.plus(amount)
   def +(amount: ReadableDuration): Duration = underlying.plus(amount)
-
-  def /(divisor: Long): Duration = underlying.dividedBy(divisor)
-
-  def *(multiplicand: Long): Duration = underlying.multipliedBy(multiplicand)
+  def /(divisor: Long): Duration            = underlying.dividedBy(divisor)
+  def *(multiplicand: Long): Duration       = underlying.multipliedBy(multiplicand)
 
   def toScalaDuration: FiniteDuration = FiniteDuration(underlying.getMillis, MILLISECONDS)
 

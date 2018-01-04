@@ -20,16 +20,18 @@ import org.joda.time._
 import org.joda.time.format.DateTimeFormatter
 import java.util.{Calendar, Date}
 
-object StaticMonthDay extends StaticMonthDay
+private[time] object StaticMonthDay extends StaticMonthDay
 
-trait StaticMonthDay {
+private[time] trait StaticMonthDay {
   type Property = MonthDay.Property
 
   def fromCalendarFields(calendar: Calendar) = MonthDay.fromCalendarFields(calendar)
   def fromDateFields(date: Date) = MonthDay.fromDateFields(date)
-  def now() = MonthDay.now()
+
+  def now()                       = MonthDay.now()
   def now(chronology: Chronology) = MonthDay.now(chronology)
-  def now(zone: DateTimeZone) = MonthDay.now(zone)
+  def now(zone: DateTimeZone)     = MonthDay.now(zone)
+
   def parse(str: String) = MonthDay.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = MonthDay.parse(str, formatter)
 }

@@ -19,25 +19,19 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichLocalTime(val underlying: LocalTime) extends AnyVal with PimpedType[LocalTime] {
+private[time] class RichLocalTime(val underlying: LocalTime) extends AnyVal with PimpedType[LocalTime] {
 
-  def -(period: ReadablePeriod): LocalTime = underlying.minus(period)
-
+  def -(period: ReadablePeriod): LocalTime   = underlying.minus(period)
   def -(builder: DurationBuilder): LocalTime = underlying.minus(builder.underlying)
 
-  def +(period: ReadablePeriod): LocalTime = underlying.plus(period)
-
+  def +(period: ReadablePeriod): LocalTime   = underlying.plus(period)
   def +(builder: DurationBuilder): LocalTime = underlying.plus(builder.underlying)
 
   def second: LocalTime.Property = underlying.secondOfMinute
-
   def minute: LocalTime.Property = underlying.minuteOfHour
-
-  def hour: LocalTime.Property = underlying.hourOfDay
+  def hour: LocalTime.Property   = underlying.hourOfDay
 
   def withSecond(second: Int) = underlying.withSecondOfMinute(second)
-
   def withMinute(minute: Int) = underlying.withMinuteOfHour(minute)
-
-  def withHour(hour: Int) = underlying.withHourOfDay(hour)
+  def withHour(hour: Int)     = underlying.withHourOfDay(hour)
 }

@@ -19,27 +19,18 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichReadableDateTime(val underlying: ReadableDateTime) extends AnyVal
-  with PimpedType[ReadableDateTime] {
+private[time] class RichReadableDateTime(val underlying: ReadableDateTime) extends AnyVal with PimpedType[ReadableDateTime] {
 
-  def second: Int = underlying.getSecondOfMinute
+  def second: Int        = underlying.getSecondOfMinute
+  def minute: Int        = underlying.getMinuteOfHour
+  def hour: Int          = underlying.getHourOfDay
+  def day: Int           = underlying.getDayOfMonth
+  def week: Int          = underlying.getWeekOfWeekyear
+  def month: Int         = underlying.getMonthOfYear
+  def year: Int          = underlying.getYear
+  def century: Int       = underlying.getCenturyOfEra
 
-  def minute: Int = underlying.getMinuteOfHour
-
-  def hour: Int = underlying.getHourOfDay
-
-  def day: Int = underlying.getDayOfMonth
-
-  def week: Int = underlying.getWeekOfWeekyear
-
-  def month: Int = underlying.getMonthOfYear
-
-  def year: Int = underlying.getYear
-
-  def century: Int = underlying.getCenturyOfEra
-
-  def dateTime: DateTime = underlying.toDateTime
-
+  def dateTime: DateTime               = underlying.toDateTime
   def mutableDateTime: MutableDateTime = underlying.toMutableDateTime
 
 }

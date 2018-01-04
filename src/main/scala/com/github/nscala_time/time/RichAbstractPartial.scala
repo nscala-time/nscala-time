@@ -19,12 +19,11 @@ package com.github.nscala_time.time
 import org.joda.time.base.AbstractPartial
 import com.github.nscala_time.PimpedType
 
-class RichAbstractPartial(val underlying: AbstractPartial) extends AnyVal with Ordered[AbstractPartial] with
-  PimpedType[AbstractPartial] {
-  def fields = underlying.getFields
+private[time] class RichAbstractPartial(val underlying: AbstractPartial) extends AnyVal
+  with Ordered[AbstractPartial] with PimpedType[AbstractPartial] {
+  def fields     = underlying.getFields
   def fieldTypes = underlying.getFieldTypes
-  def values = underlying.getValues
+  def values     = underlying.getValues
 
-  override def compare(that: AbstractPartial): Int =
-    underlying.compareTo(that)
+  override def compare(that: AbstractPartial): Int = underlying.compareTo(that)
 }

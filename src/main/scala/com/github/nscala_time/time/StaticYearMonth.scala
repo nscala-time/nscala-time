@@ -20,16 +20,18 @@ import org.joda.time._
 import org.joda.time.format.DateTimeFormatter
 import java.util.{Calendar, Date}
 
-object StaticYearMonth extends StaticYearMonth
+private[time] object StaticYearMonth extends StaticYearMonth
 
-trait StaticYearMonth {
-  type Property = YearMonth.Property
+private[time] trait StaticYearMonth {
+  private[this] type Property = YearMonth.Property
 
   def fromCalendarFields(calendar: Calendar) = YearMonth.fromCalendarFields(calendar)
-  def fromDateFields(date: Date) = YearMonth.fromDateFields(date)
-  def now() = YearMonth.now()
+  def fromDateFields(date: Date)             = YearMonth.fromDateFields(date)
+
+  def now()                       = YearMonth.now()
   def now(chronology: Chronology) = YearMonth.now(chronology)
-  def now(zone: DateTimeZone) = YearMonth.now(zone)
+  def now(zone: DateTimeZone)     = YearMonth.now(zone)
+
   def parse(str: String) = YearMonth.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = YearMonth.parse(str, formatter)
 }

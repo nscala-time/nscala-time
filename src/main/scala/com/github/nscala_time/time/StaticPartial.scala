@@ -18,8 +18,8 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-object StaticPartial extends StaticPartial
+private[time] object StaticPartial extends StaticPartial
 
-trait StaticPartial {
+private[time] trait StaticPartial {
   type Property = Partial.Property
 }

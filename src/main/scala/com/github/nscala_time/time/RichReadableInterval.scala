@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichReadableInterval(val underlying: ReadableInterval) extends AnyVal
+private[time] class RichReadableInterval(val underlying: ReadableInterval) extends AnyVal
   with PimpedType[ReadableInterval] {
 
   def chronology: Chronology = underlying.getChronology
