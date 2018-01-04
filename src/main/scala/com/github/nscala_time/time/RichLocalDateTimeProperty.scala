@@ -20,24 +20,17 @@ import java.util.Locale
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichLocalDateTimeProperty(val underlying: LocalDateTime.Property) extends AnyVal
+private[time] class RichLocalDateTimeProperty(val underlying: LocalDateTime.Property) extends AnyVal
   with PimpedType[LocalDateTime.Property] {
 
   def localDateTime: LocalDateTime = underlying.getLocalDateTime
+  def roundFloor: LocalDateTime    = underlying.roundFloorCopy
+  def roundCeiling: LocalDateTime  = underlying.roundCeilingCopy
+  def roundDown: LocalDateTime     = underlying.roundFloorCopy
+  def roundUp: LocalDateTime       = underlying.roundCeilingCopy
+  def round: LocalDateTime         = underlying.roundHalfEvenCopy
 
-  def roundFloor: LocalDateTime = underlying.roundFloorCopy
-
-  def roundCeiling: LocalDateTime = underlying.roundCeilingCopy
-
-  def roundDown: LocalDateTime = underlying.roundFloorCopy
-
-  def roundUp: LocalDateTime = underlying.roundCeilingCopy
-
-  def round: LocalDateTime = underlying.roundHalfEvenCopy
-
-  def apply(value: Int): LocalDateTime = underlying.setCopy(value)
-
-  def apply(text: String): LocalDateTime = underlying.setCopy(text)
-
+  def apply(value: Int): LocalDateTime                   = underlying.setCopy(value)
+  def apply(text: String): LocalDateTime                 = underlying.setCopy(text)
   def apply(text: String, locale: Locale): LocalDateTime = underlying.setCopy(text, locale)
 }

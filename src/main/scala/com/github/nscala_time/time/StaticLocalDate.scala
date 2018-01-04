@@ -22,20 +22,19 @@ import org.joda.time._
 import com.github.nscala_time.time.Implicits._
 import org.joda.time.format.DateTimeFormatter
 
-object StaticLocalDate extends StaticLocalDate 
+private[time] object StaticLocalDate extends StaticLocalDate
 
-trait StaticLocalDate {
+private[time] trait StaticLocalDate {
   type Property = LocalDate.Property
   
-  def fromCalendarFields(calendar: Calendar) =
-    LocalDate.fromCalendarFields(calendar)
-  def fromDateFields(date: Date) =
-    LocalDate.fromDateFields(date)
+  def fromCalendarFields(calendar: Calendar) = LocalDate.fromCalendarFields(calendar)
+  def fromDateFields(date: Date)             = LocalDate.fromDateFields(date)
   
-  def now()        = new LocalDate
-  def now(zone: DateTimeZone) = LocalDate.now(zone)
+  def now()                       = new LocalDate
+  def now(zone: DateTimeZone)     = LocalDate.now(zone)
   def now(chronology: Chronology) = LocalDate.now(chronology)
-  def today()      = new LocalDate
+
+  def today() = new LocalDate
   def parse(str: String) = LocalDate.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = LocalDate.parse(str, formatter)
 

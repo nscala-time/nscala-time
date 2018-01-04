@@ -19,20 +19,19 @@ package com.github.nscala_time.time
 import org.joda.time._
 import org.joda.time.format.PeriodFormatter
 
-object StaticPeriod extends StaticPeriod
+private[time] object StaticPeriod extends StaticPeriod
 
-trait StaticPeriod {
+private[time] trait StaticPeriod {
   def parse(str: String) = Period.parse(str)
   def parse(str: String, formatter: PeriodFormatter) = Period.parse(str, formatter)
+  def fieldDifference(start: ReadablePartial, end: ReadablePartial) = Period.fieldDifference(start, end)
 
-  def days(days: Int) = Period.days(days)
-  def fieldDifference(start: ReadablePartial, end: ReadablePartial) =
-    Period.fieldDifference(start, end)
-  def hours(hours: Int) = Period.hours(hours)
-  def millis(millis: Int) = Period.millis(millis)
+  def days(days: Int)       = Period.days(days)
+  def hours(hours: Int)     = Period.hours(hours)
+  def millis(millis: Int)   = Period.millis(millis)
   def minutes(minutes: Int) = Period.minutes(minutes)
-  def months(months: Int) = Period.months(months)
+  def months(months: Int)   = Period.months(months)
   def seconds(seconds: Int) = Period.seconds(seconds)
-  def weeks(weeks: Int) = Period.weeks(weeks)
-  def years(years: Int) = Period.years(years)
+  def weeks(weeks: Int)     = Period.weeks(weeks)
+  def years(years: Int)     = Period.years(years)
 }

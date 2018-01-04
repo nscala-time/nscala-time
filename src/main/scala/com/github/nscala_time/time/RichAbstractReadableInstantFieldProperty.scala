@@ -21,52 +21,38 @@ import org.joda.time._
 import org.joda.time.field.AbstractReadableInstantFieldProperty
 import com.github.nscala_time.PimpedType
 
-class RichAbstractReadableInstantFieldProperty(val underlying: AbstractReadableInstantFieldProperty) extends AnyVal
+private[time] class RichAbstractReadableInstantFieldProperty(val underlying: AbstractReadableInstantFieldProperty) extends AnyVal
   with PimpedType[AbstractReadableInstantFieldProperty] {
 
-  def shortText: String = underlying.getAsShortText
-
-  def asShortText: String = underlying.getAsShortText
-
+  def shortText: String                 = underlying.getAsShortText
   def shortText(locale: Locale): String = underlying.getAsShortText(locale)
 
+  def asShortText: String                 = underlying.getAsShortText
   def asShortText(locale: Locale): String = underlying.getAsShortText(locale)
+  def asString: String                    = underlying.getAsString
 
-  def asString: String = underlying.getAsString
-
-  def text: String = underlying.getAsText
-
-  def asText: String = underlying.getAsText
-
+  def text: String                 = underlying.getAsText
   def text(locale: Locale): String = underlying.getAsText(locale)
 
+  def asText: String                 = underlying.getAsText
   def asText(locale: Locale): String = underlying.getAsText(locale)
 
   def durationField: DurationField = underlying.getDurationField
-
-  def field: DateTimeField = underlying.getField
-
+  def field: DateTimeField         = underlying.getField
   def fieldType: DateTimeFieldType = underlying.getFieldType
 
-  def leapAmount: Int = underlying.getLeapAmount
-
+  def leapAmount: Int                  = underlying.getLeapAmount
   def leapDurationField: DurationField = underlying.getLeapDurationField
 
-  def maximumValue: Int = underlying.getMaximumValue
-
-  def maxValue: Int = underlying.getMaximumValue
-
+  def maximumValue: Int        = underlying.getMaximumValue
+  def maxValue: Int            = underlying.getMaximumValue
   def maximumValueOverall: Int = underlying.getMaximumValueOverall
+  def maxValueOverall: Int     = underlying.getMaximumValueOverall
 
-  def maxValueOverall: Int = underlying.getMaximumValueOverall
-
-  def minimumValue: Int = underlying.getMinimumValue
-
-  def minValue: Int = underlying.getMinimumValue
-
+  def minimumValue: Int        = underlying.getMinimumValue
+  def minValue: Int            = underlying.getMinimumValue
   def minimumValueOverall: Int = underlying.getMinimumValueOverall
-
-  def minValueOverall: Int = underlying.getMinimumValueOverall
+  def minValueOverall: Int     = underlying.getMinimumValueOverall
 
   def name: String = underlying.getName
 

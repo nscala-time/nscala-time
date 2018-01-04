@@ -22,26 +22,23 @@ import org.joda.time._
 import com.github.nscala_time.time.Implicits._
 import org.joda.time.format.DateTimeFormatter
 
-object StaticLocalTime extends StaticLocalTime
+private[time] object StaticLocalTime extends StaticLocalTime
 
-trait StaticLocalTime {
+private[time] trait StaticLocalTime {
   type Property = LocalTime.Property
   
   final val MIDNIGHT = LocalTime.MIDNIGHT
   final val Midnight = LocalTime.MIDNIGHT
   
-  def fromCalendarFields(calendar: Calendar) =
-    LocalTime.fromCalendarFields(calendar)
-  def fromDateFields(date: Date) =
-    LocalTime.fromDateFields(date)
-  def fromMillisOfDay(millis: Long) =
-    LocalTime.fromMillisOfDay(millis)
-  def fromMillisOfDay(millis: Long, chrono: Chronology) =
-    LocalTime.fromMillisOfDay(millis, chrono)
+  def fromCalendarFields(calendar: Calendar)            = LocalTime.fromCalendarFields(calendar)
+  def fromDateFields(date: Date)                        = LocalTime.fromDateFields(date)
+  def fromMillisOfDay(millis: Long)                     = LocalTime.fromMillisOfDay(millis)
+  def fromMillisOfDay(millis: Long, chrono: Chronology) = LocalTime.fromMillisOfDay(millis, chrono)
 
-  def now()        = new LocalTime
-  def now(zone: DateTimeZone) = LocalTime.now(zone)
+  def now()                       = new LocalTime
+  def now(zone: DateTimeZone)     = LocalTime.now(zone)
   def now(chronology: Chronology) = LocalTime.now(chronology)
+
   def parse(str: String) = LocalTime.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = LocalTime.parse(str, formatter)
 

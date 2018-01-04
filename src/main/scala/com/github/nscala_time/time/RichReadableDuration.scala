@@ -19,7 +19,8 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichReadableDuration(val underlying: ReadableDuration) extends AnyVal with Ordered[ReadableDuration]
+private[time] class RichReadableDuration(val underlying: ReadableDuration) extends AnyVal
+  with Ordered[ReadableDuration]
   with PimpedType[ReadableDuration] {
 
   def millis: Long = underlying.getMillis

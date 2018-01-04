@@ -19,16 +19,14 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichLong(val underlying: Long) extends AnyVal with PimpedType[Long] {
+private[time] class RichLong(val underlying: Long) extends AnyVal with PimpedType[Long] {
 
   def toDateTime = new DateTime(underlying)
-
   def toDuration = new Duration(underlying)
 
   def -(duration: Duration): Duration = toDuration.minus(duration)
 
   def +(duration: Duration): Duration = duration.plus(underlying)
-
   def *(duration: Duration): Duration = duration.multipliedBy(underlying)
 
 }

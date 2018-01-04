@@ -19,16 +19,14 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichPartial(val underlying: Partial) extends AnyVal with PimpedType[Partial] {
+private[time] class RichPartial(val underlying: Partial) extends AnyVal with PimpedType[Partial] {
 
   def formatter = underlying.getFormatter
 
-  def -(period: ReadablePeriod): Partial = underlying.minus(period)
-
+  def -(period: ReadablePeriod): Partial   = underlying.minus(period)
   def -(builder: DurationBuilder): Partial = underlying.minus(builder.underlying)
 
-  def +(period: ReadablePeriod): Partial = underlying.plus(period)
-
+  def +(period: ReadablePeriod): Partial   = underlying.plus(period)
   def +(builder: DurationBuilder): Partial = underlying.plus(builder.underlying)
 
 }

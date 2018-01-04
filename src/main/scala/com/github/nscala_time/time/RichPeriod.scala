@@ -19,38 +19,26 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichPeriod(val underlying: Period) extends AnyVal with PimpedType[Period] {
+private[time] class RichPeriod(val underlying: Period) extends AnyVal with PimpedType[Period] {
 
-  def days: Int = underlying.getDays
-
-  def hours: Int = underlying.getHours
-
-  def millis: Int = underlying.getMillis
-
+  def days: Int    = underlying.getDays
+  def hours: Int   = underlying.getHours
+  def millis: Int  = underlying.getMillis
   def minutes: Int = underlying.getMinutes
-
-  def months: Int = underlying.getMonths
-
+  def months: Int  = underlying.getMonths
   def seconds: Int = underlying.getSeconds
-
-  def weeks: Int = underlying.getWeeks
-
-  def years: Int = underlying.getYears
+  def weeks: Int   = underlying.getWeeks
+  def years: Int   = underlying.getYears
 
   def unary_- : Period = underlying.negated
 
   def -(period: ReadablePeriod): Period = underlying.minus(period)
-
   def +(period: ReadablePeriod): Period = underlying.plus(period)
+  def *(scalar: Int): Period            = underlying.multipliedBy(scalar)
 
-  def *(scalar: Int): Period = underlying.multipliedBy(scalar)
-
-  def ago(): DateTime = StaticDateTime.now.minus(underlying)
-
-  def later(): DateTime = StaticDateTime.now.plus(underlying)
-
-  def from(dt: DateTime): DateTime = dt.plus(underlying)
-
+  def ago(): DateTime                = StaticDateTime.now().minus(underlying)
+  def later(): DateTime              = StaticDateTime.now().plus(underlying)
+  def from(dt: DateTime): DateTime   = dt.plus(underlying)
   def before(dt: DateTime): DateTime = dt.minus(underlying)
 
   def standardDuration: Duration = underlying.toStandardDuration

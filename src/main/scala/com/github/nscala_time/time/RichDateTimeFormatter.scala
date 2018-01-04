@@ -22,20 +22,14 @@ import org.joda.time.format.{DateTimeFormatter, DateTimeParser,
   DateTimePrinter}
 import com.github.nscala_time.PimpedType
 
-class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyVal
-  with PimpedType[DateTimeFormatter] {
+private[time] class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyVal with PimpedType[DateTimeFormatter] {
 
-  def chronology: Chronology = underlying.getChronology
-
-  def locale: Locale = underlying.getLocale
-
-  def parser: DateTimeParser = underlying.getParser
-
-  def pivotYear: Int = underlying.getPivotYear.intValue
-
+  def chronology: Chronology   = underlying.getChronology
+  def locale: Locale           = underlying.getLocale
+  def parser: DateTimeParser   = underlying.getParser
+  def pivotYear: Int           = underlying.getPivotYear.intValue
   def printer: DateTimePrinter = underlying.getPrinter
-
-  def zone: DateTimeZone = underlying.getZone
+  def zone: DateTimeZone       = underlying.getZone
 
   def parseOption(text: String): Option[DateTime] =
     try {

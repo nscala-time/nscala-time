@@ -20,8 +20,7 @@ import java.util.{Locale, Calendar}
 import org.joda.time.base.AbstractDateTime
 import com.github.nscala_time.PimpedType
 
-class RichAbstractDateTime(val underlying: AbstractDateTime) extends AnyVal
-  with PimpedType[AbstractDateTime] {
+private[time] class RichAbstractDateTime(val underlying: AbstractDateTime) extends AnyVal with PimpedType[AbstractDateTime] {
 
   def calendar(locale: Locale): Calendar = underlying.toCalendar(locale)
 

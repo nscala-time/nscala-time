@@ -19,53 +19,34 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichLocalDateTime(val underlying: LocalDateTime) extends AnyVal with PimpedType[LocalDateTime] {
+private[time] class RichLocalDateTime(val underlying: LocalDateTime) extends AnyVal with PimpedType[LocalDateTime] {
+  private[this] type Property = LocalDateTime.Property
 
   def -(duration: ReadableDuration): LocalDateTime = underlying.minus(duration)
-
-  def -(period: ReadablePeriod): LocalDateTime = underlying.minus(period)
-
-  def -(builder: DurationBuilder): LocalDateTime = underlying.minus(builder.underlying)
+  def -(period: ReadablePeriod): LocalDateTime     = underlying.minus(period)
+  def -(builder: DurationBuilder): LocalDateTime   = underlying.minus(builder.underlying)
 
   def +(duration: ReadableDuration): LocalDateTime = underlying.plus(duration)
+  def +(period: ReadablePeriod): LocalDateTime     = underlying.plus(period)
+  def +(builder: DurationBuilder): LocalDateTime   = underlying.plus(builder.underlying)
 
-  def +(period: ReadablePeriod): LocalDateTime = underlying.plus(period)
+  def second: Property  = underlying.secondOfMinute
+  def minute: Property  = underlying.minuteOfHour
+  def hour: Property    = underlying.hourOfDay
+  def day: Property     = underlying.dayOfMonth
+  def week: Property    = underlying.weekOfWeekyear
+  def month: Property   = underlying.monthOfYear
+  def year: Property    = underlying.year
+  def century: Property = underlying.centuryOfEra
+  def era: Property     = underlying.era
 
-  def +(builder: DurationBuilder): LocalDateTime = underlying.plus(builder.underlying)
-
-  def second: LocalDateTime.Property = underlying.secondOfMinute
-
-  def minute: LocalDateTime.Property = underlying.minuteOfHour
-
-  def hour: LocalDateTime.Property = underlying.hourOfDay
-
-  def day: LocalDateTime.Property = underlying.dayOfMonth
-
-  def week: LocalDateTime.Property = underlying.weekOfWeekyear
-
-  def month: LocalDateTime.Property = underlying.monthOfYear
-
-  def year: LocalDateTime.Property = underlying.year
-
-  def century: LocalDateTime.Property = underlying.centuryOfEra
-
-  def era: LocalDateTime.Property = underlying.era
-
-  def withSecond(second: Int) = underlying.withSecondOfMinute(second)
-
-  def withMinute(minute: Int) = underlying.withMinuteOfHour(minute)
-
-  def withHour(hour: Int) = underlying.withHourOfDay(hour)
-
-  def withDay(day: Int) = underlying.withDayOfMonth(day)
-
-  def withWeek(week: Int) = underlying.withWeekOfWeekyear(week)
-
-  def withMonth(month: Int) = underlying.withMonthOfYear(month)
-
-  def withYear(year: Int) = underlying.withYear(year)
-
+  def withSecond(second: Int)   = underlying.withSecondOfMinute(second)
+  def withMinute(minute: Int)   = underlying.withMinuteOfHour(minute)
+  def withHour(hour: Int)       = underlying.withHourOfDay(hour)
+  def withDay(day: Int)         = underlying.withDayOfMonth(day)
+  def withWeek(week: Int)       = underlying.withWeekOfWeekyear(week)
+  def withMonth(month: Int)     = underlying.withMonthOfYear(month)
+  def withYear(year: Int)       = underlying.withYear(year)
   def withCentury(century: Int) = underlying.withCenturyOfEra(century)
-
-  def withEra(era: Int) = underlying.withEra(era)
+  def withEra(era: Int)         = underlying.withEra(era)
 }

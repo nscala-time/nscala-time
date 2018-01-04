@@ -19,7 +19,8 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichReadableInstant(val underlying: ReadableInstant) extends AnyVal with Ordered[ReadableInstant]
+private[time] class RichReadableInstant(val underlying: ReadableInstant) extends AnyVal
+  with Ordered[ReadableInstant]
   with PimpedType[ReadableInstant] {
 
   def chronology: Chronology = underlying.getChronology

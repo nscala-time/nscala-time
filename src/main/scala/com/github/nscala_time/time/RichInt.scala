@@ -19,16 +19,13 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichInt(val underlying: Int) extends AnyVal with PimpedType[Int] {
+private[time] class RichInt(val underlying: Int) extends AnyVal with PimpedType[Int] {
   // These units of time can build durations or periods.
   // At most we lose a leap second. (Unless someone adopts
   // leap minutes).
   def millis  = DurationBuilder(Period.millis(underlying))
-
   def seconds = DurationBuilder(Period.seconds(underlying))
-
   def minutes = DurationBuilder(Period.minutes(underlying))
-
   def hours   = DurationBuilder(Period.hours(underlying))
 
   // These units of time can only be periods. At this

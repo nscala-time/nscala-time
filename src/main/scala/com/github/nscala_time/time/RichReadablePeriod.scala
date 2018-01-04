@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import org.joda.time._
 import com.github.nscala_time.PimpedType
 
-class RichReadablePeriod(val underlying: ReadablePeriod) extends AnyVal with PimpedType[ReadablePeriod] {
+private[time] class RichReadablePeriod(val underlying: ReadablePeriod) extends AnyVal with PimpedType[ReadablePeriod] {
 
   def periodType: PeriodType = underlying.getPeriodType
 
