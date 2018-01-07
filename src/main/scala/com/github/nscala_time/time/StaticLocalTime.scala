@@ -45,11 +45,11 @@ trait StaticLocalTime {
   def parse(str: String) = LocalTime.parse(str)
   def parse(str: String, formatter: DateTimeFormatter) = LocalTime.parse(str, formatter)
 
-  def nextSecond() = now + 1.second
-  def nextMinute() = now + 1.minute
-  def nextHour()   = now + 1.hour
+  def nextSecond() = now() + 1.second
+  def nextMinute() = now() + 1.minute
+  def nextHour()   = now() + 1.hour
 
-  def lastSecond() = now - 1.second
-  def lastMinute() = now - 1.minute
-  def lastHour()   = now - 1.hour
+  def lastSecond() = now() - 1.second
+  def lastMinute() = now() - 1.minute
+  def lastHour()   = now() - 1.hour
 }

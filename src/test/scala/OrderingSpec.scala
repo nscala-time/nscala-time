@@ -6,14 +6,14 @@ import org.scalacheck.{Prop, Properties}
 object OrderingSpec extends Properties("Ordering"){
 
   property("DateTime") = Prop.secure {
-    val now = DateTime.now
+    val now = DateTime.now()
     val l = List(now.second(0), now.second(3), now.second(10), now.second(1))
     assert(l.sorted == List(now.second(0), now.second(1), now.second(3), now.second(10)))
     l.max == now.second(10)
   }
 
   property("LocalDate") = Prop.secure {
-    val today = LocalDate.now
+    val today = LocalDate.now()
     val l = List(today.day(1), today.day(3), today.day(10), today.day(2))
     assert(l.sorted == List(today.day(1), today.day(2), today.day(3), today.day(10)))
     l.max == today.day(10)

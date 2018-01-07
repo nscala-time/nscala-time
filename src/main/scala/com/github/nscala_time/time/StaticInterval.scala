@@ -24,14 +24,14 @@ object StaticInterval extends StaticInterval
 trait StaticInterval {
   def parse(str: String) = Interval.parse(str)
 
-  def thisSecond() = StaticDateTime.now.second.interval
-  def thisMinute() = StaticDateTime.now.minute.interval
-  def thisHour()   = StaticDateTime.now.hour.interval
-  def thisDay()    = StaticDateTime.now.day.interval
-  def today()      = StaticDateTime.now.day.interval
-  def thisWeek()   = StaticDateTime.now.week.interval
-  def thisMonth()  = StaticDateTime.now.month.interval
-  def thisYear()   = StaticDateTime.now.year.interval
+  def thisSecond() = StaticDateTime.now().second.interval
+  def thisMinute() = StaticDateTime.now().minute.interval
+  def thisHour()   = StaticDateTime.now().hour.interval
+  def thisDay()    = StaticDateTime.now().day.interval
+  def today()      = StaticDateTime.now().day.interval
+  def thisWeek()   = StaticDateTime.now().week.interval
+  def thisMonth()  = StaticDateTime.now().month.interval
+  def thisYear()   = StaticDateTime.now().year.interval
 
   def nextSecond() = StaticDateTime.nextSecond.second.interval
   def nextMinute() = StaticDateTime.nextMinute.minute.interval

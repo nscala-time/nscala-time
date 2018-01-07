@@ -34,9 +34,9 @@ class DurationBuilder(val underlying: Period) extends AnyVal {
     DurationBuilder(this.underlying.minus(that.underlying))
 
   def ago(): DateTime =
-    StaticDateTime.now.minus(underlying)
+    StaticDateTime.now().minus(underlying)
   def later(): DateTime =
-    StaticDateTime.now.plus(underlying)
+    StaticDateTime.now().plus(underlying)
   def from(dt: DateTime): DateTime =
     dt.plus(underlying)
   def before(dt: DateTime): DateTime =
