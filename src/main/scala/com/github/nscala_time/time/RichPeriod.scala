@@ -45,9 +45,9 @@ class RichPeriod(val underlying: Period) extends AnyVal with PimpedType[Period] 
 
   def *(scalar: Int): Period = underlying.multipliedBy(scalar)
 
-  def ago(): DateTime = StaticDateTime.now.minus(underlying)
+  def ago(): DateTime = StaticDateTime.now().minus(underlying)
 
-  def later(): DateTime = StaticDateTime.now.plus(underlying)
+  def later(): DateTime = StaticDateTime.now().plus(underlying)
 
   def from(dt: DateTime): DateTime = dt.plus(underlying)
 

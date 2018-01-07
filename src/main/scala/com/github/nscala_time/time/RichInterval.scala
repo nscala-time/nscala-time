@@ -10,7 +10,7 @@ class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Inte
   /** Returns a collection containing every instance between the interval, `period` time apart.
     *
     * {{{
-    * scala> val start = DateTime.now
+    * scala> val start = DateTime.now()
     * start: org.joda.time.DateTime = 2014-11-27T00:24:54.714+01:00
     *
     * scala> val end = start + 1.day

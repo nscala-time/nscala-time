@@ -6,13 +6,13 @@ import com.github.nscala_time.time.Imports._
 
 object BasicFunctionalitySpec extends Properties("DateTime"){
 
-  property("DateTime.now == DateTime.now") = Prop.secure {
-    val now: DateTime = DateTime.now
+  property("DateTime.now() == DateTime.now()") = Prop.secure {
+    val now: DateTime = DateTime.now()
     now == now
   }
 
-  property("DateTime.now < (DateTime.now + 1.hours)") = Prop.secure {
-    val now: DateTime = DateTime.now
+  property("DateTime.now() < (DateTime.now() + 1.hours)") = Prop.secure {
+    val now: DateTime = DateTime.now()
     (now plusHours 1) isAfter now
   }
 
