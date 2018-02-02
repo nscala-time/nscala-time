@@ -11,5 +11,3 @@ matrix:
   include:
   - scala: 2.12.4
     jdk: oraclejdk9
-    script:
-    - sbt -Dsbt.scala.version=2.10.7 ++$TRAVIS_SCALA_VERSION test
