@@ -14,7 +14,7 @@ publishTo := Some(
     Opts.resolver.sonatypeStaging
 )
 
-val Scala210 = "2.10.6"
+val Scala210 = "2.10.7"
 
 scalaVersion := Scala210
 
