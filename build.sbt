@@ -19,7 +19,7 @@ val Scala210 = "2.10.7"
 scalaVersion := Scala210
 
 // sbt "release cross"
-crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.4", "2.13.0-M3")
+crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.4", "2.13.0-M3", "2.13.0-M4-pre-20d3c21")
 
 val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
 
@@ -51,7 +51,15 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.2"
 )
 
-libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.5" % "test"
+libraryDependencies += {
+  val scalaV = scalaVersion.value
+  CrossVersion.partialVersion(scalaV) match {
+    case Some((2, v)) if v >= 13 && scalaV != "2.13.0-M3" =>
+      "org.scala-lang.modules" %% "scalacheck" % "1.14.0-newCollections" % "test"
+    case _ =>
+      "org.scalacheck" %% "scalacheck" % "1.14.0" % "test"
+  }
+}
 
 pomPostProcess := { node =>
   import scala.xml._
