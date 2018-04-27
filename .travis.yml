@@ -2,7 +2,7 @@ language: scala
 scala:
   - "2.13.0-M4-pre-20d3c21"
   - "2.13.0-M3"
-  - "2.12.4"
+  - "2.12.6"
   - "2.11.12"
   - "2.10.7"
 jdk:
@@ -10,5 +10,5 @@ jdk:
 sudo: false
 matrix:
   include:
-  - scala: 2.12.4
+  - scala: 2.12.6
     jdk: oraclejdk9
