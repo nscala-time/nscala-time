@@ -1,6 +1,5 @@
 language: scala
 scala:
-  - "2.13.0-M4-pre-20d3c21"
   - "2.13.0-M3"
   - "2.12.6"
   - "2.11.12"
@@ -12,3 +11,6 @@ matrix:
   include:
   - scala: 2.12.6
     jdk: oraclejdk9
+  - scala: 2.13.0-M4
+    script:
+    - sbt "++${TRAVIS_SCALA_VERSION}" compile
