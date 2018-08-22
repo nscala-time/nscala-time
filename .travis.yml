@@ -10,4 +10,4 @@ sudo: false
 matrix:
   include:
   - scala: 2.12.6
-    jdk: oraclejdk9
+    jdk: oraclejdk10
