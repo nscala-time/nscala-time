@@ -21,7 +21,7 @@ scalaVersion := Scala210
 // sbt "release cross"
 crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.6", "2.13.0-M4")
 
-val unusedWarnings = "-Ywarn-unused" :: "-Ywarn-unused-import" :: Nil
+val unusedWarnings = "-Ywarn-unused" :: Nil
 
 scalacOptions ++= {
   Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xfuture", "-Xlint")
@@ -52,11 +52,11 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= {
-  val scalaV = scalaVersion.value
-  CrossVersion.partialVersion(scalaV) match {
-    case _ =>
-      Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
-  }
+  // TODO scalacheck for Scala 2.13.0-M5
+  if (scalaVersion.value == "2.13.0-M5")
+    Nil
+  else
+    Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
 }
 
 pomPostProcess := { node =>
