@@ -20,9 +20,14 @@ val updateReadme: State => State = { state =>
   }.mkString("", "\n", "\n")
   IO.write(readmeFile, newReadme)
   val git = new Git(extracted get baseDirectory)
-  git.add(readme) ! state.log
-  git.commit(message = "update " + readme, sign = false) ! state.log
-  "git diff HEAD^" ! state.log
+  val logger = new scala.sys.process.ProcessLogger {
+    def buffer[T](f: => T): T = f
+    def err(s: => String): Unit = state.log.error(s)
+    def out(s: => String): Unit = state.log.info(s)
+  }
+  git.add(readme) ! logger
+  git.commit(message = "update " + readme, sign = false, signOff = false) ! logger
+  scala.sys.process.Process("git diff HEAD^") ! logger
   state
 }
 
