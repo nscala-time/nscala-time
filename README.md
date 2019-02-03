@@ -1,7 +1,7 @@
 # nscala-time
 [![Build Status](https://travis-ci.org/nscala-time/nscala-time.svg?branch=master)](https://travis-ci.org/nscala-time/nscala-time)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.12)
-[![Scaladoc](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12.svg?label=scaladoc)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html?javadocio=true)
+[![Scaladoc](https://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12.svg?label=scaladoc)](https://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html?javadocio=true)
 
 A new Scala wrapper for Joda Time.  This project forked from [scala-time](https://github.com/jorgeortiz85/scala-time/ "scala-time") since
 it seems that scala-time is no longer maintained.
@@ -15,7 +15,7 @@ Add the following to your sbt build (Scala 2.10.x, 2.11.x and 2.12.x):
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.22.0"
 ```
 
-if you want to use previous versions, [you can find it from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.nscala-time%22)
+if you want to use previous versions, [you can find it from here](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.nscala-time%22)
 
 ## Release Note
 
@@ -152,15 +152,15 @@ DateTime.now().hour(2).minute(45).second(10) // returns org.joda.time.DateTime =
 
 
 Please see Joda Time for full explanation of key concepts and API:
-http://www.joda.org/joda-time/
+https://www.joda.org/joda-time/
 
 ## Documents
 
- - [scaladoc (latest stable release)](http://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html)
+ - [scaladoc (latest stable release)](https://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html)
 
 Documentation of joda-time will be also a help.
- - [User guide](http://www.joda.org/joda-time/userguide.html)
- - [Javadoc](http://www.joda.org/joda-time/apidocs/index.html)
+ - [User guide](https://www.joda.org/joda-time/userguide.html)
+ - [Javadoc](https://www.joda.org/joda-time/apidocs/index.html)
 
 ## Motivation
 
