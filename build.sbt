@@ -24,8 +24,12 @@ crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.8", "2.13.0-RC1")
 val unusedWarnings = "-Ywarn-unused" :: Nil
 
 scalacOptions ++= {
-  Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xfuture", "-Xlint")
+  Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xlint")
 }
+
+scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
+  case Some((2, v)) if v <= 12 => Seq("-Xfuture")
+}.toList.flatten
 
 scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
   case Some((2, scalaMajor)) if scalaMajor >= 11 => unusedWarnings
