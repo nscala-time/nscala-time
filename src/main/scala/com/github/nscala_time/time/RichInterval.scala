@@ -21,16 +21,16 @@ class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Inte
     * }}}
     */
   def by(period: ReadablePeriod): List[DateTime] = {
-    val builder = List.newBuilder[DateTime]
-
-    var x = underlying.getStart
-
-    while (x <= underlying.getEnd) {
-      builder += x
-      x += period
+    @annotation.tailrec
+    def loop(current: DateTime, accumulator: List[DateTime]): List[DateTime] = {
+      if (current <= underlying.getEnd) {
+        loop(current + period, accumulator :+ current)
+      } else {
+        accumulator
+      }
     }
 
-    builder.result
+    loop(underlying.getStart, Nil)
   }
 
 }
