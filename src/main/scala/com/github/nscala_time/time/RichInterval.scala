@@ -22,15 +22,15 @@ class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Inte
     */
   def by(period: ReadablePeriod): List[DateTime] = {
     @annotation.tailrec
-    def loop(current: DateTime, accumulator: List[DateTime]): List[DateTime] = {
+    def loop(current: DateTime, accumulator: IndexedSeq[DateTime]): List[DateTime] = {
       if (current <= underlying.getEnd) {
         loop(current + period, accumulator :+ current)
       } else {
-        accumulator
+        accumulator.toList
       }
     }
 
-    loop(underlying.getStart, Nil)
+    loop(underlying.getStart, IndexedSeq.empty)
   }
 
 }
