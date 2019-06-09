@@ -1,4 +1,5 @@
 language: scala
+dist: xenial
 scala:
   - "2.13.0"
   - "2.12.8"
@@ -10,4 +11,4 @@ sudo: false
 matrix:
   include:
   - scala: 2.12.8
-    jdk: oraclejdk11
+    jdk: openjdk11
