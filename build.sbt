@@ -19,7 +19,7 @@ val Scala210 = "2.10.7"
 scalaVersion := Scala210
 
 // sbt "release cross"
-crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.8", "2.13.0-RC3")
+crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.8", "2.13.0")
 
 val unusedWarnings = "-Ywarn-unused" :: Nil
 
@@ -56,7 +56,10 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= {
-  Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
+  if (scalaBinaryVersion.value == "2.13")
+    Seq("org.scalacheck" % "scalacheck_2.13.0-RC3" % "1.14.0" % "test")
+  else
+    Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
 }
 
 pomPostProcess := { node =>
