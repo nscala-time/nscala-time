@@ -56,10 +56,7 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= {
-  if (scalaBinaryVersion.value == "2.13")
-    Seq("org.scalacheck" % "scalacheck_2.13.0-RC3" % "1.14.0" % "test")
-  else
-    Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
+  Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
 }
 
 pomPostProcess := { node =>
