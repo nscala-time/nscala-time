@@ -56,7 +56,7 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= {
-  Seq("org.scalacheck" %% "scalacheck" % "1.14.0" % "test")
+  Seq("org.scalacheck" %% "scalacheck" % "1.14.1" % "test")
 }
 
 pomPostProcess := { node =>
