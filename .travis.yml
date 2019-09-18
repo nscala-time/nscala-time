@@ -2,7 +2,7 @@ language: scala
 dist: xenial
 scala:
   - "2.13.0"
-  - "2.12.8"
+  - "2.12.10"
   - "2.11.12"
   - "2.10.7"
 jdk:
@@ -10,7 +10,7 @@ jdk:
 sudo: false
 matrix:
   include:
-  - scala: 2.12.8
+  - scala: 2.12.10
     jdk: openjdk11
   - os: windows
     language: bash
