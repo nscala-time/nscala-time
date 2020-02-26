@@ -7,12 +7,7 @@ name := "nscala-time"
 
 publishMavenStyle := true
 
-publishTo := Some(
-  if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
-  else
-    Opts.resolver.sonatypeStaging
-)
+publishTo := sonatypePublishToBundle.value
 
 val Scala210 = "2.10.7"
 

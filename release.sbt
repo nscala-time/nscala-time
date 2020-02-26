@@ -51,10 +51,10 @@ releaseProcess := Seq[ReleaseStep](
     },
     enableCrossBuild = true
   ),
+  releaseStepCommandAndRemaining("sonatypeBundleRelease"),
   setNextVersion,
   commitNextVersion,
   updateReadmeProcess,
-  releaseStepCommand("sonatypeReleaseAll"),
   pushChanges
 )
 
