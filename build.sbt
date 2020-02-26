@@ -40,7 +40,7 @@ Seq(Compile, Test).flatMap(c =>
 )
 
 def gitHashOrBranch: String = scala.util.Try(
-  sys.process.Process("git rev-parse HEAD").lines_!.head
+  sys.process.Process("git rev-parse HEAD").lineStream_!.head
 ).getOrElse("master")
 
 scalacOptions in (Compile, doc) ++= {
