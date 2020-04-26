@@ -12,7 +12,7 @@ it seems that scala-time is no longer maintained.
 Add the following to your sbt build (Scala 2.10.x, 2.11.x, 2.12.x and 2.13.x):
 
 ```scala
-libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.22.0"
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "2.24.0"
 ```
 
 if you want to use previous versions, [you can find it from here](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.nscala-time%22)
