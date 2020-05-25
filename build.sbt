@@ -16,10 +16,30 @@ scalaVersion := Scala210
 // sbt "release cross"
 crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.11", "2.13.2")
 
+commands += Command.command("SetDottyNightlyVersion") {
+  s"""++ ${dottyLatestNightlyBuild.get}!""" :: _
+}
+
 val unusedWarnings = "-Ywarn-unused" :: Nil
 
 scalacOptions ++= {
-  Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xlint")
+  Seq(
+    "-unchecked",
+    "-deprecation",
+    "-feature",
+    "-language:implicitConversions,higherKinds",
+  )
+}
+
+scalacOptions ++= {
+  if (isDotty.value) {
+    Seq(
+    )
+  } else {
+    Seq(
+      "-Xlint"
+    )
+  }
 }
 
 scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
@@ -52,7 +72,7 @@ libraryDependencies ++= Seq(
 
 libraryDependencies ++= {
   Seq("org.scalacheck" %% "scalacheck" % "1.14.3" % "test")
-}
+}.map(_ withDottyCompat scalaVersion.value)
 
 pomPostProcess := { node =>
   import scala.xml._

@@ -21,3 +21,7 @@ matrix:
     - wget https://raw.githubusercontent.com/paulp/sbt-extras/0ee2dae2eba72efb4a464a5ad255e348696ecda7/sbt && chmod +x ./sbt
     script:
     - ./sbt test
+  - name: dotty
+    script: sbt SetDottyNightlyVersion test
+  allow_failures:
+    - name: dotty
