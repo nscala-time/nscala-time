@@ -13,7 +13,7 @@ object DurationSpec extends Properties("Duration"){
     ))
 
   property("toScalaDuration, toJodaDuration") =
-    Prop.forAll { jodaDuration: Duration =>
+    Prop.forAll { (jodaDuration: Duration) =>
       val scalaDuration: SDuration = jodaDuration.toScalaDuration
       scalaDuration.toJodaDuration == jodaDuration
     }
