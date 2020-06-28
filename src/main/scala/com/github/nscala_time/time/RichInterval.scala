@@ -30,7 +30,7 @@ class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Inte
       x += period
     }
 
-    builder.result
+    builder.result()
   }
 
 }
