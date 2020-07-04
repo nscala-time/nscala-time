@@ -47,7 +47,10 @@ scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersi
 }.toList.flatten
 
 scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
-  case Some((2, scalaMajor)) if scalaMajor >= 11 => unusedWarnings
+  case Some((2, scalaMajor)) if scalaMajor >= 11 =>
+    unusedWarnings ++ Seq(
+      "-Xsource:3"
+    )
 }.toList.flatten
 
 Seq(Compile, Test).flatMap(c =>
