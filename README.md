@@ -1,5 +1,4 @@
 # nscala-time
-[![Build Status](https://travis-ci.com/nscala-time/nscala-time.svg?branch=master)](https://travis-ci.com/github/nscala-time/nscala-time)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nscala-time/nscala-time_2.12)
 [![Scaladoc](https://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12.svg?label=scaladoc)](https://javadoc-badge.appspot.com/com.github.nscala-time/nscala-time_2.12/com/github/nscala_time/time/index.html?javadocio=true)
 
