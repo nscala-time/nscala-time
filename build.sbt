@@ -62,10 +62,14 @@ def gitHashOrBranch: String = scala.util.Try(
 ).getOrElse("master")
 
 scalacOptions in (Compile, doc) ++= {
-  Seq(
-    "-sourcepath", baseDirectory.value.getAbsolutePath,
-    "-doc-source-url", s"https://github.com/nscala-time/nscala-time/tree/${gitHashOrBranch}€{FILE_PATH}.scala"
-  )
+  if (isDotty.value) {
+    Nil
+  } else {
+    Seq(
+      "-sourcepath", baseDirectory.value.getAbsolutePath,
+      "-doc-source-url", s"https://github.com/nscala-time/nscala-time/tree/${gitHashOrBranch}€{FILE_PATH}.scala"
+    )
+  }
 }
 
 libraryDependencies ++= Seq(
