@@ -14,7 +14,7 @@ val Scala210 = "2.10.7"
 scalaVersion := Scala210
 
 // sbt "release cross"
-crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.12", "2.13.3")
+crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.12", "2.13.4")
 
 commands += Command.command("SetDottyNightlyVersion") {
   s"""++ ${dottyLatestNightlyBuild.get}!""" :: _
