@@ -2,15 +2,22 @@ name: scala-steward
 on:
   push:
   schedule:
-  - cron: '0 0 * * *'
+  - cron: '0 3 * * *'
 jobs:
   scala-steward:
     runs-on: ubuntu-latest
     steps:
-    - uses: laughedelic/coursier-setup@v1
-    - run: cs install scalafmt
+    - name: Generate token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      if: ${{ !github.event.repository.fork }}
+      with:
+        app_id: 89839
+        private_key: ${{ secrets.NSCALA_TIME_BOT_KEY }}
     - name: Launch Scala Steward
       if: ${{ !github.event.repository.fork }}
       uses: scala-steward-org/scala-steward-action@v2.9.1
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ steps.generate_token.outputs.token }}
+        author-email: "74924036+nscala-time-bot[bot]@users.noreply.github.com"
+        author-name: nscala-time-bot[bot]
