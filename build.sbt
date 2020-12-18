@@ -16,7 +16,7 @@ scalaVersion := Scala210
 // sbt "release cross"
 crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.12", "2.13.4", "3.0.0-M2")
 
-commands += Command.command("SetDottyNightlyVersion") {
+commands += Command.command("SetScala3NightlyVersion") {
   s"""++ ${dottyLatestNightlyBuild.get}!""" :: _
 }
 
