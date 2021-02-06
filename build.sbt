@@ -73,7 +73,7 @@ scalacOptions in (Compile, doc) ++= {
 }
 
 libraryDependencies ++= Seq(
-  "joda-time" % "joda-time" % "2.10.9",
+  "joda-time" % "joda-time" % "2.10.10",
   "org.joda" % "joda-convert" % "2.2.1"
 )
 
