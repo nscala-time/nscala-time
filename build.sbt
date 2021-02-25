@@ -54,14 +54,14 @@ scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersi
 }.toList.flatten
 
 Seq(Compile, Test).flatMap(c =>
-  scalacOptions in (c, console) ~= {_.filterNot(unusedWarnings.toSet)}
+  c / console / scalacOptions ~= {_.filterNot(unusedWarnings.toSet)}
 )
 
 def gitHashOrBranch: String = scala.util.Try(
   sys.process.Process("git rev-parse HEAD").lineStream_!.head
 ).getOrElse("master")
 
-scalacOptions in (Compile, doc) ++= {
+Compile / doc / scalacOptions ++= {
   if (isDotty.value) {
     Nil
   } else {
@@ -92,7 +92,7 @@ pomPostProcess := { node =>
   new RuleTransformer(stripTestScope).transform(node)(0)
 }
 
-initialCommands in console += {
+console / initialCommands += {
   Iterator("org.joda.time._", "com.github.nscala_time.time.Imports._").map("import "+).mkString("\n")
 }
 
