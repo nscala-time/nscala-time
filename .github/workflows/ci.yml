@@ -31,13 +31,6 @@ jobs:
             command: sbt
                      -v
                      "+test"
-          - java: 8
-            os: ubuntu-latest
-            name: scala_3
-            command: sbt
-                     -v
-                     SetScala3NightlyVersion
-                     test
     steps:
     - run: "git config --global core.autocrlf false"
       shell: bash
