@@ -14,20 +14,17 @@ jobs:
         include:
           - java: 8
             os: windows-latest
-            name: scala_2
             command: sbt
                      -v
                      "+test"
 
           - java: 8
             os: ubuntu-latest
-            name: scala_2
             command: sbt
                      -v
                      "+test"
           - java: 11
             os: ubuntu-latest
-            name: scala_2
             command: sbt
                      -v
                      "+test"
