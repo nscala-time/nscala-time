@@ -1,3 +1,6 @@
+val isScala3 = Def.setting(
+  CrossVersion.partialVersion(scalaVersion.value).exists(_._1 == 3)
+)
 
 organization := "com.github.nscala-time"
 
@@ -16,10 +19,6 @@ scalaVersion := Scala210
 // sbt "release cross"
 crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.13", "2.13.5", "3.0.0-RC3")
 
-commands += Command.command("SetScala3NightlyVersion") {
-  s"""++ ${dottyLatestNightlyBuild.get}!""" :: _
-}
-
 val unusedWarnings = "-Ywarn-unused" :: Nil
 
 scalacOptions ++= {
@@ -32,7 +31,7 @@ scalacOptions ++= {
 }
 
 scalacOptions ++= {
-  if (isDotty.value) {
+  if (isScala3.value) {
     Seq(
     )
   } else {
@@ -62,7 +61,7 @@ def gitHashOrBranch: String = scala.util.Try(
 ).getOrElse("master")
 
 Compile / doc / scalacOptions ++= {
-  if (isDotty.value) {
+  if (isScala3.value) {
     Nil
   } else {
     Seq(
@@ -79,7 +78,7 @@ libraryDependencies ++= Seq(
 
 libraryDependencies ++= {
   Seq("org.scalacheck" %% "scalacheck" % "1.14.3" % "test")
-}.map(_ withDottyCompat scalaVersion.value)
+}.map(_ cross CrossVersion.for3Use2_13)
 
 pomPostProcess := { node =>
   import scala.xml._
