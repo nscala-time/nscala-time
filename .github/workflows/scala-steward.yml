@@ -23,4 +23,4 @@ jobs:
         github-token: ${{ steps.generate_token.outputs.token }}
         author-email: "74924036+nscala-time-bot[bot]@users.noreply.github.com"
         author-name: nscala-time-bot[bot]
-        scala-steward-version: 0.9.1-262-08e2048c-SNAPSHOT # https://oss.sonatype.org/content/repositories/snapshots/org/scala-steward/scala-steward-core_2.13/
+        scala-steward-version: 0.10.0 # https://oss.sonatype.org/content/repositories/snapshots/org/scala-steward/scala-steward-core_2.13/
