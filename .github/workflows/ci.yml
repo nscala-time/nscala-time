@@ -18,6 +18,8 @@ jobs:
             os: ubuntu-latest
           - java: 11
             os: ubuntu-latest
+          - java: 17
+            os: ubuntu-latest
     steps:
     - run: "git config --global core.autocrlf false"
       shell: bash
