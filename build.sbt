@@ -76,9 +76,16 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "2.2.2"
 )
 
-libraryDependencies ++= {
-  Seq("org.scalacheck" %% "scalacheck" % "1.14.3" % "test")
-}.map(_ cross CrossVersion.for3Use2_13)
+libraryDependencies += {
+  CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, 10)) =>
+      "org.scalacheck" %% "scalacheck" % "1.14.3" % "test"
+    case Some((2, 11)) =>
+      "org.scalacheck" %% "scalacheck" % "1.15.2" % "test"
+    case _ =>
+      "org.scalacheck" %% "scalacheck" % "1.15.4" % "test"
+  }
+}
 
 pomPostProcess := { node =>
   import scala.xml._
