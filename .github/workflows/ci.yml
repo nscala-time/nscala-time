@@ -30,7 +30,4 @@ jobs:
         distribution: temurin
     - uses: coursier/cache-action@v6
     - shell: bash
-      name: install sbt
-      run: curl -Ls https://raw.githubusercontent.com/sbt/sbt/6aed0146785c2cf1a6a5170807329c510c5bb3d3/sbt > ./sbt && chmod 0755 ./sbt
-    - shell: bash
-      run: ./sbt -v "+ test"
+      run: sbt -v "+ test"
