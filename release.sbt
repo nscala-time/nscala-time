@@ -1,8 +1,6 @@
 import sbtrelease._
 import ReleaseStateTransformations._
 
-val sonatypeURL = "https://oss.sonatype.org/service/local/repositories/"
-
 val updateReadme: State => State = { state =>
   val extracted = Project.extract(state)
   val scalaV = extracted get scalaBinaryVersion
