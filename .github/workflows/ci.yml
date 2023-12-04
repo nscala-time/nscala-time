@@ -24,7 +24,7 @@ jobs:
     - run: "git config --global core.autocrlf false"
       shell: bash
     - uses: actions/checkout@v4
-    - uses: actions/setup-java@v3
+    - uses: actions/setup-java@v4
       with:
         java-version: ${{matrix.java}}
         distribution: temurin
