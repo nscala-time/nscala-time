@@ -17,7 +17,7 @@ jobs:
         app_id: 89839
         private_key: ${{ secrets.NSCALA_TIME_BOT_KEY }}
     - name: Launch Scala Steward
-      uses: scala-steward-org/scala-steward-action@090533e0c739f1f1d8465fe431c716dc27006192 # v2.61.0
+      uses: scala-steward-org/scala-steward-action@1812c6aeba6a1ecf569bc336c1188dc0865cc33e # v2.63.0
       with:
         github-token: ${{ steps.generate_token.outputs.token }}
         author-email: "74924036+nscala-time-bot[bot]@users.noreply.github.com"
