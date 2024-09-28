@@ -29,5 +29,6 @@ jobs:
         java-version: ${{matrix.java}}
         distribution: temurin
     - uses: coursier/cache-action@v6
+    - uses: sbt/setup-sbt@159bc2bcdce6cc8f23f9faa80a0efc07632b17b9 # v1.0.0
     - shell: bash
       run: sbt -v "+ test"
