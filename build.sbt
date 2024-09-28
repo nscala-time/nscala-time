@@ -17,7 +17,7 @@ val Scala210 = "2.10.7"
 scalaVersion := Scala210
 
 // sbt "release cross"
-crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.20", "2.13.15", "3.3.3")
+crossScalaVersions := Seq(Scala210, "2.11.12", "2.12.20", "2.13.15", "3.3.4")
 
 val unusedWarnings = "-Ywarn-unused" :: Nil
 
