@@ -16,7 +16,7 @@ jobs:
       with:
         app_id: 89839
         private_key: ${{ secrets.NSCALA_TIME_BOT_KEY }}
-    - uses: sbt/setup-sbt@4d1c55d37e6b6207c2952be12394058d9b6e4aa1 # v1.1.3
+    - uses: sbt/setup-sbt@50a38cca700907fb9df65ecabcefb85ebaa424a7 # v1.1.4
     - name: Launch Scala Steward
       uses: scala-steward-org/scala-steward-action@a7eeaa3abb040622ec80032cd3b09c547f6b97ed # v2.71.0
       with:
