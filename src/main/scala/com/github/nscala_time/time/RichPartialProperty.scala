@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import java.util.Locale
 import org.joda.time._
 
-class RichPartialProperty(val underlying: Partial.Property) extends AnyVal {
+class RichPartialProperty(private val underlying: Partial.Property) extends AnyVal {
 
   def partial: Partial = underlying.getPartial
 

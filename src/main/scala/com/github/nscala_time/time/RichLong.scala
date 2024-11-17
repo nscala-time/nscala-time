@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichLong(val underlying: Long) extends AnyVal {
+class RichLong(private val underlying: Long) extends AnyVal {
 
   def toDateTime = new DateTime(underlying)
 

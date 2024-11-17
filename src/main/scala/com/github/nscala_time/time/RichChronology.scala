@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichChronology(val underlying: Chronology) extends AnyVal {
+class RichChronology(private val underlying: Chronology) extends AnyVal {
 
   def zone: Option[DateTimeZone] = nullCheck(underlying.getZone)
 

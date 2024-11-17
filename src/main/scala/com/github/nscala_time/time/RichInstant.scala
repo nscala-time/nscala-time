@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichInstant(val underlying: Instant) extends AnyVal {
+class RichInstant(private val underlying: Instant) extends AnyVal {
 
   def -(duration: Long): Instant = underlying.minus(duration)
 

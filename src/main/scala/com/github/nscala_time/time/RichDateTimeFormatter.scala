@@ -21,7 +21,7 @@ import org.joda.time._
 import org.joda.time.format.{DateTimeFormatter, DateTimeParser,
   DateTimePrinter}
 
-class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyVal {
+class RichDateTimeFormatter(private val underlying: DateTimeFormatter) extends AnyVal {
 
   def chronology: Chronology = underlying.getChronology
 

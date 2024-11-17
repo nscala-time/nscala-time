@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichInt(val underlying: Int) extends AnyVal {
+class RichInt(private val underlying: Int) extends AnyVal {
   // These units of time can build durations or periods.
   // At most we lose a leap second. (Unless someone adopts
   // leap minutes).

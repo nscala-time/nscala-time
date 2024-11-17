@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichReadableDateTime(val underlying: ReadableDateTime) extends AnyVal {
+class RichReadableDateTime(private val underlying: ReadableDateTime) extends AnyVal {
 
   def second: Int = underlying.getSecondOfMinute
 

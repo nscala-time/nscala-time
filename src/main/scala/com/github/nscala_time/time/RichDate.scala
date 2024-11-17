@@ -3,7 +3,7 @@ package com.github.nscala_time.time
 import java.util.Date
 import org.joda.time._
 
-class RichDate(val underlying: Date) extends AnyVal {
+class RichDate(private val underlying: Date) extends AnyVal {
 
   def toLocalDateTime: LocalDateTime = StaticLocalDateTime.fromDateFields(underlying)
 

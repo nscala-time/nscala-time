@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import java.util.{Locale, Calendar}
 import org.joda.time.base.AbstractDateTime
 
-class RichAbstractDateTime(val underlying: AbstractDateTime) extends AnyVal {
+class RichAbstractDateTime(private val underlying: AbstractDateTime) extends AnyVal {
 
   def calendar(locale: Locale): Calendar = underlying.toCalendar(locale)
 

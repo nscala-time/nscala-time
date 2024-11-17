@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichPeriod(val underlying: Period) extends AnyVal {
+class RichPeriod(private val underlying: Period) extends AnyVal {
 
   def days: Int = underlying.getDays
 

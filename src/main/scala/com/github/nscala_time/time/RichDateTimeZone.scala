@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichDateTimeZone(val underlying: DateTimeZone) extends AnyVal {
+class RichDateTimeZone(private val underlying: DateTimeZone) extends AnyVal {
 
   def id: String = underlying.getID
 

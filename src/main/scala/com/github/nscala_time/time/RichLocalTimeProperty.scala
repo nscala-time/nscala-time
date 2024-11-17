@@ -19,7 +19,7 @@ package com.github.nscala_time.time
 import java.util.Locale
 import org.joda.time._
 
-class RichLocalTimeProperty(val underlying: LocalTime.Property) extends AnyVal {
+class RichLocalTimeProperty(private val underlying: LocalTime.Property) extends AnyVal {
 
   def localTime: LocalTime = underlying.getLocalTime
 

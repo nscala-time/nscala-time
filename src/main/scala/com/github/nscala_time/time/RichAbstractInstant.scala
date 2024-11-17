@@ -20,7 +20,7 @@ import java.util.Date
 import org.joda.time._
 import org.joda.time.base.AbstractInstant
 
-class RichAbstractInstant(val underlying: AbstractInstant) extends AnyVal {
+class RichAbstractInstant(private val underlying: AbstractInstant) extends AnyVal {
 
   def date: Date = underlying.toDate
 

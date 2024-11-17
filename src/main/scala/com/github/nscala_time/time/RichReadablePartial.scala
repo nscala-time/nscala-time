@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichReadablePartial(val underlying: ReadablePartial) extends AnyVal {
+class RichReadablePartial(private val underlying: ReadablePartial) extends AnyVal {
 
   def chronology = underlying.getChronology
 

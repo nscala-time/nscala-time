@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichReadablePeriod(val underlying: ReadablePeriod) extends AnyVal {
+class RichReadablePeriod(private val underlying: ReadablePeriod) extends AnyVal {
 
   def periodType: PeriodType = underlying.getPeriodType
 

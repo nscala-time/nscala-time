@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichPartial(val underlying: Partial) extends AnyVal {
+class RichPartial(private val underlying: Partial) extends AnyVal {
 
   def formatter = underlying.getFormatter
 
