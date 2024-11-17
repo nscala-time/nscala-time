@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichInt(val underlying: Int) extends AnyVal with PimpedType[Int] {
+class RichInt(val underlying: Int) extends AnyVal {
   // These units of time can build durations or periods.
   // At most we lose a leap second. (Unless someone adopts
   // leap minutes).

@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichDateTimeZone(val underlying: DateTimeZone) extends AnyVal with PimpedType[DateTimeZone] {
+class RichDateTimeZone(val underlying: DateTimeZone) extends AnyVal {
 
   def id: String = underlying.getID
 

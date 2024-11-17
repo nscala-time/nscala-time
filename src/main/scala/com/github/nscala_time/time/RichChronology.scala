@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichChronology(val underlying: Chronology) extends AnyVal with PimpedType[Chronology] {
+class RichChronology(val underlying: Chronology) extends AnyVal {
 
   def zone: Option[DateTimeZone] = nullCheck(underlying.getZone)
 

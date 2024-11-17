@@ -20,10 +20,8 @@ import java.util.Locale
 import org.joda.time._
 import org.joda.time.format.{DateTimeFormatter, DateTimeParser,
   DateTimePrinter}
-import com.github.nscala_time.PimpedType
 
-class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyVal
-  with PimpedType[DateTimeFormatter] {
+class RichDateTimeFormatter(val underlying: DateTimeFormatter) extends AnyVal {
 
   def chronology: Chronology = underlying.getChronology
 

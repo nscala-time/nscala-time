@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichLong(val underlying: Long) extends AnyVal with PimpedType[Long] {
+class RichLong(val underlying: Long) extends AnyVal {
 
   def toDateTime = new DateTime(underlying)
 
