@@ -17,10 +17,9 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 import scala.concurrent.duration.{ MILLISECONDS , FiniteDuration }
 
-class RichDuration(val underlying: Duration) extends AnyVal with PimpedType[Duration] {
+class RichDuration(val underlying: Duration) extends AnyVal {
 
   def days: Long = underlying.getStandardDays
 

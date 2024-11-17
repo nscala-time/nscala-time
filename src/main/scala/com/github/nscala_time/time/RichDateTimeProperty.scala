@@ -18,9 +18,8 @@ package com.github.nscala_time.time
 
 import java.util.Locale
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichDateTimeProperty(val underlying: DateTime.Property) extends AnyVal with PimpedType[DateTime.Property] {
+class RichDateTimeProperty(val underlying: DateTime.Property) extends AnyVal {
 
   def dateTime: DateTime = underlying.getDateTime
 

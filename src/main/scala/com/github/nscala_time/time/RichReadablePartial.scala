@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichReadablePartial(val underlying: ReadablePartial) extends AnyVal with PimpedType[ReadablePartial] {
+class RichReadablePartial(val underlying: ReadablePartial) extends AnyVal {
 
   def chronology = underlying.getChronology
 

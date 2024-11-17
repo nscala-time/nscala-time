@@ -1,10 +1,9 @@
 package com.github.nscala_time.time
 
 import JodaImplicits._
-import com.github.nscala_time.PimpedType
 import org.joda.time._
 
-class RichInterval(val underlying: Interval) extends AnyVal with PimpedType[Interval] {
+class RichInterval(val underlying: Interval) extends AnyVal {
 
   /** Returns a collection containing every instance between the interval, `period` time apart.
     *

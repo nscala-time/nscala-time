@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time.base.AbstractPartial
-import com.github.nscala_time.PimpedType
 
-class RichAbstractPartial(val underlying: AbstractPartial) extends AnyVal with Ordered[AbstractPartial] with PimpedType[AbstractPartial] {
+class RichAbstractPartial(val underlying: AbstractPartial) extends AnyVal with Ordered[AbstractPartial] {
   def fields = underlying.getFields
   def fieldTypes = underlying.getFieldTypes
   def values = underlying.getValues

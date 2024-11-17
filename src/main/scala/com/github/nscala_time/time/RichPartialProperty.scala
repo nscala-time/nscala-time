@@ -18,9 +18,8 @@ package com.github.nscala_time.time
 
 import java.util.Locale
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichPartialProperty(val underlying: Partial.Property) extends AnyVal with PimpedType[Partial.Property] {
+class RichPartialProperty(val underlying: Partial.Property) extends AnyVal {
 
   def partial: Partial = underlying.getPartial
 

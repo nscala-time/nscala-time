@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichPeriod(val underlying: Period) extends AnyVal with PimpedType[Period] {
+class RichPeriod(val underlying: Period) extends AnyVal {
 
   def days: Int = underlying.getDays
 

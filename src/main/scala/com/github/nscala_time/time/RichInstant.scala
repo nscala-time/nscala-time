@@ -17,9 +17,8 @@
 package com.github.nscala_time.time
 
 import org.joda.time._
-import com.github.nscala_time.PimpedType
 
-class RichInstant(val underlying: Instant) extends AnyVal with PimpedType[Instant] {
+class RichInstant(val underlying: Instant) extends AnyVal {
 
   def -(duration: Long): Instant = underlying.minus(duration)
 
