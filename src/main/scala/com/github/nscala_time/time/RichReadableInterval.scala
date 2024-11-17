@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichReadableInterval(val underlying: ReadableInterval) extends AnyVal {
+class RichReadableInterval(private val underlying: ReadableInterval) extends AnyVal {
 
   def chronology: Chronology = underlying.getChronology
 

@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichDateTime(val underlying: DateTime) extends AnyVal {
+class RichDateTime(private val underlying: DateTime) extends AnyVal {
 
   def -(duration: Long): DateTime = underlying.minus(duration)
 

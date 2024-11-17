@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time._
 
-class RichLocalTime(val underlying: LocalTime) extends AnyVal {
+class RichLocalTime(private val underlying: LocalTime) extends AnyVal {
 
   def -(period: ReadablePeriod): LocalTime = underlying.minus(period)
 

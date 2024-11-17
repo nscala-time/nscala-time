@@ -18,7 +18,7 @@ package com.github.nscala_time.time
 
 import org.joda.time.base.AbstractPartial
 
-class RichAbstractPartial(val underlying: AbstractPartial) extends AnyVal with Ordered[AbstractPartial] {
+class RichAbstractPartial(private val underlying: AbstractPartial) extends AnyVal with Ordered[AbstractPartial] {
   def fields = underlying.getFields
   def fieldTypes = underlying.getFieldTypes
   def values = underlying.getValues

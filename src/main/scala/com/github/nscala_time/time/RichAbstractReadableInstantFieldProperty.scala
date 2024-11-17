@@ -20,7 +20,7 @@ import java.util.Locale
 import org.joda.time._
 import org.joda.time.field.AbstractReadableInstantFieldProperty
 
-class RichAbstractReadableInstantFieldProperty(val underlying: AbstractReadableInstantFieldProperty) extends AnyVal {
+class RichAbstractReadableInstantFieldProperty(private val underlying: AbstractReadableInstantFieldProperty) extends AnyVal {
 
   def shortText: String = underlying.getAsShortText
 

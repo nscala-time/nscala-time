@@ -3,7 +3,7 @@ package com.github.nscala_time.time
 import JodaImplicits._
 import org.joda.time._
 
-class RichInterval(val underlying: Interval) extends AnyVal {
+class RichInterval(private val underlying: Interval) extends AnyVal {
 
   /** Returns a collection containing every instance between the interval, `period` time apart.
     *
