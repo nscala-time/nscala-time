@@ -76,8 +76,6 @@ libraryDependencies ++= Seq(
 
 libraryDependencies += {
   CrossVersion.partialVersion(scalaVersion.value) match {
-    case Some((2, 10)) =>
-      "org.scalacheck" %% "scalacheck" % "1.14.3" % "test"
     case Some((2, 11)) =>
       "org.scalacheck" %% "scalacheck" % "1.15.2" % "test"
     case _ =>
