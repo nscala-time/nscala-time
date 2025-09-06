@@ -95,7 +95,7 @@ pomPostProcess := { node =>
 }
 
 console / initialCommands += {
-  Iterator("org.joda.time._", "com.github.nscala_time.time.Imports._").map("import "+).mkString("\n")
+  Iterator("org.joda.time._", "com.github.nscala_time.time.Imports._").map("import " + _).mkString("\n")
 }
 
 pomExtra := (
