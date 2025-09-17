@@ -16,9 +16,7 @@ jobs:
             os: windows-latest
           - java: 8
             os: ubuntu-latest
-          - java: 11
-            os: ubuntu-latest
-          - java: 21
+          - java: 25
             os: ubuntu-latest
     steps:
     - run: "git config --global core.autocrlf false"
@@ -27,7 +25,7 @@ jobs:
     - uses: actions/setup-java@v5
       with:
         java-version: ${{matrix.java}}
-        distribution: temurin
+        distribution: zulu
     - uses: coursier/cache-action@v6
     - uses: sbt/setup-sbt@17575ea4e18dd928fe5968dbe32294b97923d65b # v1.1.13
     - shell: bash
