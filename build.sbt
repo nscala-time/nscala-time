@@ -75,7 +75,7 @@ Seq(Compile, Test).flatMap(c =>
 )
 
 def gitHashOrBranch: String = scala.util.Try(
-  sys.process.Process("git rev-parse HEAD").lineStream_!.head
+  sys.process.Process("git rev-parse HEAD").lazyLines_!.head
 ).getOrElse("master")
 
 Compile / doc / scalacOptions ++= {
