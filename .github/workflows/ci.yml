@@ -14,9 +14,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - java: 11
+          - java: 17
             os: windows-latest
-          - java: 11
+          - java: 17
             os: ubuntu-latest
           - java: 25
             os: ubuntu-latest
