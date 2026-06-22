@@ -23,7 +23,7 @@ jobs:
     steps:
     - run: "git config --global core.autocrlf false"
       shell: bash
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - uses: actions/setup-java@v5
       with:
         java-version: ${{matrix.java}}
