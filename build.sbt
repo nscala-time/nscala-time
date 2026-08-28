@@ -99,7 +99,7 @@ libraryDependencies += {
     case Some((2, 11)) =>
       "org.scalacheck" %% "scalacheck" % "1.15.2" % "test"
     case _ =>
-      "org.scalacheck" %% "scalacheck" % "1.19.0" % "test"
+      "org.scalacheck" %% "scalacheck" % "1.20.0" % "test"
   }
 }
 
